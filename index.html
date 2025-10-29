@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Envol Graphisme - Design Parallax</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .parallax-layer {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .parallax-element {
+            position: absolute;
+            will-change: transform;
+        }
+    </style>
+    <style>
+        /* Animation douce de flottement */
+        @keyframes owl-float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-8px) rotate(1deg);
+            }
+        }
+
+        .animate-owl-float {
+            animation: owl-float 4s ease-in-out infinite;
+        }
+
+        /* Animation drôle de rebond + rotation au survol */
+        @keyframes owl-bounce {
+            0%   { transform: translateY(0) rotate(0deg) scale(1); }
+            20%  { transform: translateY(-20px) rotate(-10deg) scale(1.05); }
+            40%  { transform: translateY(5px) rotate(10deg) scale(0.95); }
+            60%  { transform: translateY(-10px) rotate(-6deg) scale(1.1); }
+            80%  { transform: translateY(3px) rotate(6deg) scale(1); }
+            100% { transform: translateY(0) rotate(0deg) scale(1); }
+        }
+
+        .animate-owl-bounce {
+            animation: owl-bounce 1s ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-[#1a2332] text-white overflow-x-hidden">
+
+<!-- Navigation -->
+<nav class="fixed top-0 left-0 right-0 z-50 px-8 py-6 bg-gradient-to-b from-[#212845] to-transparent h-[20%]">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+        <div class="flex items-center">
+            <img src="./img/ENVOL%20Graphisme%20Logo%20clair.png" alt="Envol Graphisme" class="h-12">
+        </div>
+
+        <div class="flex items-center gap-8 font-bold">
+            <a href="#bienvenue" class="drop-shadow-xl px-6 py-3 bg-[#DBE0F3]  text-[#212845] backdrop-blur-sm rounded-full transition-all">BIENVENUE</a>
+            <a href="#projets" class="drop-shadow-xl bg-[#202940]  text-[#DBE0F3] transition-colors px-6 py-3 backdrop-blur-sm rounded-full">PROJETS</a>
+            <a href="#offres" class="drop-shadow-xl bg-[#202940]  text-[#DBE0F3] transition-colors px-6 py-3 backdrop-blur-sm rounded-full">OFFRES</a>
+            <a href="#contact" class=" drop-shadow-xl bg-[#202940]  text-[#DBE0F3] transition-colors px-6 py-3 backdrop-blur-sm rounded-full">CONTACT</a>
+        </div>
+
+        <div class="flex gap-3 ml-4">
+            <div class="flex gap-4 items-center">
+                <!-- Drapeau Français -->
+                <div class="w-14 h-14 bg-[#202940] rounded-full flex items-center justify-center
+                cursor-pointer hover:scale-105 hover:shadow-[0_0_10px_rgba(255,255,255,0.3)]
+                transition-all duration-300 backdrop-blur-sm">
+                    <img src="./img/Drapeau%20Français.svg" alt="Français" class="w-8 h-8">
+                </div>
+
+                <!-- Drapeau Anglais -->
+                <div class="w-14 h-14 bg-[#202940] rounded-full flex items-center justify-center
+                cursor-pointer hover:scale-105 hover:shadow-[0_0_10px_rgba(255,255,255,0.3)]
+                transition-all duration-300 backdrop-blur-sm">
+                    <img src="./img/Drapeau%20Anglais.svg" alt="English" class="w-8 h-8">
+                </div>
+            </div>
+
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section avec Parallax -->
+<section id="hero" class="relative h-screen overflow-hidden">
+
+    <!-- Fond dégradé -->
+    <div class="absolute inset-0 bg-gradient-to-b from-[#1a2845] via-[#2a3a5a] to-[#1a2332]"></div>
+
+    <!-- Couche 1: Étoiles lointaines (plus lent) -->
+    <div class="parallax-layer" data-speed="0.2">
+        <img src="./img/etoiles.svg" alt="" class="parallax-element w-full h-full object-cover opacity-60">
+    </div>
+
+    <!-- Couche 3: Lune -->
+    <div class="parallax-layer" data-speed="0.3">
+        <img src="./img/Lune.svg" alt="Lune" class="parallax-element top-[10%] right-[20%] w-[40%] h-[40%]">
+    </div>
+
+    <!-- Couche 4: Montagnes arrière -->
+    <div class="parallax-layer" data-speed="0.5" style="overflow: visible;">
+        <img src="./img/Collines.svg" alt="Montagnes"
+             class="parallax-element w-[220%] max-w-none h-auto object-cover -bottom-[140%] left-1/2 -translate-x-1/2"
+             style="position: absolute;">
+    </div>
+
+
+    <!-- Couche 6: Sapins gauche -->
+    <div class="parallax-layer" data-speed="0.8">
+        <img src="./img/Arbres%20de%20gauche.svg" alt="" class="parallax-element -bottom-[40%] -left-[11%] h-[130%] mt-[100%]">
+    </div>
+
+    <!-- Couche 7: Sapins droite -->
+    <div class="parallax-layer" data-speed="0.8">
+        <img src="./img/Arbres%20de%20droite.svg" alt="" class="parallax-element -bottom-[40%] -right-[14%] h-[130%] mt-[100%]">
+    </div>
+
+
+    <!-- Contenu Hero -->
+    <div class="relative z-10 flex flex-col items-left justify-center min-h-screen px-8">
+        <div class="max-w-4xl text-left space-y-[10%]">
+            <h1 class="text-6xl md:text-8xl font-bold mb-8 leading-tight">
+                Le design qui<br>
+                révèle votre<br>
+                différence.
+            </h1>
+
+            <p class="text-xl md:text-7xl font-light mb-12 w-screen">
+                Ensemble, créons un<br>
+                univers qui vous ressemble.
+            </p>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-12 left-1/2 -translate-x-1/2 animate-bounce">
+            <svg class="w-8 h-8 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+        </div>
+    </div>
+
+    <!-- Chouette (position fixe en bas à droite) -->
+    <div id="owl" class="fixed -bottom-[10%] -right-10 z-50 animate-owl-float hover:animate-owl-bounce ">
+        <img src="./img/Chouette%20clin%20d'oeil.png"
+             alt="Chouette Envol"
+             class="w-full h-auto hover:scale-110 transition-transform duration-500 ease-in-out cursor-pointer rotate-[50rad]">
+    </div>
+</section>
+
+<!-- Section Bienvenue -->
+<section id="bienvenue" class="relative min-h-screen py-24 px-8">
+
+    <!-- Fond avec parallax -->
+    <div class="absolute inset-0 bg-[#222940]"></div>
+
+
+    <!-- Contenu -->
+    <div class="relative z-10 max-w-4xl mx-auto">
+        <h2 class="text-5xl font-bold mb-12">Marquez les esprits.</h2>
+
+        <div class="space-y-8 text-lg leading-relaxed">
+            <div>
+                <h3 class="text-2xl font-bold mb-4">Bienvenue chez Envol Graphisme !</h3>
+                <p>Ici, je crée des visuels qui ont du sens, faits sur mesure selon vos besoins.</p>
+            </div>
+
+            <div>
+                <h3 class="text-2xl font-bold mb-4">Qui suis-je ?</h3>
+                <p>
+                    <span class="font-semibold">Envol Graphisme</span>, c'est une auto-entrepreneuse qui aime
+                    <span class="font-semibold">donner vie à vos idées</span> avec des
+                    <span class="font-semibold">designs sur mesure</span>. Que ce soit pour
+                    <span class="font-semibold">un logo, une identité visuelle, un support de communication, une affiche originale</span>
+                    ou encore bien d'autres projets, je prends le temps d'écouter ce que vous voulez vraiment pour vous proposer quelque chose
+                    <span class="font-semibold">d'unique et qui vous ressemble</span>.
+                </p>
+            </div>
+
+            <div>
+                <h3 class="text-2xl font-bold mb-4">Ma mission :</h3>
+                <p>
+                    Vous aider à vous <span class="font-semibold">démarquer</span> avec des
+                    <span class="font-semibold">créations graphiques</span> qui racontent votre histoire.
+                    Peu importe votre projet ou <span class="font-semibold">votre budget</span>, je suis là pour vous accompagner avec
+                    simplicité, bonne humeur, et un vrai souci du détail. Chaque projet est mené en
+                    <span class="font-semibold">collaboration étroite avec vous</span> pour créer un résultat unique dont vous serez fier.
+                </p>
+            </div>
+
+            <div>
+                <h3 class="text-2xl font-bold mb-4">Pourquoi me faire confiance ?</h3>
+                <ul class="space-y-3">
+                    <li class="flex items-start gap-3">
+                        <span class="text-yellow-400 mt-1">★</span>
+                        <span>Je ne fait <span class="font-semibold">jamais de copier-coller</span> : chaque design est <span class="font-semibold">imaginé spécialement pour vous</span>.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="text-yellow-400 mt-1">★</span>
+                        <span>J'aime travailler en confiance, <span class="font-semibold">en vous écoutant vraiment</span>.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="text-yellow-400 mt-1">★</span>
+                        <span>Je crois que la <span class="font-semibold">qualité peut être accessible à tous les profils et projets</span>.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="text-yellow-400 mt-1">★</span>
+                        <span>Je suis là pour vous <span class="font-semibold">guider à chaque étape</span>.</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="text-2xl font-bold mb-4">Mes valeurs :</h3>
+                <p>
+                    La <span class="font-semibold">créativité</span> sans limite, la <span class="font-semibold">sincérité</span> et la
+                    <span class="font-semibold">confiance</span> dans nos échanges, <span class="font-semibold">l'originalité</span> de nos créations,
+                    la <span class="font-semibold">flexibilité</span> pour toujours satisfaire <span class="font-semibold">vos besoins</span>.
+                </p>
+            </div>
+
+            <div>
+                <h3 class="text-2xl font-bold mb-4">Pour qui ?</h3>
+                <p>
+                    Que vous soyez <span class="font-semibold">une entreprise, une association, un créateur ou juste quelqu'un qui veut une décoration sympa</span>.
+                    Envol Graphisme est là pour vous aider à <span class="font-semibold">mettre des couleurs</span> et
+                    <span class="font-semibold">donner vie à vos projets</span>.
+                </p>
+            </div>
+        </div>
+
+        <!-- Testimonial Card -->
+        <div class="relative mt-16 bg-[#DDE2F5] backdrop-blur-md rounded-full p-10 flex items-center gap-6 border-4 border-[#6379B2]/60 shadow-lg overflow-hidden">
+
+            <!-- Avatar -->
+            <img src="https://media.istockphoto.com/id/1437816897/fr/photo/portrait-de-femme-daffaires-de-gestionnaire-ou-de-ressources-humaines-pour-la-réussite.jpg?s=612x612&w=0&k=20&c=cmwpzRKoMCRYrHCgy8oqo_LnJl7Afg6vOJrCqwAXz9c="
+                 alt="Claire Morel"
+                 class="w-24 h-24 rounded-full object-cover shadow-md ">
+
+            <!-- Texte -->
+            <div class="relative text-[#202940]">
+                <!-- Guillemets haut -->
+                <img src="./img/Guillemets%20bas.png"
+                     alt="quote top"
+                     class="absolute -top-7 left-0 w-10 h-8  rotate-[180deg]">
+
+                <p class="text-lg italic mb-4 leading-relaxed pl-6 pr-4">
+                    J'ai adoré collaborer avec Envol Graphisme : créative, à l'écoute et super réactive.
+                    Le résultat dépasse mes attentes, tout en douceur et finesse. Je recommande les yeux fermés !
+                    <span class="font-semibold mt-4 text-right pr-4">- Claire Morel</span>
+                </p>
+
+                <!-- Guillemets bas -->
+                <img src="./img/Guillemets%20bas.png"
+                     alt="quote bottom"
+                     class="absolute bottom-0 right-0 w-10 h-8">
+
+            </div>
+        </div>
+
+
+    </div>
+</section>
+
+<!-- Section Footer -->
+<footer class="relative w-full overflow-hidden bg-[#202940]">
+    <!-- Fond avec hibou intégré -->
+    <div class="absolute inset-0 w-[107%] h-[230%]  bg-no-repeat bg-cover bg-right-bottom pointer-events-none"
+         style="background-image: url('/img/Footer.svg'); z-index: 0;">
+    </div>
+
+    <!-- Contenu du footer -->
+    <div class="relative z-10 max-w-7xl mx-auto px-8 py-20 flex flex-col md:flex-row space-x-[20%] items-start gap-8 pl-20  mr-[30%]">
+        <!-- Menu -->
+        <div class="flex flex-col gap-2">
+            <p class="text-xl uppercase tracking-wider">BIENVENUE</p>
+            <p class="text-xl uppercase tracking-wider">PROJETS</p>
+            <p class="text-xl uppercase tracking-wider">OFFRES</p>
+            <p class="text-xl uppercase tracking-wider">CONTACT</p>
+        </div>
+
+        <!-- Réseaux -->
+        <div class="flex flex-col gap-4 justify-center items-center">
+            <p class="text-4xl font-bold">Suis moi sur les réseaux !</p>
+            <div class="flex gap-4 justify-center">
+                <a href="#" class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors">
+                    <img src="./assets/icon-linkedin.svg" alt="LinkedIn" class="w-5 h-5">
+                </a>
+                <a href="#" class="w-10 h-10 bg-pink-600 rounded-full flex items-center justify-center hover:bg-pink-700 transition-colors">
+                    <img src="./assets/icon-instagram.svg" alt="Instagram" class="w-5 h-5">
+                </a>
+                <a href="#" class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors">
+                    <img src="./assets/icon-behance.svg" alt="Behance" class="w-5 h-5">
+                </a>
+            </div>
+            <p class="text-sm space-x-20">
+                <a href="#" class="underline hover:text-white/80 text-xl">Linktree</a>
+                <a href="#" class="underline hover:text-white/80 text-xl">Mentions légales</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="relative z-10 text-xl text-white/60 pl-20 pt-8 border-t border-white/10 bottom-10 font-light">
+        <p>© Envol Graphisme | Manon&nbsp;Gros | SIRET : 929 92 XXX XXX | © 2025 Envol Graphisme - Tous droits réservés</p>
+    </div>
+</footer>
+
+
+
+
+
+<!-- Script Parallax -->
+<script>
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+
+        document.querySelectorAll('.parallax-layer').forEach(layer => {
+            const speed = parseFloat(layer.dataset.speed) || 0.5;
+            const yPos = -(scrolled * speed);
+            let xPos = 0;
+
+            const img = layer.querySelector('img');
+            if (!img) return;
+
+            const src = img.src;
+
+            // Arbres gauche → va vers la gauche
+            if (src.includes('Arbres%20de%20gauche') || src.includes('Arbres_de_gauche') || src.includes('ArbresGauche')) {
+                xPos = -(scrolled * 0.5); // Ajuste 0.3 pour la vitesse horizontale
+            }
+            // Arbres droite → va vers la droite
+            else if (src.includes('Arbres%20de%20droite') || src.includes('Arbres_de_droite') || src.includes('ArbresDroite')) {
+                xPos = (scrolled * 0.5);
+            }
+
+            layer.style.transform = `translate(${xPos}px, ${yPos}px)`;
+        });
+    });
+</script>
+<script>
+    const owl = document.getElementById('owl');
+
+    window.addEventListener('scroll', () => {
+        const scrollY = window.pageYOffset;
+        // Ajuste la vitesse et le mouvement horizontal ou vertical
+        const speedY = 0.5; // vitesse verticale
+        const speedX = 0.3; // vitesse horizontale
+        const translateY = scrollY * speedY;
+        const translateX = scrollY * speedX;
+
+        // Applique le mouvement parallax + disparition progressive
+        owl.style.transform = `translate(${translateX}px, ${translateY}px)`;
+        owl.style.opacity = Math.max(0, 1 - scrollY / 800); // disparaît progressivement après 800px
+    });
+</script>
+
+</body>
+</html>
