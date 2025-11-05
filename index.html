@@ -48,6 +48,12 @@
             position: absolute;
             will-change: transform;
         }
+        .nav-btn {
+            @apply drop-shadow-xl px-5 py-2 rounded-full backdrop-blur-sm transition-all duration-300 text-[#DBE0F3] bg-[#202940] hover:bg-[#DBE0F3] hover:text-[#212845] hover:scale-105;
+        }
+        .flag-btn {
+            @apply w-12 h-12 bg-[#202940] rounded-full flex items-center justify-center cursor-pointer hover:scale-105 transition-transform duration-300;
+        }
     </style>
     <style>
         /* Animation douce de flottement */
@@ -82,42 +88,71 @@
 <body class="bg-[#1a2332] text-white overflow-x-hidden">
 
 <!-- Navigation -->
-<nav class="fixed top-0 left-0 right-0 z-50 px-8 py-6 bg-gradient-to-b from-[#212845] to-transparent h-[20%]">
+<nav class="fixed top-0 left-0 right-0 z-50 px-6 py-4 bg-gradient-to-b from-[#212845] to-transparent backdrop-blur-md">
     <div class="max-w-7xl mx-auto flex items-center justify-between">
+
+        <!-- Logo -->
         <div class="flex items-center">
             <img src="./img/ENVOL%20Graphisme%20Logo%20clair.png" alt="Envol Graphisme" class="h-12">
         </div>
 
-        <div class="flex items-center gap-8 font-bold">
-            <a href="#bienvenue" class="drop-shadow-xl px-6 py-3 bg-[#DBE0F3]  text-[#212845] backdrop-blur-sm rounded-full transition-all">BIENVENUE</a>
-            <a href="#projets" class="drop-shadow-xl bg-[#202940]  text-[#DBE0F3] transition-colors px-6 py-3 backdrop-blur-sm rounded-full">PROJETS</a>
-            <a href="#offres" class="drop-shadow-xl bg-[#202940]  text-[#DBE0F3] transition-colors px-6 py-3 backdrop-blur-sm rounded-full">OFFRES</a>
-            <a href="#contact" class=" drop-shadow-xl bg-[#202940]  text-[#DBE0F3] transition-colors px-6 py-3 backdrop-blur-sm rounded-full">CONTACT</a>
+        <!-- Menu desktop -->
+        <div class="hidden md:flex items-center gap-8 font-bold">
+            <a href="#bienvenue" class="drop-shadow-xl px-6 py-3 bg-[#DBE0F3] hover:scale-105 hover:shadow-[0_0_10px_rgba(255,255,255,0.3)] text-[#212845] backdrop-blur-sm rounded-full transition-all">BIENVENUE</a>
+            <a href="#projets" class="drop-shadow-xl bg-[#202940] hover:scale-105 hover:shadow-[0_0_10px_rgba(255,255,255,0.3)] text-[#DBE0F3] transition-colors px-6 py-3 backdrop-blur-sm rounded-full">PROJETS</a>
+            <a href="#offres" class="drop-shadow-xl bg-[#202940] hover:scale-105 hover:shadow-[0_0_10px_rgba(255,255,255,0.3)] text-[#DBE0F3] transition-colors px-6 py-3 backdrop-blur-sm rounded-full">OFFRES</a>
+            <a href="#contact" class="drop-shadow-xl bg-[#202940] hover:scale-105 hover:shadow-[0_0_10px_rgba(255,255,255,0.3)] text-[#DBE0F3] transition-colors px-6 py-3 backdrop-blur-sm rounded-full">CONTACT</a>
         </div>
 
-        <div class="flex gap-3 ml-4">
+        <!-- Drapeaux desktop -->
+        <div class="hidden md:flex gap-3 ml-4">
             <div class="flex gap-4 items-center">
-                <!-- Drapeau Français -->
-                <div class="w-14 h-14 bg-[#202940] rounded-full flex items-center justify-center
-                cursor-pointer hover:scale-105 hover:shadow-[0_0_10px_rgba(255,255,255,0.3)]
-                transition-all duration-300 backdrop-blur-sm">
-                    <img src="./img/Drapeau%20Français.svg" alt="Français" class="w-8 h-8">
+                <div class="w-12 h-12 bg-[#202940] rounded-full flex items-center justify-center
+          cursor-pointer hover:scale-105 hover:shadow-[0_0_10px_rgba(255,255,255,0.3)]
+          transition-all duration-300 backdrop-blur-sm">
+                    <img src="./img/Drapeau%20Français.svg" alt="Français" class="w-7 h-7">
                 </div>
-
-                <!-- Drapeau Anglais -->
-                <div class="w-14 h-14 bg-[#202940] rounded-full flex items-center justify-center
-                cursor-pointer hover:scale-105 hover:shadow-[0_0_10px_rgba(255,255,255,0.3)]
-                transition-all duration-300 backdrop-blur-sm">
-                    <img src="./img/Drapeau%20Anglais.svg" alt="English" class="w-8 h-8">
+                <div class="w-12 h-12 bg-[#202940] rounded-full flex items-center justify-center
+          cursor-pointer hover:scale-105 hover:shadow-[0_0_10px_rgba(255,255,255,0.3)]
+          transition-all duration-300 backdrop-blur-sm">
+                    <img src="./img/Drapeau%20Anglais.svg" alt="English" class="w-7 h-7">
                 </div>
             </div>
+        </div>
 
+        <!-- Bouton burger mobile -->
+        <button id="menu-btn" class="md:hidden bg-white  gap-2 flex justify-center  h-full px-5 py-4 rounded-full focus:outline-none group bg-blanc ">
+            <img src="./img/Etoile%20jaune.svg" class="h-5 w-5">
+            <img src="./img/Etoile%20jaune.svg" class="h-5 w-5">
+            <img src="./img/Etoile%20jaune.svg" class="h-5 w-5">
+        </button>
+    </div>
+
+    <!-- Menu mobile -->
+    <div id="mobile-menu" class="fixed inset-0 h-screen bg-[#1a1f35]/95 flex flex-col items-center justify-center gap-8 font-bold text-[#DBE0F3] text-2xl transform translate-y-[-100%] transition-transform duration-500 ease-in-out md:hidden">
+        <button onclick="closeMenu()" class="absolute bg-white top-5 right-5  gap-2 flex justify-center px-5 py-4 rounded-full focus:outline-none group bg-blanc ">
+            <img src="./img/Etoile%20jaune.svg" class="h-5 w-5">
+            <img src="./img/Etoile%20jaune.svg" class="h-5 w-5">
+            <img src="./img/Etoile%20jaune.svg" class="h-5 w-5">
+        </button>
+        <a href="#bienvenue" class="hover:text-white transition-all" onclick="closeMenu()">BIENVENUE</a>
+        <a href="#projets" class="hover:text-white transition-all" onclick="closeMenu()">PROJETS</a>
+        <a href="#offres" class="hover:text-white transition-all" onclick="closeMenu()">OFFRES</a>
+        <a href="#contact" class="hover:text-white transition-all" onclick="closeMenu()">CONTACT</a>
+
+        <div class="flex gap-6 mt-8">
+            <div class="w-14 h-14 bg-[#202940] rounded-full flex items-center justify-center cursor-pointer hover:scale-110 transition-transform duration-300">
+                <img src="./img/Drapeau%20Français.svg" alt="Français" class="w-8 h-8">
+            </div>
+            <div class="w-14 h-14 bg-[#202940] rounded-full flex items-center justify-center cursor-pointer hover:scale-110 transition-transform duration-300">
+                <img src="./img/Drapeau%20Anglais.svg" alt="English" class="w-8 h-8">
+            </div>
         </div>
     </div>
 </nav>
 
 <!-- Hero Section avec Parallax -->
-<section id="hero" class="relative h-screen overflow-hidden">
+<section id="hero" class="relative h-screen overflow-visible">
 
     <!-- Fond dégradé -->
     <div class="absolute inset-0 bg-gradient-to-b from-[#1a2845] via-[#2a3a5a] to-[#1a2332]"></div>
@@ -133,34 +168,38 @@
     </div>
 
     <!-- Couche 4: Montagnes arrière -->
-    <div class="parallax-layer" data-speed="0.5" style="overflow: visible;">
+    <div class="parallax-layer w-[130%]"
+         data-speed="0.5"
+         style="overflow: visible;">
         <img src="./img/Collines.svg" alt="Montagnes"
-             class="parallax-element w-[220%] max-w-none h-auto object-cover -bottom-[140%] left-1/2 -translate-x-1/2"
+             class="parallax-element w-[240%] h-[170vh] object-cover -bottom-[130%] left-1/2 -translate-x-1/2"
              style="position: absolute;">
     </div>
 
 
+
+
     <!-- Couche 6: Sapins gauche -->
     <div class="parallax-layer" data-speed="0.8">
-        <img src="./img/Arbres%20de%20gauche.svg" alt="" class="parallax-element -bottom-[40%] -left-[11%] h-[130%] mt-[100%]">
+        <img src="./img/Arbres%20de%20gauche.svg" alt="" class="parallax-element -bottom-[40%] -left-[60%] md:-left-[11%] h-[130%] mt-[100%]">
     </div>
 
     <!-- Couche 7: Sapins droite -->
     <div class="parallax-layer" data-speed="0.8">
-        <img src="./img/Arbres%20de%20droite.svg" alt="" class="parallax-element -bottom-[40%] -right-[14%] h-[130%] mt-[100%]">
+        <img src="./img/Arbres%20de%20droite.svg" alt="" class="parallax-element -bottom-[40%] -right-[70%] md:-right-[14%] h-[130%] mt-[100%]">
     </div>
 
 
     <!-- Contenu Hero -->
-    <div class="relative z-10 flex flex-col items-left justify-center min-h-screen px-8">
+    <div class="relative z-10 flex flex-col items-left justify-center min-h-screen px-[6%]">
         <div class="max-w-4xl text-left space-y-[10%] text-[#DEE3F6]">
-            <h1 class="text-6xl md:text-8xl font-bold mb-8 leading-tight">
+            <h1 class="text-6xl text-center md:text-left md:text-8xl font-bold mb-8 leading-tight">
                 Le design qui<br>
                 révèle votre<br>
                 différence.
             </h1>
 
-            <p class="text-xl md:text-7xl font-semibold mb-12 w-screen">
+            <p class="text-5xl md:text-7xl  text-center md:text-left font-semibold mb-12 w-screen">
                 Ensemble, créons un<br>
                 univers qui vous ressemble.
             </p>
@@ -183,10 +222,10 @@
 </section>
 
 <!-- Section Bienvenue -->
-<section id="bienvenue" class="relative min-h-screen py-24 px-0 bg-[#222940]">
+<section id="bienvenue" class="relative min-h-screen pt-24 px-0 bg-[#222940] overflow-hidden">
 
     <!-- Fond avec parallax -->
-    <div class="absolute h-[100vw] inset-0 bg-[url('/img/Motif%20étoiles%20blanches.svg')] bg-cover bg-center opacity-10 [mask-image:linear-gradient(to_top,rgba(0,0,0,0.8),rgba(0,0,0,0))] [-webkit-mask-image:-webkit-gradient(linear,left_bottom,left_top,from(rgba(0,0,0,0.8)),to(rgba(0,0,0,0)))]"></div>
+    <div class="absolute h-[120vw] inset-0 bg-[url('/img/Motif%20étoiles%20blanches.svg')] bg-cover bg-center opacity-10 [mask-image:linear-gradient(to_top,rgba(0,0,0,0.8),rgba(0,0,0,0))] [-webkit-mask-image:-webkit-gradient(linear,left_bottom,left_top,from(rgba(0,0,0,0.8)),to(rgba(0,0,0,0)))]"></div>
 
 
 
@@ -196,8 +235,8 @@
 
         <div class="space-y-8  leading-relaxed">
             <div>
-                <h3 class="text-3xl font-bold mb-4">Bienvenue chez Envol Graphisme !</h3>
-                <p class="text-3xl">Ici, je crée des visuels qui ont du sens, faits sur mesure selon vos besoins.</p>
+                <h3 class="text-[35px] font-bold mb-4">Bienvenue chez Envol Graphisme !</h3>
+                <p class="text-[25px]">Ici, je crée des visuels qui ont du sens, faits sur mesure selon vos besoins.</p>
             </div>
 
             <div>
@@ -213,8 +252,8 @@
             </div>
 
             <div>
-                <h3 class="text-2xl font-bold mb-4">Ma mission :</h3>
-                <p>
+                <h3 class="text-[35px] font-bold mb-4">Ma mission :</h3>
+                <p class="text-[25px]">
                     Vous aider à vous <span class="font-semibold">démarquer</span> avec des
                     <span class="font-semibold">créations graphiques</span> qui racontent votre histoire.
                     Peu importe votre projet ou <span class="font-semibold">votre budget</span>, je suis là pour vous accompagner avec
@@ -224,30 +263,30 @@
             </div>
 
             <div>
-                <h3 class="text-2xl font-bold mb-4">Pourquoi me faire confiance ?</h3>
-                <ul class="space-y-3">
-                    <li class="flex items-start gap-3">
-                        <span class="text-yellow-400 mt-1">★</span>
+                <h3 class="text-[35px] font-bold mb-4">Pourquoi me faire confiance ?</h3>
+                <ul class="space-y-3 text-[25px]">
+                    <li class="flex items-center gap-3">
+                        <img src="./img/Etoile%20jaune.svg" class="h-5 w-5 mt-1" />
                         <span>Je ne fait <span class="font-semibold">jamais de copier-coller</span> : chaque design est <span class="font-semibold">imaginé spécialement pour vous</span>.</span>
                     </li>
-                    <li class="flex items-start gap-3">
-                        <span class="text-yellow-400 mt-1">★</span>
+                    <li class="flex items-center gap-3">
+                        <img src="./img/Etoile%20jaune.svg" class="h-5 w-5 mt-1" />
                         <span>J'aime travailler en confiance, <span class="font-semibold">en vous écoutant vraiment</span>.</span>
                     </li>
-                    <li class="flex items-start gap-3">
-                        <span class="text-yellow-400 mt-1">★</span>
+                    <li class="flex items-center gap-3">
+                        <img src="./img/Etoile%20jaune.svg" class="h-5 w-5 mt-1" />
                         <span>Je crois que la <span class="font-semibold">qualité peut être accessible à tous les profils et projets</span>.</span>
                     </li>
-                    <li class="flex items-start gap-3">
-                        <span class="text-yellow-400 mt-1">★</span>
+                    <li class="flex items-center gap-3">
+                        <img src="./img/Etoile%20jaune.svg" class="h-5 w-5 mt-1" />
                         <span>Je suis là pour vous <span class="font-semibold">guider à chaque étape</span>.</span>
                     </li>
                 </ul>
             </div>
 
             <div>
-                <h3 class="text-2xl font-bold mb-4">Mes valeurs :</h3>
-                <p>
+                <h3 class="text-[35px] font-bold mb-4">Mes valeurs :</h3>
+                <p class="text-[25px]">
                     La <span class="font-semibold">créativité</span> sans limite, la <span class="font-semibold">sincérité</span> et la
                     <span class="font-semibold">confiance</span> dans nos échanges, <span class="font-semibold">l'originalité</span> de nos créations,
                     la <span class="font-semibold">flexibilité</span> pour toujours satisfaire <span class="font-semibold">vos besoins</span>.
@@ -255,8 +294,8 @@
             </div>
 
             <div>
-                <h3 class="text-2xl font-bold mb-4">Pour qui ?</h3>
-                <p>
+                <h3 class="text-[35px] font-bold mb-4">Pour qui ?</h3>
+                <p class="text-[25px]">
                     Que vous soyez <span class="font-semibold">une entreprise, une association, un créateur ou juste quelqu'un qui veut une décoration sympa</span>.
                     Envol Graphisme est là pour vous aider à <span class="font-semibold">mettre des couleurs</span> et
                     <span class="font-semibold">donner vie à vos projets</span>.
@@ -264,200 +303,118 @@
             </div>
         </div>
 
-        <!-- Carousel Container -->
-        <!-- Testimonial Card Carousel -->
-        <div class="relative mt-16 w-full max-w-4xl mx-auto bg-[#DDE2F5] backdrop-blur-md rounded-full p-10 flex flex-col items-center border-4 border-[#6379B2]/60 shadow-lg overflow-hidden">
+        <div class="relative mt-16 h-full w-full max-w-full mx-auto bg-[#DDE2F5] backdrop-blur-md rounded-[20%] md:rounded-full px-10 flex flex-col items-center border-4 border-[#6379B2]/60 shadow-lg overflow-hidden">
 
             <!-- Slides -->
             <div id="testimonial-carousel" class="w-full relative flex items-center justify-center">
-
                 <!-- Slide 1 -->
-                <div class="testimonial-slide flex flex-col md:flex-row items-center gap-6 transition-opacity duration-500">
-                    <img src="https://media.istockphoto.com/id/1437816897/fr/photo/portrait-de-femme-daffaires-de-gestionnaire-ou-de-ressources-humaines-pour-la-réussite.jpg?s=612x612&w=0&k=20&c=cmwpzRKoMCRYrHCgy8oqo_LnJl7Afg6vOJrCqwAXz9c="
-                         alt="Claire Morel"
-                         class="w-[7vw] h-[7vw] rounded-full object-cover shadow-md">
-                    <div class="relative text-[#202940] flex-1 text-center md:text-left">
-                        <img src="./img/Guillemets%20bas.png" alt="quote top" class="absolute -top-7 left-0 w-10 h-8 rotate-[180deg]">
-                        <p class="text-lg italic mb-4 leading-relaxed pl-6 pr-4 py-5">
+                <div class="testimonial-slide flex flex-col md:flex-row md:items-center md:items-stretch  transition-opacity duration-500 w-full h-[450px]  md:h-[250px]">
+                    <div class="flex text-center item-center justify-center px-10 py-10 space-x-10  ">
+                        <img src="https://media.istockphoto.com/id/1437816897/fr/photo/portrait-de-femme-daffaires-de-gestionnaire-ou-de-ressources-humaines-pour-la-réussite.jpg?s=612x612&w=0&k=20&c=cmwpzRKoMCRYrHCgy8oqo_LnJl7Afg6vOJrCqwAXz9c="
+                             alt="Claire Morel"
+                             class="w-[20vw] h-[20vw] md:w-[7vw] md:h-[7vw] min-w-[90px] min-h-[90px] max-w-[130px] max-h-[130px] rounded-full object-cover shadow-md flex-shrink-0 self-center md:self-center">
+                        <span class="text-[#202940] text-4xl inline-block md:hidden font-semibold w-10 h-full mt-5">Claire Morel</span>
+                    </div>
+                    <div class="relative text-[#202940] flex-1 flex flex-col justify-center h-full text-center md:text-left">
+                        <img src="./img/Guillemets%20bas.png" alt="quote top" class="absolute -top-10 md:top-5 left-10 w-10 h-8 rotate-[180deg]">
+                        <p class="text-xl  md:text-lg italic mb-20 md:mb-4 leading-relaxed pl-6 pr-4 py-5">
                             J'ai adoré collaborer avec Envol Graphisme : créative, à l'écoute et super réactive.
                             Le résultat dépasse mes attentes, tout en douceur et finesse. Je recommande les yeux fermés !
-                            <span class="font-semibold mt-4 text-right pr-4">- Claire Morel</span>
+                            <span class=" hidden md:inline-block font-semibold mt-4 text-right pr-4">- Claire Morel</span>
                         </p>
-                        <img src="./img/Guillemets%20bas.png" alt="quote bottom" class="absolute bottom-0 right-0 w-10 h-8">
+                        <img src="./img/Guillemets%20bas.png" alt="quote bottom" class="absolute bottom-12 md:bottom-10 right-10 w-10 h-8">
+                    </div>
+                </div>
+                <!-- Slide 1 -->
+                <div class="testimonial-slide flex flex-col md:flex-row md:items-center md:items-stretch  transition-opacity duration-500 w-full h-[450px]  md:h-[250px]">
+                    <div class="flex text-center item-center justify-center px-10 py-10 space-x-10  ">
+                        <img src="https://media.istockphoto.com/id/1437816897/fr/photo/portrait-de-femme-daffaires-de-gestionnaire-ou-de-ressources-humaines-pour-la-réussite.jpg?s=612x612&w=0&k=20&c=cmwpzRKoMCRYrHCgy8oqo_LnJl7Afg6vOJrCqwAXz9c="
+                             alt="Claire Morel"
+                             class="w-[20vw] h-[20vw] md:w-[7vw] md:h-[7vw] min-w-[90px] min-h-[90px] max-w-[130px] max-h-[130px] rounded-full object-cover shadow-md flex-shrink-0 self-center md:self-center">
+                        <span class="text-[#202940] text-4xl inline-block md:hidden font-semibold w-10 h-full mt-5">Claire Morel</span>
+                    </div>
+                    <div class="relative text-[#202940] flex-1 flex flex-col justify-center h-full text-center md:text-left">
+                        <img src="./img/Guillemets%20bas.png" alt="quote top" class="absolute -top-10 md:top-5 left-10 w-10 h-8 rotate-[180deg]">
+                        <p class="text-xl  md:text-lg italic mb-20 md:mb-4 leading-relaxed pl-6 pr-4 py-5">
+                            J'ai adoré collaborer avec Envol Graphisme : créative, à l'écoute et super réactive.
+                            Le résultat dépasse mes attentes, tout en douceur et finesse. Je recommande les yeux fermés !
+                            <span class=" hidden md:inline-block font-semibold mt-4 text-right pr-4">- Claire Morel</span>
+                        </p>
+                        <img src="./img/Guillemets%20bas.png" alt="quote bottom" class="absolute bottom-12 md:bottom-10 right-10 w-10 h-8">
                     </div>
                 </div>
 
-                <!-- Slide 2 -->
-                <div class="testimonial-slide hidden flex flex-col md:flex-row items-center gap-6 transition-opacity duration-500">
-                    <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Sarah Dupont" class="w-[7vw] h-[7vw] rounded-full object-cover shadow-md">
-                    <div class="relative text-[#202940] flex-1 text-center md:text-left">
-                        <img src="./img/Guillemets%20bas.png" alt="quote top" class="absolute -top-7 left-0 w-10 h-8 rotate-[180deg]">
-                        <p class="text-lg italic mb-4 leading-relaxed pl-6 pr-4 py-5">
-                            Super collaboration avec Envol Graphisme ! Très professionnelle et créative.
-                            <span class="font-semibold mt-4 text-right pr-4">- Sarah Dupont</span>
-                        </p>
-                        <img src="./img/Guillemets%20bas.png" alt="quote bottom" class="absolute bottom-0 right-0 w-10 h-8">
-                    </div>
-                </div>
 
-                <!-- Ajouter d’autres slides ici -->
             </div>
 
-            <!-- Carousel Dots (à l’intérieur, centré en bas) -->
+            <!-- Carousel Dots -->
             <div id="carousel-dots" class="flex justify-center gap-3 absolute bottom-6">
                 <button class="w-3 h-3 rounded-full border border-[#BF8F43]" data-index="0"></button>
                 <button class="w-3 h-3 rounded-full border border-[#BF8F43]" data-index="1"></button>
-                <!-- Ajouter un bouton par slide -->
             </div>
-
         </div>
-
 
     </div>
-    <!-- Section Footer -->
-    <footer class="relative -mb-24 w-screen overflow-hidden mt-[7%] overflow-hidden -ml-10">
-        <!-- Fond avec hibou intégré -->
-        <div class="absolute inset-0 w-[107%] h-[230%] bg-no-repeat bg-cover bg-right-bottom pointer-events-none"
-             style="background-image: url('./img/Footer.svg'); z-index: 0;">
-        </div>
 
+
+    <!-- Footer complet et responsive -->
+    <footer class="relative w-full overflow-hidden bg-transparent mt-20">
+        <!-- Fond SVG -->
+        <div class="absolute inset-0 w-[120%] h-[100%] md:w-[107%] md:h-[230%] pointer-events-none bg-transparent bottom-0" style=" background-image: url('./img/Footer.png'); background-repeat: no-repeat; background-size: cover; background-position: right bottom; background-color: transparent;"> </div>
 
         <!-- Contenu du footer -->
-        <div class="relative z-10 max-w-7xl mx-auto px-8 py-20 flex flex-col md:flex-row space-x-[20%] items-start gap-8 pl-20 mr-[30%] text-white">
+        <div class="relative z-10 max-w-7xl  px-6 md:px-10 py-16 flex flex-col md:flex-row justify-between items-start  text-white">
+
             <!-- Menu -->
-            <div class="flex flex-col gap-2">
-                <p class="text-xl uppercase tracking-wider">BIENVENUE</p>
-                <p class="text-xl uppercase tracking-wider">PROJETS</p>
-                <p class="text-xl uppercase tracking-wider">OFFRES</p>
-                <p class="text-xl uppercase tracking-wider">CONTACT</p>
+            <div class="flex flex-col gap-3 text-left md:text-center md:text-left w-full md:w-1/3">
+                <p class="text-lg md:text-xl uppercase tracking-wider hover:text-white/80 transition">BIENVENUE</p>
+                <p class="text-lg md:text-xl uppercase tracking-wider hover:text-white/80 transition">PROJETS</p>
+                <p class="text-lg md:text-xl uppercase tracking-wider hover:text-white/80 transition">OFFRES</p>
+                <p class="text-lg md:text-xl uppercase tracking-wider hover:text-white/80 transition">CONTACT</p>
             </div>
 
-            <!-- Réseaux -->
-            <div class="flex flex-col gap-4 justify-center items-center">
-                <p class="text-4xl font-bold">Suis-moi sur les réseaux !</p>
-                <div class="flex gap-4 justify-center">
+            <!-- Réseaux sociaux -->
+            <div class="flex flex-col gap-6 justify-center items-center text-center w-full md:w-3/3 mt-24 md:mt-0">
+                <p class="text-2xl md:text-4xl font-bold">Suis-moi sur les réseaux !</p>
+
+                <div class="flex gap-6 justify-center flex-wrap">
                     <!-- LinkedIn -->
-                    <a href="https://www.linkedin.com" target="_blank" class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 hover:scale-110 transition-all duration-300 shadow-md">
+                    <a href="https://www.linkedin.com" target="_blank"
+                       class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 hover:scale-110 transition-all duration-300 shadow-md">
                         <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg" alt="LinkedIn" class="w-5 h-5 invert">
                     </a>
-
                     <!-- Instagram -->
-                    <a href="https://www.instagram.com" target="_blank" class="w-10 h-10 bg-gradient-to-tr from-pink-500 to-yellow-400 rounded-full flex items-center justify-center hover:scale-110 transition-all duration-300 shadow-md">
+                    <a href="https://www.instagram.com" target="_blank"
+                       class="w-10 h-10 bg-gradient-to-tr from-pink-500 to-yellow-400 rounded-full flex items-center justify-center hover:scale-110 transition-all duration-300 shadow-md">
                         <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/instagram.svg" alt="Instagram" class="w-5 h-5 invert">
                     </a>
-
                     <!-- Behance -->
-                    <a href="https://www.behance.net" target="_blank" class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center hover:bg-blue-600 hover:scale-110 transition-all duration-300 shadow-md">
+                    <a href="https://www.behance.net" target="_blank"
+                       class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center hover:bg-blue-600 hover:scale-110 transition-all duration-300 shadow-md">
                         <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/behance.svg" alt="Behance" class="w-5 h-5 invert">
                     </a>
                 </div>
 
-                <p class="text-sm space-x-20">
-                    <a href="#" class="underline hover:text-white/80 text-xl">Linktree</a>
-                    <a href="#" class="underline hover:text-white/80 text-xl">Mentions légales</a>
-                </p>
+                <div class="flex flex-col sm:flex-row gap-4 sm:gap-10 mt-4">
+                    <a href="#" class="underline hover:text-white/80 text-base md:text-xl">Linktree</a>
+                    <a href="#" class="underline hover:text-white/80 text-base md:text-xl">Mentions légales</a>
+                </div>
             </div>
         </div>
 
         <!-- Copyright -->
-        <div class="relative z-10 text-xl text-white/60 pl-20 pt-8 border-t border-white/10 bottom-10 font-light">
-            <p> Envol Graphisme | Micro-entreprise | SIRET n°93907780600015 | 2025 Envol Graphisme - Tous droits réservés</p>
+        <div class="relative z-10 text-sm md:text-lg text-white/60 px-6 md:px-20 py-6 border-t border-white/10 text-center md:text-left font-light">
+            <p>Envol Graphisme | Micro-entreprise | SIRET n°93907780600015 | 2025 Envol Graphisme - Tous droits réservés</p>
         </div>
     </footer>
 
+
 </section>
 
-
-
-
-
-
-
-<!-- Script Parallax -->
-<script>
-    window.addEventListener('scroll', () => {
-        const scrolled = window.pageYOffset;
-
-        document.querySelectorAll('.parallax-layer').forEach(layer => {
-            const speed = parseFloat(layer.dataset.speed) || 0.5;
-            const yPos = -(scrolled * speed);
-            let xPos = 0;
-
-            const img = layer.querySelector('img');
-            if (!img) return;
-
-            const src = img.src;
-
-            // Arbres gauche → va vers la gauche
-            if (src.includes('Arbres%20de%20gauche') || src.includes('Arbres_de_gauche') || src.includes('ArbresGauche')) {
-                xPos = -(scrolled * 0.5); // Ajuste 0.3 pour la vitesse horizontale
-            }
-            // Arbres droite → va vers la droite
-            else if (src.includes('Arbres%20de%20droite') || src.includes('Arbres_de_droite') || src.includes('ArbresDroite')) {
-                xPos = (scrolled * 0.5);
-            }
-
-            layer.style.transform = `translate(${xPos}px, ${yPos}px)`;
-        });
-    });
-</script>
-<script>
-    const owl = document.getElementById('owl');
-
-    window.addEventListener('scroll', () => {
-        const scrollY = window.pageYOffset;
-        // Ajuste la vitesse et le mouvement horizontal ou vertical
-        const speedY = 0.5; // vitesse verticale
-        const speedX = 0.3; // vitesse horizontale
-        const translateY = scrollY * speedY;
-        const translateX = scrollY * speedX;
-
-        // Applique le mouvement parallax + disparition progressive
-        owl.style.transform = `translate(${translateX}px, ${translateY}px)`;
-        owl.style.opacity = Math.max(0, 1 - scrollY / 800); // disparaît progressivement après 800px
-    });
-</script>
-<script>
-    const slides = document.querySelectorAll(".testimonial-slide");
-    const dots = document.querySelectorAll("#carousel-dots button");
-    let currentIndex = 0;
-
-    function showSlide(index) {
-        slides.forEach((slide, i) => {
-            slide.classList.toggle("hidden", i !== index);
-        });
-
-        dots.forEach((dot, i) => {
-            if (i === index) {
-                dot.classList.add("bg-[#BF8F43]");
-                dot.classList.remove("border");
-            } else {
-                dot.classList.remove("bg-[#BF8F43]");
-                dot.classList.add("border");
-                dot.classList.add("border-[#BF8F43]");
-            }
-        });
-
-        currentIndex = index;
-    }
-
-    dots.forEach(dot => {
-        dot.addEventListener("click", () => {
-            const index = parseInt(dot.dataset.index);
-            showSlide(index);
-        });
-    });
-
-    // Optional: auto slide every 5s
-    setInterval(() => {
-        const nextIndex = (currentIndex + 1) % slides.length;
-        showSlide(nextIndex);
-    }, 5000);
-
-    // Initialize first slide
-    showSlide(0);
-</script>
-
+<script src="./Parallax.js"></script>
+<script src="./owl-FAQ.js"></script>
+<script src="./testimonial-slide.js"></script>
+<script src="./menu.js"></script>
 
 </body>
 </html>
