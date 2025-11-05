@@ -3,30 +3,45 @@ window.addEventListener('scroll', () => {
 
     document.querySelectorAll('.parallax-layer').forEach(layer => {
         const speed = parseFloat(layer.dataset.speed) || 0.5;
-        let yPos = -(scrolled * speed);
         let xPos = 0;
+        let yPos = 0; // On fixe la hauteur de base
 
         const img = layer.querySelector('img');
         if (!img) return;
 
         const src = img.src;
 
-        // 🌙 Lune → descend au scroll
+        // 🌙 Lune → descend légèrement au scroll
         if (src.includes('Lune')) {
-            yPos = scrolled * speed; // on inverse le sens pour qu’elle descende
+            yPos = scrolled * speed;
         }
 
-        // 🌲 Arbres gauche → va vers la gauche
-        else if (src.includes('Arbres%20de%20gauche') || src.includes('Arbres_de_gauche') || src.includes('ArbresGauche')) {
+        // 🌲 Arbres gauche → bougent vers la gauche (pas de mouvement vertical)
+        else if (
+            src.includes('Arbres%20de%20gauche') ||
+            src.includes('Arbres_de_gauche') ||
+            src.includes('ArbresGauche')
+        ) {
             xPos = -(scrolled * 0.5);
+            yPos = 0; // empêche tout déplacement vertical
         }
 
-        // 🌲 Arbres droite → va vers la droite
-        else if (src.includes('Arbres%20de%20droite') || src.includes('Arbres_de_droite') || src.includes('ArbresDroite')) {
-            xPos = (scrolled * 0.5);
+        // 🌲 Arbres droite → bougent vers la droite (pas de mouvement vertical)
+        else if (
+            src.includes('Arbres%20de%20droite') ||
+            src.includes('Arbres_de_droite') ||
+            src.includes('ArbresDroite')
+        ) {
+            xPos = scrolled * 0.5;
+            yPos = 0; // empêche tout déplacement vertical
         }
 
-        // 🏔️ Appliquer la transformation
+        // 🏔️ Autres éléments → effet parallax vertical classique
+        else {
+            yPos = -(scrolled * speed);
+        }
+
+        // 🧭 Appliquer la transformation
         layer.style.transform = `translate(${xPos}px, ${yPos}px)`;
     });
 });
