@@ -1,0 +1,42 @@
+{
+  "fr": {
+    "hero_title": "Le design qui<br>révèle votre<br>différence.",
+    "hero_subtitle": "Ensemble, créons un<br>univers qui vous ressemble.",
+    "bienvenue_h2": "Marquez les esprits.",
+    "bienvenue_intro": "Bienvenue chez Envol Graphisme !",
+    "bienvenue_intro_text": "Ici, je crée des visuels qui ont du sens, faits sur mesure selon vos besoins.",
+    "qui_suis_je_h3": "Qui suis-je ?",
+    "qui_suis_je_text": "<span class='font-light'>Envol Graphisme</span>, c'est une auto-entrepreneuse qui aime <span class='font-light'>donner vie à vos idées</span> avec des <span class='font-light'>designs sur mesure</span>. Que ce soit pour <span class='font-light'>un logo, une identité visuelle, un support de communication, une affiche originale</span> ou encore bien d'autres projets, je prends le temps d'écouter ce que vous voulez vraiment pour vous proposer quelque chose <span class='font-light'>d'unique et qui vous ressemble</span>.",
+    "mission_h3": "Ma mission :",
+    "mission_text": "Vous aider à vous <span class='font-semibold'>démarquer</span> avec des <span class='font-semibold'>créations graphiques</span> qui racontent votre histoire. Peu importe votre projet ou <span class='font-semibold'>votre budget</span>, je suis là pour vous accompagner avec simplicité, bonne humeur, et un vrai souci du détail. Chaque projet est mené en <span class='font-semibold'>collaboration étroite avec vous</span> pour créer un résultat unique dont vous serez fier.",
+    "pourquoi_h3": "Pourquoi me faire confiance ?",
+    "pourquoi_list_1": " <img src=\"./img/Etoile%20jaune.svg\" class=\"h-5 w-5 mt-1\" /> Je ne fait <span class='font-semibold'>jamais de copier-coller</span> : chaque design est <span class='font-semibold'>imaginé spécialement pour vous</span>.",
+    "pourquoi_list_2": " <img src=\"./img/Etoile%20jaune.svg\" class=\"h-5 w-5 mt-1\" /> J'aime travailler en confiance, <span class='font-semibold'>en vous écoutant vraiment</span>.",
+    "pourquoi_list_3": " <img src=\"./img/Etoile%20jaune.svg\" class=\"h-5 w-5 mt-1\" /> Je crois que la <span class='font-semibold'>qualité peut être accessible à tous les profils et projets</span>.",
+    "pourquoi_list_4": " <img src=\"./img/Etoile%20jaune.svg\" class=\"h-5 w-5 mt-1\" /> Je suis là pour vous <span class='font-semibold'>guider à chaque étape</span>.",
+    "valeurs_h3": "Mes valeurs :",
+    "valeurs_text": "La <span class='font-semibold'>créativité</span> sans limite, la <span class='font-semibold'>sincérité</span> et la <span class='font-semibold'>confiance</span> dans nos échanges, <span class='font-semibold'>l'originalité</span> de nos créations, la <span class='font-semibold'>flexibilité</span> pour toujours satisfaire <span class='font-semibold'>vos besoins</span>.",
+    "pourqui_h3": "Pour qui ?",
+    "pourqui_text": "Que vous soyez <span class='font-semibold'>une entreprise, une association, un créateur ou juste quelqu'un qui veut une décoration sympa</span>. Envol Graphisme est là pour vous aider à <span class='font-semibold'>mettre des couleurs</span> et <span class='font-semibold'>donner vie à vos projets</span>."
+  },
+  "en": {
+    "hero_title": "Design that<br>reveals your<br>difference.",
+    "hero_subtitle": "Together, let's create a<br>universe that reflects you.",
+    "bienvenue_h2": "Make a lasting impression.",
+    "bienvenue_intro": "Welcome to Envol Graphisme!",
+    "bienvenue_intro_text": "Here, I create visuals that make sense, custom-made according to your needs.",
+    "qui_suis_je_h3": "Who am I?",
+    "qui_suis_je_text": "<span class='font-light'>Envol Graphisme</span> is a solo entrepreneur who loves to <span class='font-light'>bring your ideas to life</span> with <span class='font-light'>custom designs</span>. Whether it's <span class='font-light'>a logo, a visual identity, communication support, or an original poster</span>, I take the time to listen to what you really want to propose something <span class='font-light'>unique and that reflects you</span>.",
+    "mission_h3": "My mission:",
+    "mission_text": "Helping you <span class='font-semibold'>stand out</span> with <span class='font-semibold'>graphic creations</span> that tell your story. No matter your project or <span class='font-semibold'>budget</span>, I’m here to support you with simplicity, good humor, and real attention to detail. Each project is carried out in <span class='font-semibold'>close collaboration with you</span> to create a unique result you’ll be proud of.",
+    "pourquoi_h3": "Why trust me?",
+    "pourquoi_list_1": " <img src=\"./img/Etoile%20jaune.svg\" class=\"h-5 w-5 mt-1\" /> I never do <span class='font-semibold'>copy-paste</span>: each design is <span class='font-semibold'>specifically imagined for you</span>.",
+    "pourquoi_list_2": " <img src=\"./img/Etoile%20jaune.svg\" class=\"h-5 w-5 mt-1\" /> I like to work in trust, <span class='font-semibold'>really listening to you</span>.",
+    "pourquoi_list_3": " <img src=\"./img/Etoile%20jaune.svg\" class=\"h-5 w-5 mt-1\" /> I believe that <span class='font-semibold'>quality can be accessible to all profiles and projects</span>.",
+    "pourquoi_list_4": " <img src=\"./img/Etoile%20jaune.svg\" class=\"h-5 w-5 mt-1\" /> I’m here to <span class='font-semibold'>guide you at every step</span>.",
+    "valeurs_h3": "My values:",
+    "valeurs_text": "Creativity without limits, sincerity and <span class='font-semibold'>trust</span> in our exchanges, <span class='font-semibold'>originality</span> in our creations, flexibility to always satisfy <span class='font-semibold'>your needs</span>.",
+    "pourqui_h3": "For whom?",
+    "pourqui_text": "Whether you are <span class='font-semibold'>a company, an association, a creator, or just someone who wants a nice decoration</span>. Envol Graphisme is here to help you <span class='font-semibold'>add colors</span> and <span class='font-semibold'>bring your projects to life</span>."
+  }
+}

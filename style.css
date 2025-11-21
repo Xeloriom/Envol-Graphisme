@@ -1,0 +1,89 @@
+@font-face {
+    font-family: 'Josefin Sans';
+    src: url('./Josefin_Sans/JosefinSans-VariableFont_wght.ttf') format('truetype');
+    font-weight: 100 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Josefin Sans';
+    src: url('./Josefin_Sans/JosefinSans-Italic-VariableFont_wght.ttf') format('truetype');
+    font-weight: 100 900;
+    font-style: italic;
+}
+
+body {
+    background: #222940;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.parallax-layer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.parallax-element {
+    position: absolute;
+    will-change: transform;
+}
+
+.nav-btn {
+    @apply drop-shadow-xl px-5 py-2 rounded-full backdrop-blur-sm transition-all duration-300 text-[#DBE0F3] bg-[#202940] hover:bg-[#DBE0F3] hover:text-[#212845] hover:scale-105;
+}
+
+.flag-btn {
+    @apply w-12 h-12 bg-[#202940] rounded-full flex items-center justify-center cursor-pointer hover:scale-105 transition-transform duration-300;
+}
+
+/* Animation douce de flottement - plus subtile et naturelle */
+@keyframes owl-float {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-6px) rotate(-1deg);
+    }
+    50% {
+        transform: translateY(-10px) rotate(0deg);
+    }
+    75% {
+        transform: translateY(-6px) rotate(1deg);
+    }
+}
+
+/* On sépare l'animation CSS des translations JS via une variable CSS */
+#owl {
+    --tx: 0px;
+    --ty: 0px;
+    transform: translate(var(--tx), var(--ty)); /* JS met à jour --tx/--ty */
+    will-change: transform;
+    transition: filter 0.2s ease; /* pas de transition transform ici, on gère la fluidité en JS */
+}
+
+/* animation de flottement qui s'additionne (elle utilise transform, on la garde sur un parent
+   si tu veux éviter conflit; mais on applique flottement sur une classe différente) */
+#owl.float-layer {
+    /* pour que l'animation s'applique *au rendu visuel* sans écraser translate var() */
+    animation: none; /* inutile si on gère flottement en JS; sinon laisser mais attention */
+}
+
+/* Exemple d'animation de flottement sur un pseudo élément pour éviter conflit :
+   (optionnel) */
+@keyframes owl-float {
+    0%,100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-8px) rotate(1deg); }
+}
+
+/* Si tu veux conserver la classe d'animation : applique l'animation sur #owl::after
+   ou sur le parent. Ici je donne la version simple sur le parent */
+#owl-wrapper.animate-owl-float {
+    animation: owl-float 5s ease-in-out infinite;
+}
+
+/* Hover */
+#owl:hover {
+    filter: drop-shadow(0 0 20px rgba(255,255,255,0.25));
+    transform-origin: center;
+}
