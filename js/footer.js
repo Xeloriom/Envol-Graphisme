@@ -8,7 +8,7 @@ function createFooter() {
 
     footerDiv.innerHTML = `
     <!-- Fond SVG -->
-    <div id="footer-bg" class="absolute inset-0 w-[120%] lg:w-[105%] h-[110%] lg:h-[200%] pointer-events-none"
+    <div id="footer-bg" class="absolute inset-0 w-[115%] lg:w-[105%] h-[110%] lg:h-[200%] pointer-events-none"
          style="background-image: url('./img/Footer.svg');
                 background-repeat: no-repeat; 
                 background-size: cover;
