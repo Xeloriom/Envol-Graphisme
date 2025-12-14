@@ -8,7 +8,7 @@ function createNavbar() {
     <div class="max-w-7xl mx-auto flex items-center justify-between">
       <!-- Logo -->
       <div class="flex items-center">
-        <img src="../img/ENVOL%20Graphisme%20Logo%20clair.png" alt="Envol Graphisme" class="h-12">
+        <img src="./img/ENVOL%20Graphisme%20Logo%20clair.png" alt="Envol Graphisme" class="h-12">
       </div>
 
       <!-- Menu desktop -->
