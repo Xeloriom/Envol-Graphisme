@@ -8,48 +8,48 @@ function createNavbar() {
     <div class="max-w-7xl mx-auto flex items-center justify-between">
       <!-- Logo -->
       <div class="flex items-center">
-        <img src="../img/ENVOL%20Graphisme%20Logo%20clair.png" alt="Envol Graphisme" class="h-12">
+        <img src="../Envol-Graphisme/img/ENVOL%20Graphisme%20Logo%20clair.png" alt="Envol Graphisme" class="h-12">
       </div>
 
       <!-- Menu desktop -->
       <div class="hidden md:flex items-center gap-8 font-bold">
-        <a href="../index.html" class="nav-link drop-shadow-xl bg-[#202940] hover:scale-105 hover:shadow-[0_0_10px_rgba(255,255,255,0.3)] text-[#DBE0F3] transition-colors px-6 py-3 backdrop-blur-sm rounded-full">BIENVENUE</a>
-        <a href="../View/Projets.html" class="nav-link drop-shadow-xl bg-[#202940] hover:scale-105 hover:shadow-[0_0_10px_rgba(255,255,255,0.3)] text-[#DBE0F3] transition-colors px-6 py-3 backdrop-blur-sm rounded-full">PROJETS</a>
-        <a href="../View/Offres.html" class="nav-link drop-shadow-xl bg-[#202940] hover:scale-105 hover:shadow-[0_0_10px_rgba(255,255,255,0.3)] text-[#DBE0F3] transition-colors px-6 py-3 backdrop-blur-sm rounded-full">OFFRES</a>
-        <a href="../View/Contact.html" class="nav-link drop-shadow-xl bg-[#202940] hover:scale-105 hover:shadow-[0_0_10px_rgba(255,255,255,0.3)] text-[#DBE0F3] transition-colors px-6 py-3 backdrop-blur-sm rounded-full">CONTACT</a>
+        <a href="../Envol-Graphisme/index.html" class="nav-link drop-shadow-xl bg-[#202940] hover:scale-105 hover:shadow-[0_0_10px_rgba(255,255,255,0.3)] text-[#DBE0F3] transition-colors px-6 py-3 backdrop-blur-sm rounded-full">BIENVENUE</a>
+        <a href="../Envol-Graphisme/View/Projets.html" class="nav-link drop-shadow-xl bg-[#202940] hover:scale-105 hover:shadow-[0_0_10px_rgba(255,255,255,0.3)] text-[#DBE0F3] transition-colors px-6 py-3 backdrop-blur-sm rounded-full">PROJETS</a>
+        <a href="../Envol-Graphisme/View/Offres.html" class="nav-link drop-shadow-xl bg-[#202940] hover:scale-105 hover:shadow-[0_0_10px_rgba(255,255,255,0.3)] text-[#DBE0F3] transition-colors px-6 py-3 backdrop-blur-sm rounded-full">OFFRES</a>
+        <a href="../Envol-Graphisme/View/Contact.html" class="nav-link drop-shadow-xl bg-[#202940] hover:scale-105 hover:shadow-[0_0_10px_rgba(255,255,255,0.3)] text-[#DBE0F3] transition-colors px-6 py-3 backdrop-blur-sm rounded-full">CONTACT</a>
       </div>
 
       <!-- Drapeaux desktop -->
       <div class="hidden md:flex gap-3 ml-4">
         <div class="flex gap-4 items-center">
           <div class="lang-btn w-12 h-12 bg-[#202940] rounded-full flex items-center justify-center cursor-pointer hover:scale-105 hover:shadow-[0_0_10px_rgba(255,255,255,0.3)] transition-all duration-300 backdrop-blur-sm" data-lang="fr">
-            <img data-lang="fr" src="../img/Drapeau%20Français.svg" alt="Français" class="w-7 h-7">
+            <img data-lang="fr" src="../Envol-Graphisme/img/Drapeau%20Français.svg" alt="Français" class="w-7 h-7">
           </div>
           <div class="lang-btn w-12 h-12 bg-[#202940] rounded-full flex items-center justify-center cursor-pointer hover:scale-105 hover:shadow-[0_0_10px_rgba(255,255,255,0.3)] transition-all duration-300 backdrop-blur-sm" data-lang="en">
-            <img data-lang="en" src="../img/Drapeau%20Anglais.svg" alt="English" class="w-7 h-7">
+            <img data-lang="en" src="../Envol-Graphisme/img/Drapeau%20Anglais.svg" alt="English" class="w-7 h-7">
           </div>
         </div>
       </div>
 
       <!-- Bouton burger mobile -->
       <button id="menu-btn" class="md:hidden bg-white gap-2 flex justify-center h-full px-5 py-4 rounded-full focus:outline-none group">
-        <img src="../img/Etoile%20jaune.svg" class="h-5 w-5">
-        <img src="../img/Etoile%20jaune.svg" class="h-5 w-5">
-        <img src="../img/Etoile%20jaune.svg" class="h-5 w-5">
+        <img src="../Envol-Graphisme/img/Etoile%20jaune.svg" class="h-5 w-5">
+        <img src="../Envol-Graphisme/img/Etoile%20jaune.svg" class="h-5 w-5">
+        <img src="../Envol-Graphisme/img/Etoile%20jaune.svg" class="h-5 w-5">
       </button>
     </div>
 
     <!-- Menu mobile -->
     <div id="mobile-menu" class="fixed inset-0 h-screen bg-[#1a1f35]/95 flex flex-col items-center justify-center gap-8 font-bold text-[#DBE0F3] text-2xl transform translate-y-[-100%] transition-transform duration-500 ease-in-out md:hidden">
       <button id="close-menu-btn" class="absolute bg-white top-5 right-5 gap-2 flex justify-center px-5 py-4 rounded-full focus:outline-none group">
-        <img src="../img/Etoile%20jaune.svg" class="h-5 w-5">
-        <img src="../img/Etoile%20jaune.svg" class="h-5 w-5">
-        <img src="../img/Etoile%20jaune.svg" class="h-5 w-5">
+        <img src="../Envol-Graphisme/img/Etoile%20jaune.svg" class="h-5 w-5">
+        <img src="../Envol-Graphisme/img/Etoile%20jaune.svg" class="h-5 w-5">
+        <img src="../Envol-Graphisme/img/Etoile%20jaune.svg" class="h-5 w-5">
       </button>
-      <a href="../index.html" class="mobile-nav-link hover:text-white transition-all">BIENVENUE</a>
-      <a href="../View/Projets.html" class="mobile-nav-link hover:text-white transition-all">PROJETS</a>
-      <a href="../View/Offres.html" class="mobile-nav-link hover:text-white transition-all">OFFRES</a>
-      <a href="../View/Contact.html" class="mobile-nav-link hover:text-white transition-all">CONTACT</a>
+      <a href="../Envol-Graphisme/index.html" class="mobile-nav-link hover:text-white transition-all">BIENVENUE</a>
+      <a href="../Envol-Graphisme/View/Projets.html" class="mobile-nav-link hover:text-white transition-all">PROJETS</a>
+      <a href="../Envol-Graphisme/View/Offres.html" class="mobile-nav-link hover:text-white transition-all">OFFRES</a>
+      <a href="../Envol-Graphisme/View/Contact.html" class="mobile-nav-link hover:text-white transition-all">CONTACT</a>
     </div>
   `;
 
