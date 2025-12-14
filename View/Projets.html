@@ -1,179 +1,91 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ENVOL Graphisme - Projets</title>
+    <title>Envol Graphisme - Design Parallax</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['"Josefin Sans"', 'sans-serif'],
-                    },
-                },
-            },
-        }
-    </script>
-    <style>
-        @font-face {
-            font-family: 'Josefin Sans';
-            src: url('../Josefin_Sans/JosefinSans-VariableFont_wght.ttf') format('truetype');
-            font-weight: 100 900;
-            font-style: normal;
-        }
-
-        @font-face {
-            font-family: 'Josefin Sans';
-            src: url('../Josefin_Sans/JosefinSans-Italic-VariableFont_wght.ttf') format('truetype');
-            font-weight: 100 900;
-            font-style: italic;
-        }
-
-        body {
-            background: #222940;
-            font-family: 'Josefin Sans', sans-serif;
-        }
-    </style>
+    <script src="js/tailwind.config.js"></script>
+    <link rel="stylesheet" href="../style.css">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 </head>
-<body class=" ">
-<!-- Navigation -->
-<nav class="fixed top-0 left-0 right-0 z-50 px-8 py-6 bg-gradient-to-b from-[#212845] to-transparent h-[10%]">
-    <div class="max-w-7xl mx-auto flex items-center justify-between">
-        <div class="flex items-center">
-            <img src="../img/ENVOL%20Graphisme%20Logo%20clair.png" alt="Envol Graphisme" class="h-12">
-        </div>
+<body class="bg-[#1a2332] text-white overflow-x-hidden">
 
-        <div class="flex items-center gap-8 font-bold">
-            <a href="#bienvenue" class="drop-shadow-xl bg-[#202940] hover:scale-105 hover:shadow-[0_0_10px_rgba(255,255,255,0.3)] text-[#DBE0F3] transition-colors px-6 py-3 backdrop-blur-sm rounded-full">BIENVENUE</a>
-            <a href="#projets" class="drop-shadow-xl px-6 py-3 bg-[#DBE0F3] hover:scale-105 hover:shadow-[0_0_10px_rgba(255,255,255,0.3)] text-[#212845] backdrop-blur-sm rounded-full transition-all">PROJETS</a>
-            <a href="#offres" class="drop-shadow-xl bg-[#202940] hover:scale-105 hover:shadow-[0_0_10px_rgba(255,255,255,0.3)] text-[#DBE0F3] transition-colors px-6 py-3 backdrop-blur-sm rounded-full">OFFRES</a>
-            <a href="#contact" class=" drop-shadow-xl bg-[#202940] hover:scale-105 hover:shadow-[0_0_10px_rgba(255,255,255,0.3)] text-[#DBE0F3] transition-colors px-6 py-3 backdrop-blur-sm rounded-full">CONTACT</a>
-        </div>
+<!-- La navigation sera injectée ici par navbar.js -->
 
-        <div class="flex gap-3 ml-4">
-            <div class="flex gap-4 items-center">
-                <!-- Drapeau Français -->
-                <div class="w-14 h-14 bg-[#202940] rounded-full flex items-center justify-center
-                cursor-pointer hover:scale-105 hover:shadow-[0_0_10px_rgba(255,255,255,0.3)]
-                transition-all duration-300 backdrop-blur-sm">
-                    <img src="../img/Drapeau%20Français.svg" alt="Français" class="w-8 h-8">
-                </div>
+<!-- Hero Section  -->
+<section id="projets" class="relative min-h-screen py-40 px-6  ">
 
-                <!-- Drapeau Anglais -->
-                <div class="w-14 h-14 bg-[#202940] rounded-full flex items-center justify-center
-                cursor-pointer hover:scale-105 hover:shadow-[0_0_10px_rgba(255,255,255,0.3)]
-                transition-all duration-300 backdrop-blur-sm">
-                    <img src="../img/Drapeau%20Anglais.svg" alt="English" class="w-8 h-8">
-                </div>
-            </div>
+    <!-- Étoiles décoratives -->
+    <div class="absolute h-[330em] lg:h-[430vw] xl:h-[130vw] inset-0 bg-[url('../img/Motif%20étoiles%20blanches.svg')] bg-cover bg-center opacity-10 [mask-image:linear-gradient(to_top,rgba(0,0,0,0.8),rgba(0,0,0,0))] [-webkit-mask-image:-webkit-gradient(linear,left_bottom,left_top,from(rgba(0,0,0,0.8)),to(rgba(0,0,0,0)))]"></div>
 
+
+    <!-- Fond avec motif étoiles -->
+    <div class="absolute inset-0 bg-[url('./img/Motif%20étoiles%20blanches.svg')] bg-cover bg-center opacity-10"></div>
+
+    <div class="relative z-10 max-w-8xl mx-auto px-10">
+
+        <!-- Grille de projets - sera remplie dynamiquement -->
+        <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-24 gap-y-20">
+            <!-- Les projets seront injectés ici par JavaScript -->
         </div>
     </div>
-</nav>
 
-<!-- Projects Grid -->
-<main class="container mx-auto py-[10%]  overflow-hidden ">
+</section>
 
-    <div class="absolute h-[120vw]  inset-0 bg-[url('/img/Motif%20étoiles%20blanches.svg')] bg-cover bg-center opacity-10 [mask-image:linear-gradient(to_top,rgba(0,0,0,0.8),rgba(0,0,0,0))] [-webkit-mask-image:-webkit-gradient(linear,left_bottom,left_top,from(rgba(0,0,0,0.8)),to(rgba(0,0,0,0)))]"></div>
+<!-- Modal pour afficher les détails du projet -->
+<div id="project-modal" class="fixed inset-0 z-50 hidden bg-black/70 items-center justify-center w-screen h-screen project-card">
+    <button id="back-arrow" class="absolute left-10 w-20 h-20 rotate-90 flex items-center justify-center  transition-all duration-300 z-10 ">
+        <svg class="w-20 h-20 text-[#CB8D30]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        </svg>
+    </button>
+    <div class="relative w-full h-full bg-[url('../img/CadreJaune.svg')] bg-contain bg-center bg-no-repeat p-[10%] ">
 
+        <!-- Bouton fermer -->
+        <button id="close-modal" class="absolute top-[5%] right-[7%] w-20 h-20  flex items-center justify-center  transition-all duration-300 z-10 ">
+            <img class="w-full h-full text-white" src="../img/CroixJaune.svg">
+        </button>
 
-    <div class="grid grid-cols-3 gap-12 max-w-7xl mx-auto">
-        <!-- Project Card 1 - Brand Identity -->
-        <div class="project-card relative">
-            <div class="bg-gradient-to-br from-[#d4e7f5] to-white rounded-3xl p-8 shadow-2xl border-4 border-white/30">
-                <img src="/placeholder.svg?height=400&width=400" alt="Brand Identity" class="w-full h-full object-cover rounded-2xl">
+        <!-- Contenu du modal -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 p-12 ">
+            <!-- Colonne gauche - Texte -->
+            <div class="space-y-6 ">
+                <h2 id="modal-title" class="text-5xl font-medium text-[#42290D] mb-8"></h2>
+                <div id="modal-description" class="space-y-4 text-[#42290D] text-lg leading-relaxed">
+                    <!-- Description sera injectée ici -->
+                </div>
             </div>
-            <!-- Decorative star near card -->
-            <div class="absolute -top-8 -left-8 star">
-                <svg width="35" height="35" viewBox="0 0 35 35" fill="none">
-                    <path d="M17.5 0L19.25 15.75L35 17.5L19.25 19.25L17.5 35L15.75 19.25L0 17.5L15.75 15.75L17.5 0Z" fill="#FFD700"/>
-                </svg>
-            </div>
-            <div class="absolute -top-4 -left-4">
-                <svg width="60" height="40" viewBox="0 0 60 40" fill="none">
-                    <path d="M5 20 Q 20 5, 40 15 T 55 25" stroke="#D4A574" stroke-width="2" fill="none" stroke-dasharray="3 3"/>
-                </svg>
-            </div>
-        </div>
 
-        <!-- Project Card 2 - Illustrations -->
-        <div class="project-card relative">
-            <div class="bg-gradient-to-br from-[#d4e7f5] to-white rounded-3xl p-8 shadow-2xl border-4 border-white/30">
-                <img src="/placeholder.svg?height=400&width=400" alt="Illustrations" class="w-full h-full object-cover rounded-2xl">
-            </div>
-            <!-- Decorative elements -->
-            <div class="absolute -top-6 -right-6 star" style="animation-delay: 0.3s;">
-                <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
-                    <path d="M15 0L16.5 13.5L30 15L16.5 16.5L15 30L13.5 16.5L0 15L13.5 13.5L15 0Z" fill="white"/>
-                </svg>
-            </div>
-            <div class="absolute -bottom-4 -right-8">
-                <svg width="70" height="50" viewBox="0 0 70 50" fill="none">
-                    <path d="M10 25 Q 25 10, 45 20 T 65 30" stroke="#D4A574" stroke-width="2" fill="none" stroke-dasharray="3 3"/>
-                </svg>
-            </div>
-        </div>
-
-        <!-- Project Card 3 - Mountain Landscape -->
-        <div class="project-card relative">
-            <div class="bg-gradient-to-br from-[#d4e7f5] to-white rounded-3xl p-8 shadow-2xl border-4 border-white/30">
-                <img src="/placeholder.svg?height=400&width=400" alt="Mountain Landscape" class="w-full h-full object-cover rounded-2xl">
-            </div>
-            <!-- Decorative star -->
-            <div class="absolute -top-10 -right-10 star" style="animation-delay: 0.7s;">
-                <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                    <path d="M20 0L22 18L40 20L22 22L20 40L18 22L0 20L18 18L20 0Z" fill="#FFD700"/>
-                </svg>
-            </div>
-        </div>
-
-        <!-- Project Card 4 - Castle Scene -->
-        <div class="project-card relative">
-            <div class="bg-gradient-to-br from-[#d4e7f5] to-white rounded-3xl p-8 shadow-2xl border-4 border-white/30">
-                <img src="/placeholder.svg?height=400&width=400" alt="Castle Scene" class="w-full h-full object-cover rounded-2xl">
-            </div>
-            <!-- Decorative elements -->
-            <div class="absolute -bottom-8 -left-8 star" style="animation-delay: 1.2s;">
-                <svg width="35" height="35" viewBox="0 0 35 35" fill="none">
-                    <path d="M17.5 0L19.25 15.75L35 17.5L19.25 19.25L17.5 35L15.75 19.25L0 17.5L15.75 15.75L17.5 0Z" fill="white"/>
-                </svg>
-            </div>
-        </div>
-
-        <!-- Project Card 5 - Offline Message -->
-        <div class="project-card relative">
-            <div class="bg-gradient-to-br from-[#d4e7f5] to-white rounded-3xl p-8 shadow-2xl border-4 border-white/30">
-                <img src="/placeholder.svg?height=400&width=400" alt="Offline Message" class="w-full h-full object-cover rounded-2xl">
-            </div>
-            <!-- Decorative star and trail -->
-            <div class="absolute -top-6 -right-10 star" style="animation-delay: 0.9s;">
-                <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-                    <path d="M16 0L17.6 14.4L32 16L17.6 17.6L16 32L14.4 17.6L0 16L14.4 14.4L16 0Z" fill="#FFD700"/>
-                </svg>
-            </div>
-            <div class="absolute -top-2 -right-16">
-                <svg width="80" height="50" viewBox="0 0 80 50" fill="none">
-                    <path d="M10 25 Q 30 10, 55 20 T 75 30" stroke="#D4A574" stroke-width="2" fill="none" stroke-dasharray="3 3"/>
-                </svg>
-            </div>
-        </div>
-
-        <!-- Project Card 6 - Minimalist Logo -->
-        <div class="project-card relative">
-            <div class="bg-gradient-to-br from-[#d4e7f5] to-white rounded-3xl p-8 shadow-2xl border-4 border-white/30">
-                <img src="/placeholder.svg?height=400&width=400" alt="Minimalist Logo" class="w-full h-full object-cover rounded-2xl">
-            </div>
-            <!-- Decorative star -->
-            <div class="absolute -bottom-6 -right-8 star" style="animation-delay: 1.4s;">
-                <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
-                    <path d="M15 0L16.5 13.5L30 15L16.5 16.5L15 30L13.5 16.5L0 15L13.5 13.5L15 0Z" fill="white"/>
-                </svg>
+            <!-- Colonne droite - Images -->
+            <div id="modal-images" class="space-y-6 overflow-y-auto h-[84%] p-10">
+                <!-- Images seront injectées ici -->
             </div>
         </div>
     </div>
-</main>
+    <button id="next-arrow" class="absolute right-10 w-20 h-20 -rotate-90 flex items-center justify-center  transition-all duration-300 z-10 ">
+        <svg class="w-20 h-20 text-[#CB8D30]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        </svg>
+    </button>
+</div>
+
+<!-- Fichier 3: projects-loader.js - À placer dans /js/projects-loader.js -->
+<script src="../js/projets.js"></script>
+
+<script src="../js/navbar.js"></script>
+<script src="../js/footer.js"></script>
+<script src="../js/Parallax.js"></script>
+<script src="../js/owl-FAQ.js"></script>
+<script src="../js/testimonial-slide.js"></script>
+
+<script src="../i18n/i18n.js"></script>
+
+<script src="../js/Swiper.js"></script>
+
 </body>
 </html>

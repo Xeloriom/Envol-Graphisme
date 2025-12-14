@@ -1,0 +1,58 @@
+{
+  "projects": [
+    {
+      "id": "Eps-mockup",
+      "title": "Eps mockup",
+      "thumbnail": "https://img.freepik.com/free-vector/hand-drawn-eagle-flying-drawing-illustration_23-2150982972.jpg?semt=ais_incoming&w=740&q=80",
+      "bgGradient": "from-[#e8eaf6] to-[#c5cae9]",
+      "borderColor": "border-[#8b7355]/30",
+      "hasOverlay": true,
+      "description": [
+        "<span class='font-semibold'>Création de l'identité visuelle complète</span> pour Envol Graphisme. Un projet personnel qui reflète mes valeurs de créativité et d'originalité.",
+        "Le logo combine <span class='font-semibold'>élégance et modernité</span> avec une palette de couleurs soigneusement choisie pour transmettre professionnalisme et accessibilité.",
+        "Déclinaison sur différents supports pour assurer une <span class='font-semibold'>cohérence visuelle parfaite</span>.",
+        "Ce branding représente mon engagement envers <span class='font-semibold'>l'excellence du design</span>."
+      ],
+      "images": [
+        "https://img.freepik.com/premium-vector/hand-drawn-solid-color-bald-eagle-illustration-different-product-templates_621869-4116.jpg?semt=ais_hybrid&w=740&q=80",
+        "https://img.freepik.com/premium-vector/hand-drawn-sketch-bald-eagle-illustration-different-product-templates_621869-4121.jpg?semt=ais_hybrid&w=740&q=80"
+      ]
+    },
+    {
+      "id": "Eps-mockup",
+      "title": "Eps mockup 2",
+      "thumbnail": "https://img.freepik.com/free-vector/hand-drawn-eagle-flying-drawing-illustration_23-2150982972.jpg?semt=ais_incoming&w=740&q=80",
+      "bgGradient": "from-[#e8eaf6] to-[#c5cae9]",
+      "borderColor": "border-[#8b7355]/30",
+      "hasOverlay": true,
+      "description": [
+        "<span class='font-semibold'>Création de l'identité visuelle complète</span> pour Envol Graphisme. Un projet personnel qui reflète mes valeurs de créativité et d'originalité.",
+        "Le logo combine <span class='font-semibold'>élégance et modernité</span> avec une palette de couleurs soigneusement choisie pour transmettre professionnalisme et accessibilité.",
+        "Déclinaison sur différents supports pour assurer une <span class='font-semibold'>cohérence visuelle parfaite</span>.",
+        "Ce branding représente mon engagement envers <span class='font-semibold'>l'excellence du design</span>."
+      ],
+      "images": [
+        "https://img.freepik.com/premium-vector/hand-drawn-solid-color-bald-eagle-illustration-different-product-templates_621869-4116.jpg?semt=ais_hybrid&w=740&q=80",
+        "https://img.freepik.com/premium-vector/hand-drawn-sketch-bald-eagle-illustration-different-product-templates_621869-4121.jpg?semt=ais_hybrid&w=740&q=80"
+      ]
+    },
+    {
+      "id": "Eps-mockup",
+      "title": "Eps mockup 3",
+      "thumbnail": "https://img.freepik.com/free-vector/hand-drawn-eagle-flying-drawing-illustration_23-2150982972.jpg?semt=ais_incoming&w=740&q=80",
+      "bgGradient": "from-[#e8eaf6] to-[#c5cae9]",
+      "borderColor": "border-[#8b7355]/30",
+      "hasOverlay": true,
+      "description": [
+        "<span class='font-semibold'>Création de l'identité visuelle complète</span> pour Envol Graphisme. Un projet personnel qui reflète mes valeurs de créativité et d'originalité.",
+        "Le logo combine <span class='font-semibold'>élégance et modernité</span> avec une palette de couleurs soigneusement choisie pour transmettre professionnalisme et accessibilité.",
+        "Déclinaison sur différents supports pour assurer une <span class='font-semibold'>cohérence visuelle parfaite</span>.",
+        "Ce branding représente mon engagement envers <span class='font-semibold'>l'excellence du design</span>."
+      ],
+      "images": [
+        "https://img.freepik.com/premium-vector/hand-drawn-solid-color-bald-eagle-illustration-different-product-templates_621869-4116.jpg?semt=ais_hybrid&w=740&q=80",
+        "https://img.freepik.com/premium-vector/hand-drawn-sketch-bald-eagle-illustration-different-product-templates_621869-4121.jpg?semt=ais_hybrid&w=740&q=80"
+      ]
+    }
+  ]
+}

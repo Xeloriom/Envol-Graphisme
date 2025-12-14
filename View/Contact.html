@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Envol Graphisme - Contact</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="js/tailwind.config.js"></script>
+    <link rel="stylesheet" href="../style.css">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+</head>
+<body class=" overflow-hidden">
+
+<!-- La navigation sera injectée ici par navbar.js -->
+
+<!-- Hero Section Contact -->
+<section class="relative  px-6 overflow-hidden bg-gradient-to-b from-[#2A3B5C] to-[#3D4F6E]">
+
+    <div
+            class="absolute inset-0 bg-[url('../img/Illustrationcielétoilé.svg')]
+            bg-cover bg-center
+           [mask-image:linear-gradient(to_top,rgba(0,0,0,100),rgba(0,0,0,90))]
+           [-webkit-mask-image:linear-gradient(to_top,rgba(0,0,0,100),rgba(0,0,0,100))]">
+    </div>
+
+    <div class="relative z-10 max-w-8xl mx-auto text-center space-y-8 h-screen flex flex-col mt-40">
+
+        <!-- Titre principal -->
+        <h1 class="text-5xl md:text-6xl text-white font-bold leading-tight">
+            Vous avez un projet en tête ?<br>
+            Une envie de faire décoller votre identité visuelle ?
+        </h1>
+
+        <!-- Sous-titre -->
+        <p class="text-3xl md:text-4xl text-white/80 font-normal leading-tight">
+            N'hésitez pas à me laisser un message ou à passer par mes réseaux !
+        </p>
+
+        <!-- Zone boutons + chouette -->
+        <div class="relative flex flex-col md:flex-row items-center justify-center gap-[25%] pt-32 w-full">
+
+            <!-- Bouton M'écrire -->
+            <a href="#form"
+               class="bg-[#7B94C8] hover:bg-[#6A83B7] text-white font-bold px-20 py-7 rounded-full text-2xl transition shadow-lg z-10">
+                M'ÉCRIRE MAINTENANT
+            </a>
+
+            <!-- Bouton Réseaux -->
+            <a href="#social"
+               class="bg-[#7B94C8] hover:bg-[#6A83B7] text-white font-bold px-20 py-7 rounded-full text-2xl transition shadow-lg z-10">
+                RÉSEAUX-SOCIAUX
+            </a>
+
+            <!-- Chouette par-dessus -->
+            <img
+                    src="../img/Chouetteailesouvertes.svg"
+                    alt="Chouette ailes ouvertes"
+                    class="pointer-events-none select-none absolute
+                       top-[70%] left-1/2 -translate-x-1/2
+                       w-[50%] ">
+        </div>
+
+    </div>
+</section>
+<script src="../js/navbar.js"></script>
+<script src="../js/footer.js"></script>
+<script src="../js/Parallax.js"></script>
+<script src="../js/owl-FAQ.js"></script>
+<script src="../js/testimonial-slide.js"></script>
+
+<script src="../i18n/i18n.js"></script>
+
+<script src="../js/Swiper.js"></script>
+</body>
+</html>
