@@ -1,0 +1,24 @@
+{
+  "packs": [
+    {
+      "name": "PACK ENVOL – Identité visuelle",
+      "price": 600,
+      "description": "L'offre idéale si vous démarrez ou souhaitez faire évoluer votre activité",
+      "features": ["Logo + versions secondaires", "Carte de visite recto-verso", "Moodboard & univers visuel", "Charte graphique PDF"]
+    },
+    {
+      "name": "PACK ENVOL PRO - Identité visuelle complète",
+      "price": 800,
+      "description": "Une version plus complète du PACK ENVOL",
+      "features": ["Logo + versions secondaires", "Carte de visite recto-verso", "Moodboard & univers visuel", "Charte graphique PDF", "Support réseaux sociaux"]
+    }
+  ],
+  "services": [
+    { "name": "Création de logo seul", "price": 400 },
+    { "name": "Charte Graphique", "price": 100 },
+    { "name": "Carte de visite", "price": 160 },
+    { "name": "Affiche", "price": 200 },
+    { "name": "Flyer", "price": 175 },
+    { "name": "Signature de mail", "price": 35 }
+  ]
+}

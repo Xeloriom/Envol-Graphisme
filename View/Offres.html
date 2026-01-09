@@ -3,371 +3,137 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Envol Graphisme - Design Parallax</title>
+    <title>Envol Graphisme - Nos Offres</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <script src="js/tailwind.config.js"></script>
-    <link rel="stylesheet" href="../style.css">
-    <!-- Swiper CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
-    <!-- Swiper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <style>
-        .popup-overlay {
-            backdrop-filter: blur(8px);
-        }
-        .service-item {
-            cursor: pointer;
-            user-select: none;
-        }
-        .service-item:hover {
-            background-color: #B5C0DD !important;
-        }
-        .service-item input[type="checkbox"] {
-            pointer-events: none;
-        }
+        .popup-overlay { backdrop-filter: blur(8px); }
+        .service-item { cursor: pointer; user-select: none; transition: all 0.2s; }
+        .service-item:hover { background-color: #B5C0DD !important; }
+        .selected-item { background-color: #B5C0DD !important; }
     </style>
 </head>
-<body>
+<body class="bg-[#202B44] font-['Montserrat']">
 
-<!-- La navigation sera injectée ici par navbar.js -->
-
-<!-- Hero Section  -->
 <section class="relative py-40 px-6 overflow-hidden bg-gradient-to-b from-[#202B44] via-[#5979BB] to-[#CCD7EE]">
-
     <!-- IMAGE DE FOND (étoiles / ambiance) -->
     <div
-            class="absolute  inset-0 bg-[url('../img/Motifplumeetétoilesblanches.svg')]
-           bg-cover bg-center opacity-5
-           [mask-image:linear-gradient(to_top,rgba(0,0,0,1),rgba(0,0,0,0))]
-           [-webkit-mask-image:linear-gradient(to_top,rgba(0,0,0,1),rgba(0,0,0,0))]">
+            class="absolute inset-0 bg-[url('../img/Motifplumeetétoilesblanches.svg')]
+            bg-cover bg-center opacity-5
+            [mask-image:linear-gradient(to_top,rgba(0,0,0,1),rgba(0,0,0,0))]
+            [-webkit-mask-image:linear-gradient(to_top,rgba(0,0,0,1),rgba(0,0,0,0))]">
     </div>
 
-    <!-- CONTENU -->
     <div class="relative z-10 max-w-[95%] mx-auto grid grid-cols-1 lg:grid-cols-3 gap-24">
 
-        <!-- COLONNE GAUCHE -->
         <div class="lg:col-span-2 space-y-12">
-
-            <!-- TITRE -->
-            <div>
-                <h1 class="text-2xl md:text-4xl text-white font-bold mb-4 text-center">
-                    Mes offres d'accompagnement graphique
-                </h1>
-                <p class="text-4xl text-white/70 font-light text-center">
-                    Pour donner des ailes à vos projets
-                </p>
+            <div class="text-center mb-10">
+                <h1 class="text-4xl text-white font-bold mb-4">Mes offres d'accompagnement graphique</h1>
+                <p class="text-3xl text-white/70 font-light">Pour donner des ailes à vos projets</p>
             </div>
 
-            <!-- CARD : PACK ENVOL -->
-            <div class="bg-[#202940] rounded-[40px] p-10 shadow-[0_25px_70px_rgba(0,0,0,0.45)] space-y-6">
+            <div id="main-packs-container" class="space-y-12"></div>
 
-                <h2 class="text-3xl font-bold flex items-center text-white gap-3">
-                    <span class="text-[#CB8D30]">✦</span>
-                    PACK ENVOL – Identité visuelle
-                </h2>
-
-                <p class="text-white/70 text-2xl font-light">
-                    L'offre idéale si vous démarrez ou souhaitez faire évoluer votre activité
-                </p>
-
-                <ul class="space-y-5 text-white/80 px-10 text-2xl">
-                    <li><span class="text-[#5A7ABC]">✦</span> Logo + versions secondaires</li>
-                    <li><span class="text-[#5A7ABC]">✦</span>  Carte de visite recto-verso</li>
-                    <li><span class="text-[#5A7ABC]">✦</span>  Moodboard & univers visuel</li>
-                    <li><span class="text-[#5A7ABC]">✦</span>  Charte graphique PDF</li>
-                </ul>
-
-                <div class="pt-6 text-center">
-                    <p class="text-2xl font-light text-white">À partir de <span class="font-bold">600 €</span></p>
-                    <p class="text-2xl font-light text-white mt-2">
-                        Ce tarif est indicatif et peut varier selon vos besoins spécifiques.
-                    </p>
-                </div>
+            <div class="pt-10 text-center">
+                <h2 class="text-3xl text-white font-bold mb-4">Services à la carte</h2>
+                <h2 class="text-3xl text-white  mb-4">Pour des besoins précis ou en complément d'un projet existant</h2>
             </div>
 
-            <!-- CARD : PACK ENVOL PRO -->
-            <div class="bg-[#202940] rounded-[40px] p-10 shadow-[0_25px_70px_rgba(0,0,0,0.45)] space-y-6">
-
-                <h2 class="text-3xl font-bold flex items-center text-white gap-3">
-                    <span class="text-[#CB8D30]">✦</span>
-                    PACK ENVOL <span class="text-[#CB8D30]">PRO</span> - Identité visuelle complète
-                </h2>
-
-                <p class="text-white/70 text-2xl font-light">
-                    Une version plus complète du PACK ENVOL
-                </p>
-
-                <ul class="space-y-5 text-white/80 px-10 text-2xl">
-                    <li><span class="text-[#5A7ABC]">✦</span> Logo + versions secondaires</li>
-                    <li><span class="text-[#5A7ABC]">✦</span>  Carte de visite recto-verso</li>
-                    <li><span class="text-[#5A7ABC]">✦</span>  Moodboard & univers visuel</li>
-                    <li><span class="text-[#5A7ABC]">✦</span>  Charte graphique PDF</li>
-                </ul>
-
-                <div class="pt-6 text-center">
-                    <p class="text-2xl font-light text-white">À partir de <span class="font-bold">600 €</span></p>
-                    <p class="text-2xl font-light text-white mt-2">
-                        Ce tarif est indicatif et peut varier selon vos besoins spécifiques.
-                    </p>
-                </div>
-            </div>
-
-            <!-- TITRE -->
-            <div class="pt-[10%]">
-                <h1 class="text-2xl md:text-4xl text-white font-bold mb-4 text-center">
-                    Mes offres d'accompagnement graphique
-                </h1>
-                <p class="text-4xl text-white/70 font-light text-center">
-                    Pour donner des ailes à vos projets
-                </p>
-            </div>
-
-            <!-- CARD : Services -->
-            <div class="bg-[#202940] rounded-[40px] p-10 shadow-[0_25px_70px_rgba(0,0,0,0.45)] space-y-6">
-
-                <h2 class="text-2xl flex items-center text-white gap-3 border-b border-[#5C78BB] py-3">
-                    <span class="text-[#CB8D30]">✦</span>
-                    Création de logo seul
-                    <span class="ml-auto font-light">À partir de</span><span class="font-bold">400€</span>
-                </h2>
-                <h2 class="text-2xl flex items-center text-white gap-3 border-b border-[#5C78BB] py-3">
-                    <span class="text-[#CB8D30]">✦</span>
-                    Charte Graphique
-                    <span class="ml-auto font-light">À partir de</span><span class="font-bold">100€</span>
-                </h2>
-                <h2 class="text-2xl flex items-center text-white gap-3 border-b border-[#5C78BB] py-3">
-                    <span class="text-[#CB8D30]">✦</span>
-                    Carte de visite
-                    <span class="ml-auto font-light">À partir de</span><span class="font-bold">160€</span>
-                </h2>
-                <h2 class="text-2xl flex items-center text-white gap-3 border-b border-[#5C78BB] py-3">
-                    <span class="text-[#CB8D30]">✦</span>
-                    Affiche
-                    <span class="ml-auto font-light">À partir de</span><span class="font-bold">200€</span>
-                </h2>
-                <h2 class="text-2xl flex items-center text-white gap-3 border-b border-[#5C78BB] py-3">
-                    <span class="text-[#CB8D30]">✦</span>
-                    Flyer
-                    <span class="ml-auto font-light">À partir de</span><span class="font-bold">175€</span>
-                </h2>
-                <h2 class="text-2xl flex items-center text-white gap-3 border-b border-[#5C78BB] py-3">
-                    <span class="text-[#CB8D30]">✦</span>
-                    Signature de mail
-                    <span class="ml-auto font-light">À partir de</span><span class="font-bold">35€</span>
-                </h2>
-            </div>
-
+            <div id="main-services-container" class="bg-[#202940] rounded-[40px] p-10 shadow-2xl space-y-2"></div>
         </div>
 
-        <!-- COLONNE DROITE -->
-        <div class="relative flex justify-start ">
+        <div class="fixed z-40
+    /* Mobile : Positionné en bas */
+    bottom-4 left-1/2 -translate-x-1/2 w-[90%]
+    /* Desktop : Carte à droite centrée */
+    lg:bottom-auto lg:top-1/2 lg:right-10 lg:left-auto lg:translate-x-0 lg:-translate-y-1/2 lg:w-full lg:max-w-md">
 
-            <div
-                    class="bg-[#E9ECF5] h-3/4 w-full text-[#3F290F] rounded-[40px]
-               border-[6px] border-[#CB8D30]
-               p-3 pt-10 shadow-[0_25px_70px_rgba(0,0,0,0.35)]
-               flex flex-col items-center text-center gap-8 max-w-md fixed overflow-hidden ">
+            <div class="relative bg-[#DCE4F2] text-[#3A2A13] rounded-[50px] border-[3px] border-[#CB8D30] p-6 lg:p-10 text-center shadow-2xl overflow-hidden">
 
-                <h3 class="text-3xl font-bold">
-                    Hésitant entre un pack<br>
-                    et une formule à <br> la carte ?
+                <h3 class="text-xl lg:text-3xl font-bold mb-6 leading-tight px-2">
+                    Hésitant entre un pack et une formule à la carte ?
                 </h3>
 
-                <p class="text-3xl font-normal pb-5">
-                    Utilisez le <span class="font-bold"> simulateur de devis ci-dessous </span> pour visualiser l'option la plus adaptée.
+                <p class="text-lg lg:text-2xl mb-8 leading-relaxed px-4">
+                    Utilisez le <span class="font-bold">simulateur de devis ci-dessous</span> pour visualiser l'option la plus adaptée.
                 </p>
 
-                <button
-                        onclick="openPopup()"
-                        class="bg-[#3A2A13] font-bold text-white px-10 py-4 rounded-3xl
-                 text-2xl font-semibold shadow-lg
-                 hover:scale-105 transition z-10">
+                <button onclick="openPopup()"
+                        class="relative z-10 bg-[#3A2A13] text-white px-8 py-4 rounded-[25px] text-lg lg:text-2xl font-bold hover:scale-105 active:scale-95 transition-all w-full shadow-md uppercase tracking-wide">
                     SIMULER UN DEVIS
                 </button>
-
-                <!-- ILLUSTRATION -->
                 <img
                         src="../img/Chouetteailesouvertesyeuxfermés.svg"
                         alt="Illustration chouette"
-                        class="-mt-[20%] select-none w-full h-auto max-w-full">
+                        class="
+            -bottom-[6vw]
+            w-[120%] lg:w-[300%]   /* on agrandit l'image */
+            h-auto               /* garde les proportions */
+            -mt-[0%] lg:-mt-[40%]       /* ajuster la marge négative */
+            relative
+            z-0
+            select-none
+            pointer-events-none
+        "
+                >
             </div>
-
         </div>
-
     </div>
 </section>
 
-<!-- POP-UP SIMULATEUR -->
-<div id="popup" class="fixed inset-0 z-50 hidden items-center justify-center popup-overlay bg-black/40 ">
-    <div class="relative w-[95%] max-w-7xl overflow-hidden ">
+<div id="popup" class="fixed inset-0 z-50 hidden items-center justify-center popup-overlay bg-black/60 p-4">
+    <div class="relative w-full max-w-5xl h-[95vh] lg:h-[85vh] bg-[#D8E4FF] rounded-[40px] border-[8px] border-[#A5B9E9] overflow-hidden flex flex-col p-6 lg:p-12 shadow-2xl">
 
-        <div class="relative bg-[url('../img/Cadrebleu.svg')] bg-cover bg-center ">
+        <button onclick="closePopup()" class="absolute top-4 right-4 w-10 h-10 lg:w-12 lg:h-12 z-50 hover:scale-110 transition">
+            <img src="../img/Croixbleue.svg" alt="Fermer" class="w-full h-full">
+        </button>
 
-            <!-- Bouton fermer -->
-            <button onclick="closePopup()" class="absolute top-[5%] right-0 w-20 h-20  transition z-20 ">
-               <img src="../img/Croixbleue.svg">
-            </button>
+        <h2 class="text-xl lg:text-3xl font-bold text-[#1D2743] text-center mb-6 leading-tight px-4">
+            Cochez ce que vous souhaitez ajouter dans votre sélection parmi les options ci-dessous
+        </h2>
 
-            <div class="grid grid-cols-1 lg:grid-cols-[1.3fr_1fr] gap-8 p-20 h-[90vh] overflow-hidden">
+        <div class="flex-1 flex flex-col lg:grid lg:grid-cols-[1.2fr_1fr] gap-6 overflow-hidden">
 
-                <!-- COLONNE GAUCHE : Options -->
-                <div class="space-y-6">
-                    <h2 class="text-2xl pt-10 font-bold text-[#1D2743] mb-6 leading-tight">
-                        Cochez ce que vous souhaitez ajouter dans<br>votre sélection parmi les options ci-dessous
-                    </h2>
-
-                    <!-- Packs Section -->
-                    <div class="space-y-3 ">
-                        <h3 class="text-xl font-bold text-[#1D2743] flex items-center gap-2 cursor-pointer" onclick="toggleSection('packs')">
-                            <span id="packs-arrow">▶</span> Packs
-                        </h3>
-
-                        <div id="packs-content" class="space-y-2 hidden">
-                            <div class="service-item flex items-center justify-between  p-3 rounded-xl" onclick="toggleCheckbox(this)">
-                                <div class="flex items-center gap-3 flex-1">
-                                    <input type="checkbox" value="600" data-name="Pack Envol" class="w-4 h-4 rounded accent-[#5979BB] hidden">
-                                    <span class="text-[#2A3549] text-lg">Pack Envol</span>
-                                </div>
-                                <span class="text-[#2A3549] text-lg whitespace-nowrap ml-2">À partir de <strong>600€</strong></span>
-                            </div>
-
-                            <div class="service-item flex items-center justify-between  p-3 rounded-xl" onclick="toggleCheckbox(this)">
-                                <div class="flex items-center gap-3 flex-1">
-                                    <input type="checkbox" value="800" data-name="Pack Envol Pro" class="w-4 h-4 rounded accent-[#5979BB] hidden">
-                                    <span class="text-[#2A3549] text-lg">Pack Envol Pro</span>
-                                </div>
-                                <span class="text-[#2A3549] text-lg whitespace-nowrap ml-2">À partir de <strong>800€</strong></span>
-                            </div>
-                        </div>
+            <div class="flex-1 overflow-y-auto pr-2 space-y-6 custom-scrollbar">
+                <div class="mb-4">
+                    <h3 class="text-lg lg:text-xl font-bold text-[#1D2743] cursor-pointer flex items-center gap-2" onclick="toggleSection('packs')">
+                        <span id="packs-arrow" class="text-[#CB8D30] text-sm">▶</span> Packs
+                    </h3>
+                    <div id="packs-content" class="mt-3 space-y-1 hidden">
                     </div>
-
-                    <!-- Services à la carte -->
-                    <div class="space-y-3 overflow-hidden ">
-                        <h3 class="text-xl font-bold text-[#1D2743] flex items-center gap-2 cursor-pointer" onclick="toggleSection('services')">
-                            <span id="services-arrow">▼</span> Services à la carte
-                        </h3>
-
-                        <div id="services-content" class="space-y-0 border-l border-[#5C78BB] px-5 pb-10 ml-2 overflow-y-auto h-[25em]">
-                            <div class="service-item flex items-center justify-between  p-2 rounded-xl" onclick="toggleCheckbox(this)">
-                                <div class="flex items-center gap-3 flex-1">
-                                    <input type="checkbox" value="400" data-name="Création de logo seul" class="w-4 h-4 rounded accent-[#5979BB] hidden">
-                                    <span class="text-[#2A3549] text-lg">Création de logo seul</span>
-                                </div>
-                                <span class="text-[#2A3549] text-lg whitespace-nowrap ml-2">À partir de <strong>400€</strong></span>
-                            </div>
-
-                            <div class="service-item flex items-center justify-between  p-2 rounded-xl" onclick="toggleCheckbox(this)">
-                                <div class="flex items-center gap-3 flex-1">
-                                    <input type="checkbox" value="100" data-name="Charte Graphique" class="w-4 h-4 rounded accent-[#5979BB] hidden">
-                                    <span class="text-[#2A3549] text-lg">Charte Graphique</span>
-                                </div>
-                                <span class="text-[#2A3549] text-lg whitespace-nowrap ml-2">À partir de <strong>100€</strong></span>
-                            </div>
-
-                            <div class="service-item flex items-center justify-between  p-2 rounded-xl" onclick="toggleCheckbox(this)">
-                                <div class="flex items-center gap-3 flex-1">
-                                    <input type="checkbox" value="160" data-name="Carte de visite" class="w-4 h-4 rounded accent-[#5979BB] hidden">
-                                    <span class="text-[#2A3549] text-lg">Carte de visite</span>
-                                </div>
-                                <span class="text-[#2A3549] text-lg whitespace-nowrap ml-2">À partir de <strong>160€</strong></span>
-                            </div>
-
-                            <div class="service-item flex items-center justify-between  p-2 rounded-xl" onclick="toggleCheckbox(this)">
-                                <div class="flex items-center gap-3 flex-1">
-                                    <input type="checkbox" value="200" data-name="Affiche" class="w-4 h-4 rounded accent-[#5979BB] hidden">
-                                    <span class="text-[#2A3549] text-lg">Affiche</span>
-                                </div>
-                                <span class="text-[#2A3549] text-lg whitespace-nowrap ml-2">À partir de <strong>200€</strong></span>
-                            </div>
-
-                            <div class="service-item flex items-center justify-between  p-2 rounded-xl" onclick="toggleCheckbox(this)">
-                                <div class="flex items-center gap-3 flex-1">
-                                    <input type="checkbox" value="175" data-name="Flyer" class="w-4 h-4 rounded accent-[#5979BB] hidden">
-                                    <span class="text-[#2A3549] text-lg">Flyer</span>
-                                </div>
-                                <span class="text-[#2A3549] text-lg whitespace-nowrap ml-2">À partir de <strong>175€</strong></span>
-                            </div>
-
-                            <div class="service-item flex items-center justify-between  p-2 rounded-xl" onclick="toggleCheckbox(this)">
-                                <div class="flex items-center gap-3 flex-1">
-                                    <input type="checkbox" value="35" data-name="Signature de mail" class="w-4 h-4 rounded accent-[#5979BB] hidden">
-                                    <span class="text-[#2A3549] text-lg">Signature de mail</span>
-                                </div>
-                                <span class="text-[#2A3549] text-lg whitespace-nowrap ml-2">À partir de <strong>35€</strong></span>
-                            </div>
-
-                            <div class="service-item flex items-center justify-between  p-2 rounded-xl" onclick="toggleCheckbox(this)">
-                                <div class="flex items-center gap-3 flex-1">
-                                    <input type="checkbox" value="50" data-name="Éléments graphiques" class="w-4 h-4 rounded accent-[#5979BB] hidden">
-                                    <span class="text-[#2A3549] text-lg">Éléments graphiques</span>
-                                </div>
-                                <span class="text-[#2A3549] text-lg whitespace-nowrap ml-2">À partir de <strong>50€</strong></span>
-                            </div>
-
-                            <div class="service-item flex items-center justify-between  p-2 rounded-xl" onclick="toggleCheckbox(this)">
-                                <div class="flex items-center gap-3 flex-1">
-                                    <input type="checkbox" value="600" data-name="Illustration" class="w-4 h-4 rounded accent-[#5979BB] hidden">
-                                    <span class="text-[#2A3549] text-lg">Illustration</span>
-                                </div>
-                                <span class="text-[#2A3549] text-lg whitespace-nowrap ml-2">À partir de <strong>600€</strong></span>
-                            </div>
-
-                            <div class="service-item flex items-center justify-between  p-2 rounded-xl" onclick="toggleCheckbox(this)">
-                                <div class="flex items-center gap-3 flex-1">
-                                    <input type="checkbox" value="500" data-name="Mascotte" class="w-4 h-4 rounded accent-[#5979BB] hidden">
-                                    <span class="text-[#2A3549] text-lg">Mascotte</span>
-                                </div>
-                                <span class="text-[#2A3549] text-lg whitespace-nowrap ml-2">À partir de <strong>500€</strong></span>
-                            </div>
-
-                            <div class="service-item flex items-center justify-between  p-2 rounded-xl" onclick="toggleCheckbox(this)">
-                                <div class="flex items-center gap-3 flex-1">
-                                    <input type="checkbox" value="1500" data-name="Catalogue" class="w-4 h-4 rounded accent-[#5979BB] hidden">
-                                    <span class="text-[#2A3549] text-lg">Catalogue</span>
-                                </div>
-                                <span class="text-[#2A3549] text-lg whitespace-nowrap ml-2">À partir de <strong>1500€</strong></span>
-                            </div>
-
-                            <div class="service-item flex items-center justify-between  p-2 rounded-xl" onclick="toggleCheckbox(this)">
-                                <div class="flex items-center gap-3 flex-1">
-                                    <input type="checkbox" value="450" data-name="Animation simple" class="w-4 h-4 rounded accent-[#5979BB] hidden">
-                                    <span class="text-[#2A3549] text-lg">Animation simple</span>
-                                </div>
-                                <span class="text-[#2A3549] text-lg whitespace-nowrap ml-2">À partir de <strong>450€</strong></span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <p class="text-1xl text-[#1D2743] text-center italic font-bold pt-[5%] leading-relaxed">
-                        Ce tarif est indicatif et peut varier selon vos besoins spécifiques. Contactez moi afin d'obtenir un véritable devis.
-                    </p>
                 </div>
 
-                <!-- COLONNE DROITE : Sélection -->
-                <div class="relative h-full max-h-[700px] flex flex-col">
-                    <div class="relative bg-[#1E2942] rounded-[30px] p-6 text-white shadow-2xl flex flex-col h-full">
-                        <h3 class="text-2xl font-bold mb-6 text-center flex-shrink-0">Sélection</h3>
+                <div>
+                    <h3 class="text-lg lg:text-xl font-bold text-[#1D2743] cursor-pointer flex items-center gap-2" onclick="toggleSection('services')">
+                        <span id="services-arrow" class="text-[#CB8D30] text-sm">▼</span> Services à la carte
+                    </h3>
+                    <div id="services-content" class="mt-3 space-y-1">
+                    </div>
+                </div>
+            </div>
 
-                        <div id="selectedItems" class="space-y-3 mb-6 flex-1 overflow-y-auto pr-2 min-h-[200px] px-5" style="scrollbar-width: thin; scrollbar-color: #5979BB #2A3549;">
-                            <p class="text-white/50 text-center py-12 text-sm">Aucun service sélectionné</p>
-                        </div>
+            <div class="bg-[#1D2743] rounded-[35px] p-5 lg:p-8 text-white flex flex-col shadow-xl max-h-[45%] lg:max-h-full">
+                <h3 class="text-xl font-bold mb-4 text-center border-b border-white/10 pb-2">Sélection</h3>
 
-                        <div class="border-t border-white/30 pt-4 mb-6 flex-shrink-0">
-                            <div class="flex justify-between items-center text-xl font-bold">
-                                <span>TOTAL</span>
-                                <span id="totalPrice">0€</span>
-                            </div>
-                        </div>
+                <div id="selectedItems" class="flex-1 overflow-y-auto space-y-3 mb-4 pr-2 custom-scrollbar-white">
+                    <p class="text-white/40 text-center py-4 text-sm italic">Aucun service sélectionné</p>
+                </div>
 
-                        <button onclick="contact()" class="relative w-full overflow-hidden rounded-2xl shadow-lg group flex-shrink-0">
-                            <div class="relative bg-[#5979BB] hover:bg-[#4868AA] text-white font-bold py-3 text-lg transition">
-                                CONTACTEZ-MOI
-                            </div>
+                <div class="border-t border-white/30 pt-4">
+                    <div class="flex justify-between items-center text-xl lg:text-2xl font-bold mb-4">
+                        <span class="tracking-widest">TOTAL</span>
+                        <span id="totalPrice" class="text-white">0€</span>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4 items-center">
+                        <p class="text-[10px] lg:text-[12px] text-white/60 leading-tight italic">
+                            Ce tarif est indicatif et peut varier selon vos besoins spécifiques. Contactez-moi pour un devis réel.
+                        </p>
+                        <button onclick="sendContact()" class="bg-[#7895D1] hover:bg-[#5979BB] text-white py-3 px-2 rounded-2xl font-bold text-sm lg:text-base transition-all transform hover:scale-105 shadow-lg uppercase">
+                            Contactez-moi
                         </button>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
@@ -382,111 +148,7 @@
 <script src="../i18n/i18n.js"></script>
 
 <script src="../js/Swiper.js"></script>
-
-<script>
-    function openPopup() {
-        document.getElementById('popup').classList.remove('hidden');
-        document.getElementById('popup').classList.add('flex');
-        document.body.style.overflow = 'hidden';
-    }
-
-    function closePopup() {
-        document.getElementById('popup').classList.add('hidden');
-        document.getElementById('popup').classList.remove('flex');
-        document.body.style.overflow = 'auto';
-    }
-
-    function toggleSection(sectionId) {
-        const sections = ['packs', 'services']; // liste de toutes les sections
-        sections.forEach(id => {
-            const content = document.getElementById(id + '-content');
-            const arrow = document.getElementById(id + '-arrow');
-
-            if (id === sectionId) {
-                // Toggle la section cliquée
-                if (content.classList.contains('hidden')) {
-                    content.classList.remove('hidden');
-                    arrow.textContent = '▼';
-                } else {
-                    content.classList.add('hidden');
-                    arrow.textContent = '▶';
-                }
-            } else {
-                // Fermer toutes les autres sections
-                content.classList.add('hidden');
-                arrow.textContent = '▶';
-            }
-        });
-    }
-
-    function toggleCheckbox(element) {
-        const checkbox = element.querySelector('input[type="checkbox"]');
-        checkbox.checked = !checkbox.checked;
-        updateTotal();
-    }
-
-    function updateTotal() {
-        const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
-        let total = 0;
-        const selectedItemsDiv = document.getElementById('selectedItems');
-        selectedItemsDiv.innerHTML = '';
-
-        checkboxes.forEach(checkbox => {
-            const price = parseInt(checkbox.value);
-            const name = checkbox.dataset.name;
-            total += price;
-
-            const itemDiv = document.createElement('div');
-            itemDiv.className = 'flex justify-between items-center border-b border-white/20 pb-2';
-            itemDiv.innerHTML = `
-            <div class="flex items-center gap-2">
-                <span class="text-[#CB8D30]">✦</span>
-                <span class="text-sm">${name}</span>
-            </div>
-            <span class="font-bold text-sm">${price}€</span>
-        `;
-            selectedItemsDiv.appendChild(itemDiv);
-        });
-
-        if (checkboxes.length === 0) {
-            selectedItemsDiv.innerHTML = '<p class="text-white/50 text-center py-12 text-sm">Aucun service sélectionné</p>';
-        }
-
-        document.getElementById('totalPrice').textContent = total + '€';
-    }
-
-    function contact() {
-        const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
-        if (checkboxes.length === 0) {
-            alert('Veuillez sélectionner au moins un service');
-            return;
-        }
-
-        let message = 'Bonjour, je souhaiterais un devis pour :\n\n';
-        checkboxes.forEach(checkbox => {
-            message += `- ${checkbox.dataset.name} (${checkbox.value}€)\n`;
-        });
-
-        const total = document.getElementById('totalPrice').textContent;
-        message += `\nTotal estimé : ${total}`;
-
-        alert(message + '\n\nVous allez être redirigé vers le formulaire de contact.');
-    }
-
-    // Fermer avec la touche Escape
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-            closePopup();
-        }
-    });
-
-    // Fermer en cliquant en dehors
-    document.getElementById('popup').addEventListener('click', (e) => {
-        if (e.target.id === 'popup') {
-            closePopup();
-        }
-    });
-</script>
+<script src="../js/Offres.js"></script>
 
 </body>
 </html>
