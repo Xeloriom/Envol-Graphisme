@@ -76,8 +76,25 @@ function openModal(project) {
         .map(paragraph => `<p>${paragraph}</p>`)
         .join('');
 
+    // ✅ SEULE MODIFICATION ICI (classes + onclick)
     modalImages.innerHTML = project.images
-        .map(image => `<img src="${image}" alt="${project.title}" class="w-full rounded-2xl shadow-xl hover:scale-105 cursor-pointer">`)
+        .map(image => `
+            <img 
+                src="${image}" 
+                alt="${project.title}" 
+                class="
+                    w-64 sm:w-72 xl:w-full
+                    flex-shrink-0
+                    rounded-2xl
+                    shadow-xl
+                    hover:scale-105
+                    transition-transform duration-300
+                    cursor-pointer
+                    snap-center
+                "
+                onclick="openImageViewer('${image}')"
+            >
+        `)
         .join('');
 
     modal.classList.remove('hidden');
@@ -111,6 +128,35 @@ function closeModal() {
     modal.classList.add('hidden');
     modal.classList.remove('flex');
     document.body.style.overflow = 'auto';
+}
+
+// ===============================
+// 🔍 IMAGE VIEWER FULLSCREEN (AJOUT)
+// ===============================
+function openImageViewer(src) {
+    const viewer = document.createElement('div');
+    viewer.className = `
+        fixed inset-0 z-[9999]
+        bg-black/90
+        flex items-center justify-center
+        cursor-zoom-out
+    `;
+
+    viewer.innerHTML = `
+        <img src="${src}" 
+             class="max-w-[95vw] max-h-[95vh] rounded-xl shadow-2xl">
+    `;
+
+    viewer.addEventListener('click', () => viewer.remove());
+
+    document.addEventListener('keydown', function esc(e) {
+        if (e.key === 'Escape') {
+            viewer.remove();
+            document.removeEventListener('keydown', esc);
+        }
+    });
+
+    document.body.appendChild(viewer);
 }
 
 // Événements pour fermer le modal

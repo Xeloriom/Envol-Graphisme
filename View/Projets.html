@@ -21,11 +21,11 @@
 <section id="projets" class="relative min-h-screen py-40 px-6  ">
 
     <!-- Étoiles décoratives -->
-    <div class="absolute h-[330em] lg:h-[430vw] xl:h-[130vw] inset-0 bg-[url('../img/Motif%20étoiles%20blanches.svg')] bg-cover bg-center opacity-10 [mask-image:linear-gradient(to_top,rgba(0,0,0,0.8),rgba(0,0,0,0))] [-webkit-mask-image:-webkit-gradient(linear,left_bottom,left_top,from(rgba(0,0,0,0.8)),to(rgba(0,0,0,0)))]"></div>
-
-
-    <!-- Fond avec motif étoiles -->
-    <div class="absolute inset-0 bg-[url('./img/Motif%20étoiles%20blanches.svg')] bg-cover bg-center opacity-10"></div>
+    <div class="absolute inset-0 bg-[url('../img/Motif%20étoiles%20blanches.svg')]
+    bg-[length:150%] bg-center opacity-10
+    [mask-image:linear-gradient(to_top,rgba(0,0,0,0.8),rgba(0,0,0,0))]
+    [-webkit-mask-image:-webkit-gradient(linear,left_bottom,left_top,from(rgba(0,0,0,0.8)),to(rgba(0,0,0,0)))]">
+    </div>
 
     <div class="relative z-10 max-w-8xl mx-auto px-10">
 
@@ -37,42 +37,91 @@
 
 </section>
 
-<!-- Modal pour afficher les détails du projet -->
-<div id="project-modal" class="fixed inset-0 z-50 hidden bg-black/70 items-center justify-center w-screen h-screen project-card">
-    <button id="back-arrow" class="absolute left-10 w-20 h-20 rotate-90 flex items-center justify-center  transition-all duration-300 z-10 ">
-        <svg class="w-20 h-20 text-[#CB8D30]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+<div id="project-modal"
+     class="fixed inset-0 z-50 hidden bg-black/80 flex items-center justify-center w-screen h-screen overflow-y-auto overflow-x-hidden">
+
+    <!-- BACK -->
+    <button id="back-arrow"
+            class="absolute left-0 md:left-10 top-1/2 -translate-y-1/2
+               w-10 h-10 md:w-20 md:h-20 rotate-90
+               flex items-center justify-center transition-all duration-300 z-[60]">
+        <svg class="w-full h-full text-[#CB8D30]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M19 9l-7 7-7-7"></path>
         </svg>
     </button>
-    <div class="relative w-full h-full bg-[url('../img/CadreJaune.svg')] bg-contain bg-center bg-no-repeat p-[10%] ">
 
-        <!-- Bouton fermer -->
-        <button id="close-modal" class="absolute top-[5%] right-[7%] w-20 h-20  flex items-center justify-center  transition-all duration-300 z-10 ">
-            <img class="w-full h-full text-white" src="../img/CroixJaune.svg">
+    <!-- MODAL CONTENT -->
+    <div
+            class="relative w-full min-h-screen
+               bg-[url('../img/Cadrejaunemobile.svg')]
+               lg:bg-[url('../img/CadreJaune.svg')]
+               bg-no-repeat bg-center
+               bg-[length:90%]
+               lg:bg-[length:100%]
+               xl:bg-[length:90%]
+               flex items-center justify-center
+               px-4 md:px-10 py-16 overflow-x-hidden">
+
+        <!-- CLOSE -->
+        <button id="close-modal"
+                class="absolute top-6 right-6 md:top-[5%] md:right-[7%]
+                   w-10 h-10 md:w-20 md:h-20
+                   flex items-center justify-center transition-all duration-300 z-[60]">
+            <img class="w-full h-full object-contain" src="../img/CroixJaune.svg" />
         </button>
 
-        <!-- Contenu du modal -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 p-12 ">
-            <!-- Colonne gauche - Texte -->
-            <div class="space-y-6 ">
-                <h2 id="modal-title" class="text-5xl font-medium text-[#42290D] mb-8"></h2>
-                <div id="modal-description" class="space-y-4 text-[#42290D] text-lg leading-relaxed">
-                    <!-- Description sera injectée ici -->
-                </div>
-            </div>
+        <!-- INNER -->
+        <div class="w-full max-w-6xl overflow-x-hidden">
+            <div class="grid grid-cols-1 xl:grid-cols-2 gap-8 lg:gap-12 items-start overflow-x-hidden">
 
-            <!-- Colonne droite - Images -->
-            <div id="modal-images" class="space-y-6 overflow-y-auto h-[84%] p-10">
-                <!-- Images seront injectées ici -->
+                <!-- TEXT -->
+                <div class="space-y-6 text-center xl:text-left">
+                    <h2 id="modal-title"
+                        class="text-2xl sm:text-3xl md:text-5xl font-medium text-[#42290D]">
+                    </h2>
+
+                    <div id="modal-description"
+                         class="space-y-4 text-[#42290D]
+                               text-sm sm:text-base md:text-lg
+                               leading-relaxed px-10 md:px-[30%] lg:px-0">
+                    </div>
+                </div>
+
+                <!-- IMAGES -->
+                <div id="modal-images"
+                     class="
+        flex xl:block
+        flex-row xl:flex-col
+        gap-4
+        xl:space-y-6
+        max-h-none lg:max-h-none
+        overflow-x-auto xl:overflow-visible
+        overflow-y-hidden xl:overflow-y-auto
+        py-2
+        mx-7 md:mx-20
+        snap-x snap-mandatory
+     ">
+                </div>
+
+
             </div>
         </div>
     </div>
-    <button id="next-arrow" class="absolute right-10 w-20 h-20 -rotate-90 flex items-center justify-center  transition-all duration-300 z-10 ">
-        <svg class="w-20 h-20 text-[#CB8D30]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+
+    <!-- NEXT -->
+    <button id="next-arrow"
+            class="absolute right-0 md:right-10 top-1/2 -translate-y-1/2
+               w-10 h-10 md:w-20 md:h-20 -rotate-90
+               flex items-center justify-center transition-all duration-300 z-[60]">
+        <svg class="w-full h-full text-[#CB8D30]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M19 9l-7 7-7-7"></path>
         </svg>
     </button>
+
 </div>
+
 
 <!-- Fichier 3: projects-loader.js - À placer dans /js/projects-loader.js -->
 <script src="../js/projets.js"></script>
