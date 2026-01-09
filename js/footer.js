@@ -4,7 +4,7 @@ function createFooter() {
     const container = document.getElementById('bienvenue');
 
     const footerDiv = document.createElement('div');
-    footerDiv.className = 'relative w-full overflow-visible bg-transparent';
+    footerDiv.className = 'relative w-full overflow-visible bg-transparent z-0';
 
     footerDiv.innerHTML = `
     <!-- Fond SVG -->

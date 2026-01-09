@@ -13,7 +13,7 @@
         .selected-item { background-color: #B5C0DD !important; }
     </style>
 </head>
-<body id="bienvenue" class="bg-[#202B44] font-['Montserrat']">
+<body id="bienvenue" class="bg-[#202B44] font-['Montserrat'] overflow-x-hidden">
 
 <section class="relative py-40 px-6 overflow-hidden bg-gradient-to-b from-[#202B44] via-[#5979BB] to-[#CCD7EE]">
     <!-- IMAGE DE FOND (étoiles / ambiance) -->
@@ -42,19 +42,19 @@
             <div id="main-services-container" class="bg-[#202940] rounded-[40px] p-10 shadow-2xl space-y-2"></div>
         </div>
 
-        <div class="fixed z-40
+        <div class="fixed
     /* Mobile : Positionné en bas */
-    bottom-4 left-1/2 -translate-x-1/2 w-[90%]
+    bottom-0 left-1/2 -translate-x-1/2 w-[100%]
     /* Desktop : Carte à droite centrée */
     lg:bottom-auto lg:top-1/2 lg:right-10 lg:left-auto lg:translate-x-0 lg:-translate-y-1/2 lg:w-full lg:max-w-md">
 
-            <div class="relative bg-[#DCE4F2] text-[#3A2A13] rounded-[50px] border-[3px] border-[#CB8D30] p-6 lg:p-10 text-center shadow-2xl overflow-hidden">
+            <div class="relative bg-[#DCE4F2] text-[#3A2A13]  md:rounded-[50px] border-[3px] border-[#CB8D30] p-6 lg:p-10 text-center shadow-2xl overflow-hidden">
 
-                <h3 class="text-xl lg:text-3xl font-bold mb-6 leading-tight px-2">
+                <h3 class="text-base lg:text-3xl font-bold mb-6 leading-tight px-2">
                     Hésitant entre un pack et une formule à la carte ?
                 </h3>
 
-                <p class="text-lg lg:text-2xl mb-8 leading-relaxed px-4">
+                <p class="text-base lg:text-2xl mb-8 leading-relaxed px-4">
                     Utilisez le <span class="font-bold">simulateur de devis ci-dessous</span> pour visualiser l'option la plus adaptée.
                 </p>
 
@@ -66,6 +66,7 @@
                         src="../img/Chouetteailesouvertesyeuxfermés.svg"
                         alt="Illustration chouette"
                         class="
+                        hidden md:block
             -bottom-[6vw]
             w-[120%] lg:w-[300%]   /* on agrandit l'image */
             h-auto               /* garde les proportions */
