@@ -1,179 +1,86 @@
-let allProjects = [];      // Liste des projets chargés
-let currentProjectIndex = 0; // Index du projet affiché dans le modal
+let allProjects = [];
+let currentProjectIndex = 0;
 
-// Fonction pour charger les projets depuis le fichier JSON
 async function loadProjectsFromJSON() {
     try {
         const response = await fetch('../Data/projects.json');
-        if (!response.ok) {
-            throw new Error('Erreur lors du chargement des projets');
-        }
         const data = await response.json();
-        allProjects = data.projects; // On stocke partout les projets
+        allProjects = data.projects;
         displayProjects(allProjects);
-    } catch (error) {
-        console.error('Erreur:', error);
-        document.getElementById('projects-grid').innerHTML = `
-            <div class="col-span-full text-center text-red-400">
-                <p>Erreur lors du chargement des projets. Veuillez réessayer plus tard.</p>
-            </div>
-        `;
-    }
+    } catch (error) { console.error(error); }
 }
 
-// Fonction pour afficher les projets
 function displayProjects(projects) {
     const grid = document.getElementById('projects-grid');
     grid.innerHTML = '';
-
     projects.forEach((project, index) => {
-        const projectCard = document.createElement('div');
-        projectCard.className = 'project-card group cursor-pointer';
-        projectCard.dataset.projectId = project.id;
-        projectCard.style.animationDelay = `${(index + 1) * 0.1}s`;
-
-        projectCard.innerHTML = `
-            <div class="relative bg-gradient-to-br ${project.bgGradient} rounded-[70px] shadow-2xl transition-all duration-500 hover:scale-105 hover:border-[#C38D3C] hover:border-[10px] border-4 ${project.borderColor}">
-                <img src="../img/Etoile%20filante%20blanche%20trainée%20jaune.svg" 
-                     class="absolute ${index % 2 === 0 ? '-top-7 -left-7 rotate-[11.9rad]' : '-top-7 -right-7 rotate-[0.9rad]'} w-20 h-20 z-20" alt="">
-                <img src="../img/Etoile%20filante%20blanche%20trainée%20pointillée%20jaune.svg" 
-                     class="absolute ${index % 2 === 0 ? '-bottom-10 -right-7 -rotate-[10rad]' : '-bottom-10 -left-7 -rotate-[14.9rad]'} w-20 h-20 z-20" alt="">
-
-                <div class="relative w-full h-[40vh] flex items-center justify-center overflow-hidden">
-                    <img 
-                        src="${project.thumbnail}" 
-                        alt="${project.title}" 
-                        class="w-full h-full object-cover rounded-[70px] ${project.hasOverlay ? 'opacity-70' : ''}">
+        const card = document.createElement('div');
+        card.className = 'project-card group cursor-pointer';
+        // RETOUR DES ÉTOILES FILANTES ET DU HOVER ORIGINAL
+        card.innerHTML = `
+            <div class="relative bg-gradient-to-br ${project.bgGradient} rounded-[60px] lg:rounded-[70px] transition-all duration-500 hover:scale-105 hover:border-[#C38D3C] hover:border-[10px] border-4 ${project.borderColor} shadow-2xl">
+                <img src="../img/Etoile%20filante%20blanche%20trainée%20jaune.svg" class="absolute ${index % 2 === 0 ? '-top-6 -left-6 rotate-[12.1rad]' : '-top-6 -right-6 rotate-[0.7rad]'} w-20 lg:w-24 z-20">
+                <img src="../img/Etoile%20filante%20blanche%20trainée%20pointillée%20jaune.svg" class="absolute ${index % 2 === 0 ? '-bottom-7 -right-7 -rotate-[10rad]' : '-bottom-7 -left-7 -rotate-[14.9rad]'} w-20 lg:w-24 z-20">
                 
-                    ${project.hasOverlay ? `
-                    <div class="absolute rounded-[60px] inset-0 w-full h-full bg-[#5A4531]/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <h3 class="text-4xl font-bold text-white">${project.title}</h3>
-                    </div>` : ''}
+                <div class="relative w-full h-[35vh] lg:h-[45vh] flex items-center justify-center overflow-hidden rounded-[50px] lg:rounded-[60px]">
+                    <img src="${project.thumbnail}" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-[#5A4531]/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <h3 class="text-3xl lg:text-4xl font-bold text-white uppercase text-center px-4">${project.title}</h3>
+                    </div>
                 </div>
-            </div>
-        `;
-
-        projectCard.addEventListener('click', () => {
-            currentProjectIndex = index;
-            openModal(projects[index]);
-        });
-
-        grid.appendChild(projectCard);
+            </div>`;
+        card.onclick = () => { currentProjectIndex = index; openModal(allProjects[index]); };
+        grid.appendChild(card);
     });
 }
 
-// Fonction pour ouvrir le modal
-function openModal(project) {
-
-    const modal = document.getElementById('project-modal');
-    const modalTitle = document.getElementById('modal-title');
-    const modalDescription = document.getElementById('modal-description');
-    const modalImages = document.getElementById('modal-images');
-
-    modalTitle.textContent = project.title;
-
-    modalDescription.innerHTML = project.description
-        .map(paragraph => `<p>${paragraph}</p>`)
-        .join('');
-
-    // ✅ SEULE MODIFICATION ICI (classes + onclick)
-    modalImages.innerHTML = project.images
-        .map(image => `
-            <img 
-                src="${image}" 
-                alt="${project.title}" 
-                class="
-                    w-64 sm:w-72 xl:w-full
-                    flex-shrink-0
-                    rounded-2xl
-                    shadow-xl
-                    hover:scale-105
-                    transition-transform duration-300
-                    cursor-pointer
-                    snap-center
-                "
-                onclick="openImageViewer('${image}')"
-            >
-        `)
-        .join('');
-
-    modal.classList.remove('hidden');
-    modal.classList.add('flex');
-    document.body.style.overflow = 'hidden';
-
-    setupArrows();
-}
-
-// Fonction de navigation entre projets
-function setupArrows() {
-    const backArrow = document.getElementById('back-arrow');
-    const nextArrow = document.getElementById('next-arrow');
-
-    backArrow.onclick = () => {
-        currentProjectIndex =
-            (currentProjectIndex - 1 + allProjects.length) % allProjects.length;
-        openModal(allProjects[currentProjectIndex]);
-    };
-
-    nextArrow.onclick = () => {
-        currentProjectIndex =
-            (currentProjectIndex + 1) % allProjects.length;
-        openModal(allProjects[currentProjectIndex]);
-    };
-}
-
-// Fonction pour fermer le modal
-function closeModal() {
-    const modal = document.getElementById('project-modal');
-    modal.classList.add('hidden');
-    modal.classList.remove('flex');
-    document.body.style.overflow = 'auto';
-}
-
-// ===============================
-// 🔍 IMAGE VIEWER FULLSCREEN (AJOUT)
-// ===============================
+// FONCTION POUR VOIR EN GRAND (AJOUTÉE)
 function openImageViewer(src) {
     const viewer = document.createElement('div');
-    viewer.className = `
-        fixed inset-0 z-[9999]
-        bg-black/90
-        flex items-center justify-center
-        cursor-zoom-out
-    `;
-
-    viewer.innerHTML = `
-        <img src="${src}" 
-             class="max-w-[95vw] max-h-[95vh] rounded-xl shadow-2xl">
-    `;
-
-    viewer.addEventListener('click', () => viewer.remove());
-
-    document.addEventListener('keydown', function esc(e) {
-        if (e.key === 'Escape') {
-            viewer.remove();
-            document.removeEventListener('keydown', esc);
-        }
-    });
-
+    viewer.className = 'fixed inset-0 z-[200] bg-black/95 flex items-center justify-center p-4 cursor-zoom-out';
+    viewer.innerHTML = `<img src="${src}" class="max-w-full max-h-full rounded-xl shadow-2xl transition-all scale-95 animate-in zoom-in duration-300">`;
+    viewer.onclick = () => viewer.remove();
     document.body.appendChild(viewer);
 }
 
-// Événements pour fermer le modal
-document.addEventListener('DOMContentLoaded', function() {
-    loadProjectsFromJSON();
-
-    const closeButton = document.getElementById('close-modal');
-    if (closeButton) closeButton.addEventListener('click', closeModal);
-
+function openModal(project) {
     const modal = document.getElementById('project-modal');
-    if (modal) {
-        modal.addEventListener('click', function(e) {
-            if (e.target === modal) closeModal();
-        });
-    }
+    document.getElementById('modal-title').textContent = project.title;
+    document.getElementById('modal-description').innerHTML = project.description.map(p => `<p class="mb-4">${p}</p>`).join('');
 
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') closeModal();
-    });
+    const imgContainer = document.getElementById('modal-images');
+    // AJOUT DU ONCLICK SUR CHAQUE IMAGE
+    imgContainer.innerHTML = project.images.map(img => `
+        <img src="${img}" class="w-full rounded-[30px] lg:rounded-[45px] shadow-xl hover:brightness-105 transition-all cursor-zoom-in" onclick="openImageViewer('${img}')">
+    `).join('');
+
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+    document.body.classList.add('modal-open');
+    imgContainer.scrollTop = 0;
+    setupArrows();
+}
+
+function closeModal() {
+    document.getElementById('project-modal').classList.add('hidden');
+    document.body.classList.remove('modal-open');
+}
+
+function setupArrows() {
+    document.getElementById('back-arrow').onclick = (e) => {
+        e.stopPropagation();
+        currentProjectIndex = (currentProjectIndex - 1 + allProjects.length) % allProjects.length;
+        openModal(allProjects[currentProjectIndex]);
+    };
+    document.getElementById('next-arrow').onclick = (e) => {
+        e.stopPropagation();
+        currentProjectIndex = (currentProjectIndex + 1) % allProjects.length;
+        openModal(allProjects[currentProjectIndex]);
+    };
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    loadProjectsFromJSON();
+    document.getElementById('close-modal').onclick = closeModal;
+    document.getElementById('project-modal').onclick = (e) => { if(e.target.id === 'project-modal') closeModal(); };
 });

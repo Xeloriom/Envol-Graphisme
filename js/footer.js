@@ -9,7 +9,7 @@ function createFooter() {
     footerDiv.innerHTML = `
     <!-- Fond SVG -->
     <div id="footer-bg" class="absolute inset-0 w-[115%] lg:w-[105%] h-[110%] lg:h-[200%] pointer-events-none"
-         style="background-image: url('./img/Footer.svg');
+         style="background-image: url('/Envol-Graphisme/img/Footer.svg');
                 background-repeat: no-repeat; 
                 background-size: cover;
                 background-position: right bottom;">
@@ -108,12 +108,12 @@ function setFooterBackground() {
 
     if (window.innerWidth <= 1024) {
         // Mobile
-        bgDiv.style.backgroundImage = "url('./img/Footer-mobile.svg')";
+        bgDiv.style.backgroundImage = "url('/Envol-Graphisme/img/Footer-mobile.svg')";
         bgDiv.style.backgroundSize = "cover";
         bgDiv.style.backgroundPosition = "right bottom";
     } else {
         // Desktop
-        bgDiv.style.backgroundImage = "url('./img/Footer.svg')";
+        bgDiv.style.backgroundImage = "url('/Envol-Graphisme/img/Footer.svg')";
         bgDiv.style.backgroundSize = "cover";
         bgDiv.style.backgroundPosition = "right bottom";
     }

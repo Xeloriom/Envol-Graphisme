@@ -118,6 +118,11 @@ function toggleSection(id) {
 
 function sendContact() {
     const total = document.getElementById('totalPrice').textContent;
-    if(total === '0€') return alert('Veuillez choisir au moins une option.');
-    alert('Simulation terminée (Total: ' + total + '). Redirection vers le contact...');
+
+    if(total === '0€') {
+        return alert('Veuillez choisir au moins une option.');
+    }
+
+    // Redirection vers la page contact
+    window.location.href = '/Envol-Graphisme/View/Contact.html';
 }
