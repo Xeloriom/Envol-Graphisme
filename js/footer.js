@@ -6,141 +6,100 @@ const socialNetworks = [
     { name:'Behance',   url:'https://www.behance.net/envol-graphisme',        icon:'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/behance.svg',   bg:'#053eff' }
 ];
 
+function setFooterBg() {
+    var bg = document.getElementById('footer-bg');
+    if (!bg) return;
+    var isMobile = window.innerWidth <= 1024;
+    bg.style.backgroundImage = "url('" + FOOTER_BASE + '/img/' + (isMobile ? 'Footer-mobile' : 'Footer') + ".svg')";
+}
+
 function initFooter() {
-    const container = document.getElementById('bienvenue');
+    var container = document.getElementById('bienvenue');
     if (!container) return;
 
-    /* ── Separator wave ── */
-    const sep = document.createElement('div');
-    sep.style.cssText = 'width:100%;line-height:0;overflow:hidden;margin-top:2rem;';
-    sep.innerHTML = `<svg viewBox="0 0 1440 60" preserveAspectRatio="none" style="width:100%;height:60px;display:block;" aria-hidden="true">
-        <path d="M0,40 C360,0 1080,80 1440,30 L1440,60 L0,60 Z" fill="#0c1325"/>
-    </svg>`;
-
-    /* ── Footer element ── */
-    const footer = document.createElement('footer');
-    footer.id = 'site-footer';
+    var footer = document.createElement('footer');
     footer.setAttribute('role', 'contentinfo');
-    footer.style.cssText = `
-        position: relative;
-        background: #0c1325;
-        overflow: hidden;
-        padding: 3rem 1.5rem 2rem;
-    `;
+    footer.style.cssText = 'position:relative;width:100%;overflow:visible;background:transparent;';
 
-    footer.innerHTML = `
-    <!-- Étoiles de fond -->
-    <div style="position:absolute;inset:0;
-                background-image:url('${FOOTER_BASE}/img/Motif%20étoiles%20blanches.svg');
-                background-size:500px 500px;opacity:0.04;pointer-events:none;" aria-hidden="true"></div>
+    footer.innerHTML =
+        /* ── Image de fond originale (Footer.svg / Footer-mobile.svg) ── */
+        '<div id="footer-bg" aria-hidden="true"' +
+        '     style="position:absolute;inset:0;width:115%;height:110%;' +
+        '            background-repeat:no-repeat;background-size:cover;background-position:right bottom;' +
+        '            pointer-events:none;"></div>' +
 
-    <!-- Chouette décorative droite -->
-    <div style="position:absolute;bottom:0;right:-10px;width:min(260px,35vw);
-                pointer-events:none;opacity:0.18;z-index:0;" aria-hidden="true">
-        <img src="${FOOTER_BASE}/img/Chouetteailesouvertes.svg"
-             alt="" style="width:100%;height:auto;display:block;" loading="lazy">
-    </div>
+        /* ── Contenu ── */
+        '<div style="position:relative;z-index:1;width:100%;max-width:900px;' +
+        '            padding:3rem 1.5rem 1.5rem;display:flex;flex-wrap:wrap;gap:2.5rem;">' +
 
-    <!-- Ligne décorative top -->
-    <div style="position:absolute;top:0;left:0;right:0;height:1px;
-                background:linear-gradient(90deg,transparent,rgba(203,141,48,0.4),transparent);"
-         aria-hidden="true"></div>
+            /* Navigation */
+            '<nav style="display:flex;flex-direction:column;gap:0.7rem;min-width:120px;" aria-label="Navigation footer">' +
+                ['Bienvenue:' + FOOTER_BASE + '/index.html',
+                 'Projets:'   + FOOTER_BASE + '/View/Projets.html',
+                 'Offres:'    + FOOTER_BASE + '/View/Offres.html',
+                 'Contact:'   + FOOTER_BASE + '/View/Contact.html']
+                .map(function(s){
+                    var p = s.split(':'); var label = p[0]; var href = p.slice(1).join(':');
+                    return '<a href="' + href + '"' +
+                           ' style="font-family:\'Josefin Sans\',sans-serif;font-size:0.78rem;' +
+                           'letter-spacing:0.14em;text-transform:uppercase;color:rgba(222,227,246,0.65);' +
+                           'text-decoration:none;transition:color 0.2s;"' +
+                           ' onmouseover="this.style.color=\'#CB8D30\'"' +
+                           ' onmouseout="this.style.color=\'rgba(222,227,246,0.65)\'">' + label + '</a>';
+                }).join('') +
+            '</nav>' +
 
-    <!-- Contenu principal -->
-    <div style="position:relative;z-index:1;max-width:900px;margin:0 auto;">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;"
-             class="footer-grid">
+            /* Réseaux */
+            '<div style="display:flex;flex-direction:column;gap:1rem;">' +
+                '<p id="social" style="font-family:\'Josefin Sans\',sans-serif;font-weight:700;' +
+                '   font-size:0.78rem;letter-spacing:0.14em;text-transform:uppercase;color:#CB8D30;">'+
+                'Retrouvez-moi</p>' +
+                '<div id="social-links" style="display:flex;gap:0.7rem;flex-wrap:wrap;" role="list"></div>' +
+                '<a href="https://linktr.ee/envol.graphisme" target="_blank" rel="noopener noreferrer"' +
+                '   style="font-size:0.75rem;color:rgba(222,227,246,0.45);text-decoration:underline;' +
+                '          font-family:\'Josefin Sans\',sans-serif;transition:color 0.2s;"' +
+                '   onmouseover="this.style.color=\'#CB8D30\'"' +
+                '   onmouseout="this.style.color=\'rgba(222,227,246,0.45)\'">Linktree</a>' +
+            '</div>' +
+        '</div>' +
 
-            <!-- Navigation -->
-            <nav style="display:flex;flex-direction:column;gap:0.75rem;" aria-label="Navigation footer">
-                <a href="${FOOTER_BASE}/index.html"
-                   style="font-family:'Josefin Sans',sans-serif;font-size:0.78rem;letter-spacing:0.15em;
-                          text-transform:uppercase;color:rgba(222,227,246,0.6);text-decoration:none;
-                          transition:color 0.2s;"
-                   onmouseover="this.style.color='#CB8D30'"
-                   onmouseout="this.style.color='rgba(222,227,246,0.6)'">Bienvenue</a>
-                <a href="${FOOTER_BASE}/View/Projets.html"
-                   style="font-family:'Josefin Sans',sans-serif;font-size:0.78rem;letter-spacing:0.15em;
-                          text-transform:uppercase;color:rgba(222,227,246,0.6);text-decoration:none;
-                          transition:color 0.2s;"
-                   onmouseover="this.style.color='#CB8D30'"
-                   onmouseout="this.style.color='rgba(222,227,246,0.6)'">Projets</a>
-                <a href="${FOOTER_BASE}/View/Offres.html"
-                   style="font-family:'Josefin Sans',sans-serif;font-size:0.78rem;letter-spacing:0.15em;
-                          text-transform:uppercase;color:rgba(222,227,246,0.6);text-decoration:none;
-                          transition:color 0.2s;"
-                   onmouseover="this.style.color='#CB8D30'"
-                   onmouseout="this.style.color='rgba(222,227,246,0.6)'">Offres</a>
-                <a href="${FOOTER_BASE}/View/Contact.html"
-                   style="font-family:'Josefin Sans',sans-serif;font-size:0.78rem;letter-spacing:0.15em;
-                          text-transform:uppercase;color:rgba(222,227,246,0.6);text-decoration:none;
-                          transition:color 0.2s;"
-                   onmouseover="this.style.color='#CB8D30'"
-                   onmouseout="this.style.color='rgba(222,227,246,0.6)'">Contact</a>
-            </nav>
+        /* Copyright */
+        '<div style="position:relative;z-index:1;padding:1rem 1.5rem 1.5rem;' +
+        '            border-top:1px solid rgba(255,255,255,0.08);">' +
+            '<p id="copyright-text"' +
+            '   style="font-family:\'Josefin Sans\',sans-serif;font-size:0.7rem;' +
+            '          color:rgba(222,227,246,0.28);letter-spacing:0.05em;"></p>' +
+        '</div>';
 
-            <!-- Réseaux + logo -->
-            <div style="display:flex;flex-direction:column;align-items:flex-start;gap:1.25rem;">
-                <p style="font-family:'Josefin Sans',sans-serif;font-weight:700;font-size:0.78rem;
-                           letter-spacing:0.15em;text-transform:uppercase;color:#CB8D30;"
-                   id="social">Retrouvez-moi</p>
-                <div id="social-links" style="display:flex;gap:0.75rem;flex-wrap:wrap;" role="list"></div>
-                <a href="https://linktr.ee/envol.graphisme" target="_blank" rel="noopener noreferrer"
-                   style="font-family:'Josefin Sans',sans-serif;font-size:0.75rem;
-                          color:rgba(222,227,246,0.5);text-decoration:underline;transition:color 0.2s;"
-                   onmouseover="this.style.color='#CB8D30'"
-                   onmouseout="this.style.color='rgba(222,227,246,0.5)'">Linktree</a>
-            </div>
-        </div>
-
-        <!-- Copyright -->
-        <div style="margin-top:2.5rem;padding-top:1.5rem;
-                    border-top:1px solid rgba(203,141,48,0.15);
-                    display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
-            <p id="copyright-text"
-               style="font-family:'Josefin Sans',sans-serif;font-size:0.72rem;
-                      color:rgba(222,227,246,0.3);letter-spacing:0.05em;"></p>
-            <img src="${FOOTER_BASE}/img/ENVOL%20Graphisme%20Logo%20clair.png"
-                 alt="Envol Graphisme" style="height:28px;opacity:0.4;" loading="lazy">
-        </div>
-    </div>
-    `;
-
-    container.appendChild(sep);
     container.appendChild(footer);
 
-    // Réseaux sociaux
-    const socialEl = document.getElementById('social-links');
-    if (socialEl) {
-        socialNetworks.forEach(n => {
-            const a = document.createElement('a');
+    /* Réseaux sociaux */
+    var sl = document.getElementById('social-links');
+    if (sl) {
+        socialNetworks.forEach(function(n) {
+            var a = document.createElement('a');
             a.href = n.url; a.target = '_blank'; a.rel = 'noopener noreferrer';
             a.setAttribute('aria-label', n.name);
             a.setAttribute('role', 'listitem');
-            a.style.cssText = `width:40px;height:40px;border-radius:50%;background:${n.bg};
-                display:flex;align-items:center;justify-content:center;
-                transition:transform 0.2s,box-shadow 0.2s;text-decoration:none;`;
-            a.onmouseover = () => { a.style.transform='scale(1.12)'; a.style.boxShadow='0 4px 20px rgba(0,0,0,0.4)'; };
-            a.onmouseout  = () => { a.style.transform='scale(1)';    a.style.boxShadow='none'; };
-            const img = document.createElement('img');
+            a.style.cssText = 'width:38px;height:38px;border-radius:50%;background:' + n.bg +
+                ';display:flex;align-items:center;justify-content:center;transition:transform 0.2s;text-decoration:none;';
+            a.onmouseover = function(){ this.style.transform='scale(1.12)'; };
+            a.onmouseout  = function(){ this.style.transform='scale(1)'; };
+            var img = document.createElement('img');
             img.src = n.icon; img.alt = n.name;
-            img.style.cssText = 'width:18px;height:18px;filter:invert(1);';
+            img.style.cssText = 'width:17px;height:17px;filter:invert(1);';
             img.loading = 'lazy';
-            a.appendChild(img); socialEl.appendChild(a);
+            a.appendChild(img); sl.appendChild(a);
         });
     }
 
-    // Copyright
-    const copy = document.getElementById('copyright-text');
-    if (copy) copy.textContent = `Envol Graphisme · SIRET 93907780600015 · © ${new Date().getFullYear()} Tous droits réservés`;
+    /* Copyright */
+    var cp = document.getElementById('copyright-text');
+    if (cp) cp.textContent = 'Envol Graphisme · SIRET 93907780600015 · © ' + new Date().getFullYear() + ' Tous droits réservés';
 
-    // Responsive grid (mobile = 1 colonne)
-    const grid = footer.querySelector('.footer-grid');
-    function checkWidth() {
-        if (grid) grid.style.gridTemplateColumns = window.innerWidth < 640 ? '1fr' : '1fr 1fr';
-    }
-    checkWidth();
-    window.addEventListener('resize', checkWidth, { passive: true });
+    /* Image de fond */
+    setFooterBg();
+    window.addEventListener('resize', setFooterBg, { passive: true });
 }
 
 if (document.readyState === 'loading') {

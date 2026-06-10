@@ -13,8 +13,14 @@ function createNavbar() {
 
     nav.innerHTML = `
     <style>
-        #main-nav { background: linear-gradient(to bottom, rgba(18,25,50,0.98) 0%, rgba(18,25,50,0.85) 100%); }
-        #main-nav.scrolled { background: rgba(15,20,42,0.97); box-shadow: 0 2px 40px rgba(0,0,0,0.5); }
+        /* Transparent en haut, opaque au scroll */
+        #main-nav { background: transparent; }
+        #main-nav.scrolled {
+            background: rgba(12,19,37,0.96);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            box-shadow: 0 2px 40px rgba(0,0,0,0.5);
+        }
 
         .nav-inner {
             max-width: 1280px;
