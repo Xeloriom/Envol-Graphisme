@@ -3,81 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
-    <!-- ═══ SEO PRIMARY ═══ -->
     <title>Projets – Envol Graphisme | Portfolio Design Graphique</title>
-    <meta name="description" content="Découvrez le portfolio d'Envol Graphisme : logos, identités visuelles, affiches et créations graphiques sur mesure. Chaque projet est unique, imaginé spécialement pour vous.">
-    <meta name="keywords" content="portfolio graphiste, projets design graphique, créations logos, identité visuelle exemples, Envol Graphisme portfolio">
+    <meta name="description" content="Découvrez le portfolio d'Envol Graphisme : logos, identités visuelles, affiches et créations graphiques sur mesure.">
+    <meta name="keywords" content="portfolio graphiste, projets design graphique, créations logos, identité visuelle">
     <meta name="author" content="Envol Graphisme">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://Xeloriom.github.io/Envol-Graphisme/View/Projets.html">
-
-    <!-- ═══ OPEN GRAPH ═══ -->
     <meta property="og:type"        content="website">
     <meta property="og:title"       content="Projets – Envol Graphisme | Portfolio">
-    <meta property="og:description" content="Découvrez les créations d'Envol Graphisme : logos, identités visuelles, affiches et plus encore.">
+    <meta property="og:description" content="Découvrez les créations d'Envol Graphisme : logos, identités visuelles, affiches.">
     <meta property="og:image"       content="https://Xeloriom.github.io/Envol-Graphisme/img/ENVOL%20Graphisme%20Logo%20clair.png">
     <meta property="og:url"         content="https://Xeloriom.github.io/Envol-Graphisme/View/Projets.html">
     <meta property="og:locale"      content="fr_FR">
-    <meta property="og:site_name"   content="Envol Graphisme">
-
-    <!-- ═══ TWITTER CARD ═══ -->
     <meta name="twitter:card"        content="summary_large_image">
-    <meta name="twitter:title"       content="Projets – Envol Graphisme | Portfolio">
-    <meta name="twitter:description" content="Découvrez les créations d'Envol Graphisme : logos, identités visuelles, affiches et plus encore.">
     <meta name="twitter:image"       content="https://Xeloriom.github.io/Envol-Graphisme/img/ENVOL%20Graphisme%20Logo%20clair.png">
-
-    <!-- ═══ FAVICON ═══ -->
-    <link rel="icon"             type="image/png" href="/Envol-Graphisme/img/Logo.png">
-    <link rel="apple-touch-icon"                  href="/Envol-Graphisme/img/Logo.png">
-
-    <!-- ═══ PRECONNECT ═══ -->
+    <link rel="icon" type="image/png" href="/Envol-Graphisme/img/Logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-
-    <!-- ═══ FONTS ═══ -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
-
-    <!-- ═══ TAILWIND ═══ -->
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- ═══ AOS ═══ -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
-
-    <!-- ═══ SWIPER ═══ -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-
-    <!-- ═══ GSAP ═══ -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-
-    <!-- ═══ CUSTOM CSS ═══ -->
     <link rel="stylesheet" href="../style.css">
-
     <style>
-        html, body { max-width:100vw; overflow-x:hidden; position:relative; }
+        html, body { max-width:100vw; overflow-x:hidden; }
         body.modal-open { overflow:hidden !important; }
         .custom-scroll::-webkit-scrollbar { width:4px; }
         .custom-scroll::-webkit-scrollbar-thumb { background:#CB8D30; border-radius:10px; }
-
         @media (max-width:1023px) {
             .modal-inner-frame {
                 background-image: url('../img/Cadrejaunemobile.svg') !important;
                 background-size: 100% 100%;
-                width: 92%;
-                height: 85vh;
-                padding: 18% 10% 10% 10% !important;
+                width: 94%; height: 88vh;
+                padding: 18% 8% 10% 8% !important;
             }
         }
         @media (min-width:1024px) {
             .modal-inner-frame {
                 background-image: url('../img/CadreJaune.svg') !important;
                 background-size: contain;
-                width: 100%;
-                max-width: 1200px;
-                height: 85vh;
+                width: 100%; max-width: 1200px; height: 85vh;
                 padding: 8% 10% !important;
             }
         }
@@ -85,70 +54,80 @@
 </head>
 <body id="bienvenue" class="bg-[#1a2332] text-white">
 
+<!-- LOADER inline -->
+<div id="page-loader" role="status" aria-label="Chargement">
+    <div class="loader-bg-stars" id="ldr-stars"></div>
+    <div class="loader-core">
+        <div class="loader-logo-wrap">
+            <div class="loader-orbit"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+            <div class="loader-orbit-outer"><span></span><span></span><span></span><span></span></div>
+            <img src="/Envol-Graphisme/img/ENVOL%20Graphisme%20Logo%20clair.png" alt="" class="loader-logo">
+        </div>
+        <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+        <p class="loader-tagline">Envol Graphisme</p>
+    </div>
+</div>
+<script>
+(function(){document.documentElement.style.overflow='hidden';var c=document.getElementById('ldr-stars');if(!c)return;for(var i=0;i<80;i++){var s=document.createElement('span');var sz=Math.random()*2.5+0.5;s.style.cssText='width:'+sz+'px;height:'+sz+'px;left:'+Math.random()*100+'%;top:'+Math.random()*100+'%;--dur:'+(Math.random()*2+1.5)+'s;--delay:'+(Math.random()*3)+'s;opacity:'+(Math.random()*0.6+0.2)+';';c.appendChild(s);}})();
+</script>
+
 <a href="#projets" class="skip-link">Aller au contenu principal</a>
 
-<section id="projets" class="relative min-h-screen py-40 px-6 lg:px-20 overflow-hidden"
-         aria-label="Portfolio de projets">
+<section id="projets" class="relative min-h-screen pt-32 sm:pt-36 pb-20 px-4 sm:px-6 lg:px-16 overflow-hidden">
 
-    <div class="absolute inset-0
-                bg-[url('../img/Motif%20étoiles%20blanches.svg')]
+    <div class="absolute inset-0 bg-[url('../img/Motif%20étoiles%20blanches.svg')]
                 bg-[length:700%] md:bg-[length:150%] bg-center opacity-10
                 [mask-image:linear-gradient(to_top,rgba(0,0,0,0.8),rgba(0,0,0,0))]
-                [-webkit-mask-image:linear-gradient(to_top,rgba(0,0,0,0.8),rgba(0,0,0,0))]
-                pointer-events-none"
-         aria-hidden="true">
-    </div>
+                pointer-events-none" aria-hidden="true"></div>
 
-    <div class="relative z-10 max-w-8xl mx-auto">
-        <h1 class="text-[clamp(1.8rem,4vw,3rem)] font-bold text-center mb-16 text-[#DEE3F6]"
-            data-aos="fade-down">
-            Mes créations
-        </h1>
+    <div class="relative z-10 max-w-7xl mx-auto">
+        <div id="projets-header" class="text-center mb-12 sm:mb-16">
+            <h1 class="projets-h1 text-[clamp(1.8rem,5vw,3.5rem)] font-bold text-[#DEE3F6] opacity-0">
+                Mes créations
+            </h1>
+            <p class="projets-sub mt-3 text-[clamp(0.85rem,2vw,1.1rem)] text-[#CB8D30] tracking-widest uppercase opacity-0">
+                Chaque projet est imaginé pour vous
+            </p>
+            <div class="projets-line flex items-center justify-center gap-3 mt-4 opacity-0" aria-hidden="true">
+                <span style="width:40px;height:1px;background:rgba(203,141,48,0.4)"></span>
+                <span style="color:#CB8D30;font-size:1.1rem">✦</span>
+                <span style="width:40px;height:1px;background:rgba(203,141,48,0.4)"></span>
+            </div>
+        </div>
         <div id="projects-grid"
-             class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-16 px-4"
+             class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 lg:gap-14 px-2 sm:px-4"
              role="list">
         </div>
     </div>
 </section>
 
-<!-- ══ MODALE PROJET ══ -->
+<!-- MODALE -->
 <div id="project-modal"
      class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/85 p-2 overflow-hidden"
      role="dialog" aria-modal="true" aria-labelledby="modal-title">
-
     <button id="back-arrow"
-            class="absolute left-2 md:left-6 top-1/2 -translate-y-1/2 w-10 md:w-16 z-[110] transition-transform hover:scale-110"
+            class="absolute left-2 md:left-5 top-1/2 -translate-y-1/2 w-10 md:w-14 z-[110] transition-transform hover:scale-110"
             aria-label="Projet précédent">
         <svg class="text-[#CB8D30] rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
         </svg>
     </button>
-
     <div class="modal-inner-frame relative bg-no-repeat bg-center flex items-center justify-center overflow-hidden">
-
         <button id="close-modal"
                 class="absolute top-4 right-4 md:top-[8%] md:right-[8%] w-10 md:w-14 z-[120] hover:rotate-90 transition-all"
-                aria-label="Fermer le projet">
+                aria-label="Fermer">
             <img src="../img/CroixJaune.svg" class="w-full h-full" alt="">
         </button>
-
-        <div class="w-full h-full flex flex-col lg:flex-row gap-6 lg:gap-12 overflow-hidden">
+        <div class="w-full h-full flex flex-col lg:flex-row gap-4 lg:gap-10 overflow-hidden">
             <div class="w-full lg:w-1/2 flex flex-col overflow-hidden">
-                <h2 id="modal-title"
-                    class="text-2xl md:text-5xl font-extrabold text-[#42290D] uppercase mb-4 tracking-tighter">
-                </h2>
-                <div id="modal-description"
-                     class="text-[#42290D] text-sm md:text-base leading-relaxed overflow-y-auto custom-scroll pr-4">
-                </div>
+                <h2 id="modal-title" class="text-xl sm:text-3xl md:text-4xl font-extrabold text-[#42290D] uppercase mb-3 tracking-tighter"></h2>
+                <div id="modal-description" class="text-[#42290D] text-sm md:text-base leading-relaxed overflow-y-auto custom-scroll pr-2"></div>
             </div>
-            <div id="modal-images"
-                 class="w-full lg:w-1/2 overflow-y-auto custom-scroll flex lg:flex-col gap-6 pr-2">
-            </div>
+            <div id="modal-images" class="w-full lg:w-1/2 overflow-y-auto custom-scroll flex lg:flex-col gap-4 pr-1"></div>
         </div>
     </div>
-
     <button id="next-arrow"
-            class="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 w-10 md:w-16 z-[110] transition-transform hover:scale-110"
+            class="absolute right-2 md:right-5 top-1/2 -translate-y-1/2 w-10 md:w-14 z-[110] transition-transform hover:scale-110"
             aria-label="Projet suivant">
         <svg class="text-[#CB8D30] -rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
@@ -156,27 +135,30 @@
     </button>
 </div>
 
-<!-- ══════════════════════════
-     SCRIPTS
-     ══════════════════════════ -->
-<script src="../js/loader.js"></script>
-<script src="../js/projets.js"></script>
 <script src="../js/navbar.js"></script>
+<script src="../js/projets.js"></script>
 <script src="../js/footer.js"></script>
 <script src="../js/Parallax.js"></script>
 <script src="../js/owl-FAQ.js"></script>
-<script src="../js/testimonial-slide.js"></script>
 <script src="../i18n/i18n.js"></script>
 <script src="../js/Swiper.js"></script>
-
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 <script>
-    AOS.init({ duration: 700, easing: 'ease-out-quad', once: true });
+(function(){
+    function hideLoader(){var l=document.getElementById('page-loader');if(!l)return;l.classList.add('loader-out');setTimeout(function(){if(l.parentNode)l.parentNode.removeChild(l);},900);document.documentElement.style.overflow='';}
+    if(document.readyState==='complete'){setTimeout(hideLoader,350);}
+    else{window.addEventListener('load',function(){setTimeout(hideLoader,350);});}
+    setTimeout(hideLoader,5000);
+})();
 
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') closeModal();
-    });
+AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true });
+
+document.addEventListener('DOMContentLoaded', function() {
+    gsap.fromTo('.projets-h1',   { opacity:0, y:50 }, { opacity:1, y:0, duration:1,   ease:'power3.out', delay:0.4 });
+    gsap.fromTo('.projets-sub',  { opacity:0, y:30 }, { opacity:1, y:0, duration:0.8, ease:'power3.out', delay:0.7 });
+    gsap.fromTo('.projets-line', { opacity:0 },        { opacity:1,      duration:0.6,                   delay:1.0 });
+    document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeModal(); });
+});
 </script>
-
 </body>
 </html>

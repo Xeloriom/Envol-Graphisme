@@ -3,134 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- ═══ SEO PRIMARY ═══ -->
     <title>Nos Offres – Envol Graphisme | Tarifs & Packs Design Graphique</title>
-    <meta name="description" content="Découvrez les offres et tarifs d'Envol Graphisme : pack identité visuelle dès 600€, logo à partir de 400€, carte de visite, affiche, flyer et plus. Simulez votre devis gratuitement.">
-    <meta name="keywords" content="tarifs graphiste, prix logo, pack identité visuelle, devis design graphique, offre graphique freelance, Envol Graphisme prix">
+    <meta name="description" content="Découvrez les offres et tarifs d'Envol Graphisme : pack identité visuelle dès 600€, logo à partir de 400€, carte de visite, affiche, flyer. Simulez votre devis gratuitement.">
+    <meta name="keywords" content="tarifs graphiste, prix logo, pack identité visuelle, devis design graphique">
     <meta name="author" content="Envol Graphisme">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://Xeloriom.github.io/Envol-Graphisme/View/Offres.html">
-
-    <!-- ═══ OPEN GRAPH ═══ -->
     <meta property="og:type"        content="website">
     <meta property="og:title"       content="Nos Offres – Envol Graphisme">
-    <meta property="og:description" content="Pack identité visuelle, logo, affiche, flyer… Découvrez les tarifs et simulez votre devis en ligne.">
+    <meta property="og:description" content="Pack identité visuelle, logo, affiche, flyer… Découvrez les tarifs et simulez votre devis.">
     <meta property="og:image"       content="https://Xeloriom.github.io/Envol-Graphisme/img/ENVOL%20Graphisme%20Logo%20clair.png">
     <meta property="og:url"         content="https://Xeloriom.github.io/Envol-Graphisme/View/Offres.html">
     <meta property="og:locale"      content="fr_FR">
-    <meta property="og:site_name"   content="Envol Graphisme">
-
-    <!-- ═══ TWITTER CARD ═══ -->
     <meta name="twitter:card"        content="summary_large_image">
-    <meta name="twitter:title"       content="Nos Offres – Envol Graphisme">
-    <meta name="twitter:description" content="Pack identité visuelle, logo, affiche, flyer… Découvrez les tarifs et simulez votre devis.">
     <meta name="twitter:image"       content="https://Xeloriom.github.io/Envol-Graphisme/img/ENVOL%20Graphisme%20Logo%20clair.png">
-
-    <!-- ═══ FAVICON ═══ -->
-    <link rel="icon"             type="image/png" href="/Envol-Graphisme/img/Logo.png">
-    <link rel="apple-touch-icon"                  href="/Envol-Graphisme/img/Logo.png">
-
-    <!-- ═══ PRECONNECT ═══ -->
+    <link rel="icon" type="image/png" href="/Envol-Graphisme/img/Logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-
-    <!-- ═══ FONTS ═══ -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
-
-    <!-- ═══ TAILWIND ═══ -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="../style.css">
-
-    <!-- ═══ AOS ═══ -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
-
-    <!-- ═══ GSAP ═══ -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-
+    <link rel="stylesheet" href="../style.css">
     <style>
-        .popup-overlay { backdrop-filter: blur(8px); }
+        .popup-overlay { backdrop-filter: blur(10px); }
         .service-item  { cursor:pointer; user-select:none; transition:all 0.2s; }
-        .service-item:hover { background-color:#B5C0DD !important; }
-        .selected-item { background-color:#B5C0DD !important; }
-        .custom-scrollbar::-webkit-scrollbar { width:5px; }
+        .service-item:hover, .service-item.selected { background-color: rgba(181,192,221,0.35) !important; }
+        .custom-scrollbar::-webkit-scrollbar { width:4px; }
         .custom-scrollbar::-webkit-scrollbar-thumb { background:#A5B9E9; border-radius:10px; }
     </style>
 </head>
 <body id="bienvenue" class="bg-[#202B44] overflow-x-hidden">
 
+<!-- LOADER inline -->
+<div id="page-loader" role="status" aria-label="Chargement">
+    <div class="loader-bg-stars" id="ldr-stars"></div>
+    <div class="loader-core">
+        <div class="loader-logo-wrap">
+            <div class="loader-orbit"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+            <div class="loader-orbit-outer"><span></span><span></span><span></span><span></span></div>
+            <img src="/Envol-Graphisme/img/ENVOL%20Graphisme%20Logo%20clair.png" alt="" class="loader-logo">
+        </div>
+        <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+        <p class="loader-tagline">Envol Graphisme</p>
+    </div>
+</div>
+<script>
+(function(){document.documentElement.style.overflow='hidden';var c=document.getElementById('ldr-stars');if(!c)return;for(var i=0;i<80;i++){var s=document.createElement('span');var sz=Math.random()*2.5+0.5;s.style.cssText='width:'+sz+'px;height:'+sz+'px;left:'+Math.random()*100+'%;top:'+Math.random()*100+'%;--dur:'+(Math.random()*2+1.5)+'s;--delay:'+(Math.random()*3)+'s;opacity:'+(Math.random()*0.6+0.2)+';';c.appendChild(s);}})();
+</script>
+
 <a href="#main-content" class="skip-link">Aller au contenu principal</a>
 
 <section id="main-content"
-         class="relative min-h-screen py-20 lg:py-40 px-6 overflow-hidden
+         class="relative min-h-screen py-24 sm:py-32 lg:py-40 px-4 sm:px-6 overflow-hidden
                 bg-gradient-to-b from-[#202B44] via-[#5979BB] to-[#CCD7EE]">
 
-    <div class="absolute inset-0
-                bg-[url('../img/Motifplumeetétoilesblanches.svg')] bg-cover bg-center
-                opacity-5 pointer-events-none
-                [mask-image:linear-gradient(to_top,rgba(0,0,0,1),rgba(0,0,0,0))]
-                [-webkit-mask-image:linear-gradient(to_top,rgba(0,0,0,1),rgba(0,0,0,0))]"
-         aria-hidden="true">
-    </div>
+    <div class="absolute inset-0 bg-[url('../img/Motifplumeetétoilesblanches.svg')]
+                bg-cover bg-center opacity-5 pointer-events-none
+                [mask-image:linear-gradient(to_top,rgba(0,0,0,1),rgba(0,0,0,0))]"
+         aria-hidden="true"></div>
 
-    <div class="relative z-10 max-w-7xl mx-auto flex flex-col lg:flex-row gap-12 lg:gap-16">
+    <div class="relative z-10 max-w-7xl mx-auto flex flex-col lg:flex-row gap-10 lg:gap-16">
 
         <!-- ── Packs & Services ── -->
-        <div class="w-full lg:w-2/3 space-y-12">
-            <header class="text-center mb-10" data-aos="fade-down">
-                <h1 class="text-[clamp(1.5rem,4vw,2.5rem)] text-white font-bold mb-4">
+        <div class="w-full lg:w-2/3 space-y-10 lg:space-y-14">
+
+            <header class="text-center mb-8" id="offres-header">
+                <h1 class="offres-h1 text-[clamp(1.4rem,4vw,2.5rem)] text-white font-bold mb-3 opacity-0">
                     Mes offres d'accompagnement graphique
                 </h1>
-                <p class="text-[clamp(1rem,2.5vw,2rem)] text-white/70 font-light">
-                    Pour donner des ailes à vos projets
+                <p class="offres-sub text-[clamp(0.9rem,2.5vw,1.6rem)] text-white/70 font-light opacity-0">
+                    Pour donner des ailes à vos projets ✦
                 </p>
             </header>
 
-            <div id="main-packs-container" class="space-y-12" aria-label="Packs"></div>
+            <div id="main-packs-container"    class="space-y-8 lg:space-y-12"></div>
 
-            <div class="pt-10 text-center" data-aos="fade-up">
-                <h2 class="text-[clamp(1.5rem,4vw,2.5rem)] text-white font-bold mb-2">
-                    Services à la carte
-                </h2>
-                <p class="text-[clamp(1rem,2.5vw,2rem)] text-white/80 mb-6 font-light">
-                    Pour des besoins précis ou en complément d'un projet existant
+            <div class="pt-8 text-center" data-aos="fade-up">
+                <h2 class="text-[clamp(1.3rem,3.5vw,2.2rem)] text-white font-bold mb-2">Services à la carte</h2>
+                <p class="text-[clamp(0.9rem,2vw,1.4rem)] text-white/80 mb-6 font-light">
+                    Pour des besoins précis ou en complément d'un projet
                 </p>
             </div>
-
             <div id="main-services-container"
                  class="bg-[#202940] rounded-[30px] lg:rounded-[40px] p-6 lg:p-10 shadow-2xl space-y-2"
-                 aria-label="Services à la carte">
-            </div>
+                 data-aos="fade-up" data-aos-delay="100"></div>
         </div>
 
         <!-- ── Simulateur sticky ── -->
         <aside class="w-full lg:w-1/3" data-aos="fade-left" data-aos-delay="200">
-            <div class="lg:sticky lg:top-24">
+            <div class="lg:sticky lg:top-28">
                 <div class="relative bg-[#DCE4F2] text-[#3A2A13] rounded-[30px] lg:rounded-[50px]
-                            border-[3px] border-[#CB8D30] p-8 lg:p-10 text-center shadow-2xl overflow-hidden">
-
-                    <h3 class="text-[clamp(1rem,2.5vw,2rem)] font-bold mb-6 leading-tight">
+                            border-[3px] border-[#CB8D30] p-7 sm:p-10 text-center shadow-2xl overflow-hidden">
+                    <h3 class="text-[clamp(1rem,2.5vw,1.6rem)] font-bold mb-4 leading-tight">
                         Hésitant entre un pack et une formule à la carte ?
                     </h3>
-                    <p class="text-base lg:text-xl mb-8 leading-relaxed">
+                    <p class="text-sm sm:text-base lg:text-lg mb-7 leading-relaxed">
                         Utilisez le <span class="font-bold">simulateur de devis</span>
                         pour visualiser l'option la plus adaptée.
                     </p>
                     <button onclick="openPopup()"
-                            class="relative z-10 bg-[#3A2A13] text-white px-6 py-4 rounded-[20px]
-                                   text-lg lg:text-xl font-bold hover:scale-105 active:scale-95
+                            class="bg-[#3A2A13] text-white px-6 py-4 rounded-[20px]
+                                   text-base lg:text-xl font-bold hover:scale-105 active:scale-95
                                    transition-all w-full shadow-md uppercase tracking-wide
                                    hover:shadow-[0_0_20px_rgba(203,141,48,0.5)]"
                             aria-haspopup="dialog">
                         SIMULER UN DEVIS
                     </button>
                     <div class="hidden lg:block mt-6 -mb-10" aria-hidden="true">
-                        <img src="../img/Chouetteailesouvertesyeuxfermés.svg"
-                             alt=""
-                             class="w-full h-auto select-none pointer-events-none transform scale-125"
-                             loading="lazy">
+                        <img src="../img/Chouetteailesouvertesyeuxfermés.svg" alt=""
+                             class="w-full h-auto select-none pointer-events-none transform scale-125" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -138,91 +122,82 @@
     </div>
 </section>
 
-<!-- ══ POPUP SIMULATEUR ══ -->
+<!-- POPUP SIMULATEUR -->
 <div id="popup"
-     class="fixed inset-0 z-[100] hidden items-center justify-center popup-overlay bg-black/70 p-4"
+     class="fixed inset-0 z-[100] hidden items-center justify-center popup-overlay bg-black/70 p-3 sm:p-4"
      role="dialog" aria-modal="true" aria-labelledby="popup-title">
-
-    <div class="relative w-full max-w-5xl max-h-[90vh] bg-[#D8E4FF] rounded-[30px] lg:rounded-[40px]
-                border-4 lg:border-[8px] border-[#A5B9E9] overflow-hidden flex flex-col p-4 lg:p-10 shadow-2xl">
-
+    <div class="relative w-full max-w-5xl max-h-[90vh] bg-[#D8E4FF] rounded-[24px] sm:rounded-[40px]
+                border-4 border-[#A5B9E9] overflow-hidden flex flex-col p-4 sm:p-8 lg:p-10 shadow-2xl">
         <button onclick="closePopup()"
-                class="absolute top-4 right-4 w-10 h-10 hover:rotate-90 transition-all duration-300 z-50"
-                aria-label="Fermer le simulateur">
+                class="absolute top-3 right-3 sm:top-4 sm:right-4 w-10 h-10 hover:rotate-90 transition-all duration-300 z-50"
+                aria-label="Fermer">
             <img src="../img/Croixbleue.svg" alt="" class="w-full h-full">
         </button>
-
         <h2 id="popup-title"
-            class="text-lg lg:text-2xl font-bold text-[#1D2743] text-center mb-6 mt-4 lg:mt-0 px-8">
-            Sélectionnez vos options pour simuler votre devis
+            class="text-base sm:text-xl lg:text-2xl font-bold text-[#1D2743] text-center mb-5 mt-2 px-8">
+            Sélectionnez vos options
         </h2>
-
-        <div class="flex-1 flex flex-col lg:grid lg:grid-cols-[1.2fr_0.8fr] gap-6 overflow-hidden">
-
+        <div class="flex-1 flex flex-col lg:grid lg:grid-cols-[1.2fr_0.8fr] gap-5 overflow-hidden">
             <div class="flex-1 overflow-y-auto pr-2 custom-scrollbar space-y-4">
                 <div class="border-b border-blue-200 pb-4">
-                    <h3 class="text-lg font-bold text-[#1D2743] cursor-pointer flex items-center gap-2"
+                    <h3 class="text-base font-bold text-[#1D2743] cursor-pointer flex items-center gap-2"
                         onclick="toggleSection('packs')">
                         <span id="packs-arrow" class="text-[#CB8D30]">▶</span> Nos Packs
                     </h3>
                     <div id="packs-content" class="mt-3 space-y-1 hidden"></div>
                 </div>
                 <div>
-                    <h3 class="text-lg font-bold text-[#1D2743] cursor-pointer flex items-center gap-2"
+                    <h3 class="text-base font-bold text-[#1D2743] cursor-pointer flex items-center gap-2"
                         onclick="toggleSection('services')">
                         <span id="services-arrow" class="text-[#CB8D30]">▼</span> Services à la carte
                     </h3>
                     <div id="services-content" class="mt-3 space-y-1"></div>
                 </div>
             </div>
-
-            <div class="bg-[#1D2743] rounded-[25px] p-6 text-white flex flex-col shadow-xl min-h-[250px] lg:h-full">
-                <h3 class="text-lg font-bold mb-4 text-center border-b border-white/10 pb-2">Votre sélection</h3>
-                <div id="selectedItems"
-                     class="flex-1 overflow-y-auto space-y-2 mb-4 custom-scrollbar text-sm"
-                     aria-live="polite">
-                    <p class="text-white/40 text-center py-4 italic">Aucun service sélectionné</p>
+            <div class="bg-[#1D2743] rounded-[20px] sm:rounded-[25px] p-5 text-white flex flex-col shadow-xl min-h-[220px] lg:h-full">
+                <h3 class="text-base font-bold mb-4 text-center border-b border-white/10 pb-2">Votre sélection</h3>
+                <div id="selectedItems" class="flex-1 overflow-y-auto space-y-2 mb-4 custom-scrollbar text-sm" aria-live="polite">
+                    <p class="text-white/40 text-center py-4 italic text-xs">Aucun service sélectionné</p>
                 </div>
                 <div class="border-t border-white/20 pt-4 mt-auto">
-                    <div class="flex justify-between items-center text-xl font-bold mb-4">
+                    <div class="flex justify-between items-center text-lg font-bold mb-3">
                         <span>TOTAL</span>
                         <span id="totalPrice" class="text-[#7895D1]" aria-live="polite">0€</span>
                     </div>
-                    <div class="flex flex-col gap-3">
-                        <p class="text-[10px] text-white/50 italic leading-tight">
-                            *Tarif indicatif sujet à modification après analyse de vos besoins.
-                        </p>
-                        <button onclick="sendContact()"
-                                class="bg-[#7895D1] hover:bg-white hover:text-[#1D2743] text-white
-                                       py-3 rounded-xl font-bold transition-all uppercase text-sm tracking-wider">
-                            Demander un devis réel
-                        </button>
-                    </div>
+                    <p class="text-[10px] text-white/40 italic leading-tight mb-3">
+                        *Tarif indicatif sujet à modification.
+                    </p>
+                    <button onclick="sendContact()"
+                            class="bg-[#7895D1] hover:bg-white hover:text-[#1D2743] text-white
+                                   py-3 rounded-xl font-bold transition-all uppercase text-sm tracking-wider w-full">
+                        Demander un devis réel
+                    </button>
                 </div>
             </div>
-
         </div>
     </div>
 </div>
 
-<!-- ══════════════════════════
-     SCRIPTS
-     ══════════════════════════ -->
-<script src="../js/loader.js"></script>
 <script src="../js/navbar.js"></script>
 <script src="../js/footer.js"></script>
 <script src="../js/Offres.js"></script>
-
+<script src="../i18n/i18n.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-<script>AOS.init({ duration: 700, easing: 'ease-out-quad', once: true });</script>
-
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') closePopup();
-    });
+(function(){
+    function hideLoader(){var l=document.getElementById('page-loader');if(!l)return;l.classList.add('loader-out');setTimeout(function(){if(l.parentNode)l.parentNode.removeChild(l);},900);document.documentElement.style.overflow='';}
+    if(document.readyState==='complete'){setTimeout(hideLoader,350);}
+    else{window.addEventListener('load',function(){setTimeout(hideLoader,350);});}
+    setTimeout(hideLoader,5000);
+})();
+
+AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true });
+
+document.addEventListener('DOMContentLoaded', function() {
+    gsap.fromTo('.offres-h1', { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 1, ease: 'power3.out', delay: 0.4 });
+    gsap.fromTo('.offres-sub', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out', delay: 0.7 });
+    document.addEventListener('keydown', function(e){ if(e.key==='Escape') closePopup(); });
 });
 </script>
-
 </body>
 </html>
