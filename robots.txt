@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://assiabillale.github.io/Envol-Graphisme/sitemap.xml
+Sitemap: https://Xeloriom.github.io/Envol-Graphisme/sitemap.xml
