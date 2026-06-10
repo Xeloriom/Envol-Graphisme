@@ -1,123 +1,146 @@
 const FOOTER_BASE = (typeof BASE_PATH !== 'undefined') ? BASE_PATH : '/Envol-Graphisme';
 
 const socialNetworks = [
-    {
-        name:    'Instagram',
-        url:     'https://www.instagram.com/envol.graphisme/',
-        icon:    'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/instagram.svg',
-        bgClass: 'bg-gradient-to-tr from-pink-500 via-rose-500 to-yellow-400 hover:opacity-90'
-    },
-    {
-        name:    'LinkedIn',
-        url:     'https://www.linkedin.com/in/envol-graphisme/',
-        icon:    'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg',
-        bgClass: 'bg-[#0A66C2] hover:bg-[#0957a7]'
-    },
-    {
-        name:    'Behance',
-        url:     'https://www.behance.net/envol-graphisme',
-        icon:    'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/behance.svg',
-        bgClass: 'bg-[#053eff] hover:bg-[#0435d9]'
-    }
+    { name:'Instagram', url:'https://www.instagram.com/envol.graphisme/',    icon:'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/instagram.svg', bg:'linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)' },
+    { name:'LinkedIn',  url:'https://www.linkedin.com/in/envol-graphisme/',  icon:'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg',  bg:'#0A66C2' },
+    { name:'Behance',   url:'https://www.behance.net/envol-graphisme',        icon:'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/behance.svg',   bg:'#053eff' }
 ];
 
-function createFooter() {
+function initFooter() {
     const container = document.getElementById('bienvenue');
     if (!container) return;
 
-    const footerEl = document.createElement('footer');
-    footerEl.className = 'relative w-full overflow-visible bg-transparent z-0';
-    footerEl.setAttribute('role', 'contentinfo');
+    /* ── Separator wave ── */
+    const sep = document.createElement('div');
+    sep.style.cssText = 'width:100%;line-height:0;overflow:hidden;margin-top:2rem;';
+    sep.innerHTML = `<svg viewBox="0 0 1440 60" preserveAspectRatio="none" style="width:100%;height:60px;display:block;" aria-hidden="true">
+        <path d="M0,40 C360,0 1080,80 1440,30 L1440,60 L0,60 Z" fill="#0c1325"/>
+    </svg>`;
 
-    footerEl.innerHTML = `
-    <!-- SVG background -->
-    <div id="footer-bg"
-         class="absolute inset-0 w-[115%] lg:w-[105%] h-[110%] lg:h-[200%] pointer-events-none"
-         aria-hidden="true"
-         style="background-repeat:no-repeat; background-size:cover; background-position:right bottom;">
+    /* ── Footer element ── */
+    const footer = document.createElement('footer');
+    footer.id = 'site-footer';
+    footer.setAttribute('role', 'contentinfo');
+    footer.style.cssText = `
+        position: relative;
+        background: #0c1325;
+        overflow: hidden;
+        padding: 3rem 1.5rem 2rem;
+    `;
+
+    footer.innerHTML = `
+    <!-- Étoiles de fond -->
+    <div style="position:absolute;inset:0;
+                background-image:url('${FOOTER_BASE}/img/Motif%20étoiles%20blanches.svg');
+                background-size:500px 500px;opacity:0.04;pointer-events:none;" aria-hidden="true"></div>
+
+    <!-- Chouette décorative droite -->
+    <div style="position:absolute;bottom:0;right:-10px;width:min(260px,35vw);
+                pointer-events:none;opacity:0.18;z-index:0;" aria-hidden="true">
+        <img src="${FOOTER_BASE}/img/Chouetteailesouvertes.svg"
+             alt="" style="width:100%;height:auto;display:block;" loading="lazy">
     </div>
 
-    <!-- Footer content -->
-    <div class="relative z-10 w-full max-w-5xl px-6 sm:px-10 py-12 flex flex-col lg:flex-row gap-16 lg:gap-32 items-start text-white">
+    <!-- Ligne décorative top -->
+    <div style="position:absolute;top:0;left:0;right:0;height:1px;
+                background:linear-gradient(90deg,transparent,rgba(203,141,48,0.4),transparent);"
+         aria-hidden="true"></div>
 
-        <!-- Navigation -->
-        <nav class="flex flex-col gap-3 w-full lg:w-1/3 text-left" aria-label="Navigation footer">
-            <a href="${FOOTER_BASE}/index.html"        class="footer-link text-base md:text-lg uppercase tracking-wider hover:text-[#CB8D30] transition-colors duration-200">BIENVENUE</a>
-            <a href="${FOOTER_BASE}/View/Projets.html" class="footer-link text-base md:text-lg uppercase tracking-wider hover:text-[#CB8D30] transition-colors duration-200">PROJETS</a>
-            <a href="${FOOTER_BASE}/View/Offres.html"  class="footer-link text-base md:text-lg uppercase tracking-wider hover:text-[#CB8D30] transition-colors duration-200">OFFRES</a>
-            <a href="${FOOTER_BASE}/View/Contact.html" class="footer-link text-base md:text-lg uppercase tracking-wider hover:text-[#CB8D30] transition-colors duration-200">CONTACT</a>
-        </nav>
+    <!-- Contenu principal -->
+    <div style="position:relative;z-index:1;max-width:900px;margin:0 auto;">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;"
+             class="footer-grid">
 
-        <!-- Réseaux sociaux -->
-        <div class="flex flex-col items-center text-center w-full lg:w-2/3">
-            <p class="text-2xl md:text-3xl font-bold mb-6" id="social" tabindex="-1">Suis-moi sur les réseaux !</p>
-            <div id="social-links" class="flex gap-5 justify-center flex-wrap" role="list"></div>
-            <div class="flex flex-col sm:flex-row gap-4 sm:gap-8 mt-6">
-                <a href="https://linktr.ee/envol.graphisme"
-                   target="_blank" rel="noopener noreferrer"
-                   class="underline hover:text-[#CB8D30] transition-colors text-base md:text-lg">Linktree</a>
-                <a href="${FOOTER_BASE}/mentions-legales.html"
-                   class="underline hover:text-[#CB8D30] transition-colors text-base md:text-lg">Mentions légales</a>
+            <!-- Navigation -->
+            <nav style="display:flex;flex-direction:column;gap:0.75rem;" aria-label="Navigation footer">
+                <a href="${FOOTER_BASE}/index.html"
+                   style="font-family:'Josefin Sans',sans-serif;font-size:0.78rem;letter-spacing:0.15em;
+                          text-transform:uppercase;color:rgba(222,227,246,0.6);text-decoration:none;
+                          transition:color 0.2s;"
+                   onmouseover="this.style.color='#CB8D30'"
+                   onmouseout="this.style.color='rgba(222,227,246,0.6)'">Bienvenue</a>
+                <a href="${FOOTER_BASE}/View/Projets.html"
+                   style="font-family:'Josefin Sans',sans-serif;font-size:0.78rem;letter-spacing:0.15em;
+                          text-transform:uppercase;color:rgba(222,227,246,0.6);text-decoration:none;
+                          transition:color 0.2s;"
+                   onmouseover="this.style.color='#CB8D30'"
+                   onmouseout="this.style.color='rgba(222,227,246,0.6)'">Projets</a>
+                <a href="${FOOTER_BASE}/View/Offres.html"
+                   style="font-family:'Josefin Sans',sans-serif;font-size:0.78rem;letter-spacing:0.15em;
+                          text-transform:uppercase;color:rgba(222,227,246,0.6);text-decoration:none;
+                          transition:color 0.2s;"
+                   onmouseover="this.style.color='#CB8D30'"
+                   onmouseout="this.style.color='rgba(222,227,246,0.6)'">Offres</a>
+                <a href="${FOOTER_BASE}/View/Contact.html"
+                   style="font-family:'Josefin Sans',sans-serif;font-size:0.78rem;letter-spacing:0.15em;
+                          text-transform:uppercase;color:rgba(222,227,246,0.6);text-decoration:none;
+                          transition:color 0.2s;"
+                   onmouseover="this.style.color='#CB8D30'"
+                   onmouseout="this.style.color='rgba(222,227,246,0.6)'">Contact</a>
+            </nav>
+
+            <!-- Réseaux + logo -->
+            <div style="display:flex;flex-direction:column;align-items:flex-start;gap:1.25rem;">
+                <p style="font-family:'Josefin Sans',sans-serif;font-weight:700;font-size:0.78rem;
+                           letter-spacing:0.15em;text-transform:uppercase;color:#CB8D30;"
+                   id="social">Retrouvez-moi</p>
+                <div id="social-links" style="display:flex;gap:0.75rem;flex-wrap:wrap;" role="list"></div>
+                <a href="https://linktr.ee/envol.graphisme" target="_blank" rel="noopener noreferrer"
+                   style="font-family:'Josefin Sans',sans-serif;font-size:0.75rem;
+                          color:rgba(222,227,246,0.5);text-decoration:underline;transition:color 0.2s;"
+                   onmouseover="this.style.color='#CB8D30'"
+                   onmouseout="this.style.color='rgba(222,227,246,0.5)'">Linktree</a>
             </div>
         </div>
-    </div>
 
-    <!-- Copyright -->
-    <div class="relative z-10 text-sm md:text-base text-white/60
-                px-6 sm:px-10 py-5 border-t border-white/10 text-center lg:text-left font-light">
-        <p id="copyright-text"></p>
+        <!-- Copyright -->
+        <div style="margin-top:2.5rem;padding-top:1.5rem;
+                    border-top:1px solid rgba(203,141,48,0.15);
+                    display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+            <p id="copyright-text"
+               style="font-family:'Josefin Sans',sans-serif;font-size:0.72rem;
+                      color:rgba(222,227,246,0.3);letter-spacing:0.05em;"></p>
+            <img src="${FOOTER_BASE}/img/ENVOL%20Graphisme%20Logo%20clair.png"
+                 alt="Envol Graphisme" style="height:28px;opacity:0.4;" loading="lazy">
+        </div>
     </div>
     `;
 
-    container.appendChild(footerEl);
-    return footerEl;
-}
+    container.appendChild(sep);
+    container.appendChild(footer);
 
-function generateSocialLinks() {
-    const container = document.getElementById('social-links');
-    if (!container) return;
+    // Réseaux sociaux
+    const socialEl = document.getElementById('social-links');
+    if (socialEl) {
+        socialNetworks.forEach(n => {
+            const a = document.createElement('a');
+            a.href = n.url; a.target = '_blank'; a.rel = 'noopener noreferrer';
+            a.setAttribute('aria-label', n.name);
+            a.setAttribute('role', 'listitem');
+            a.style.cssText = `width:40px;height:40px;border-radius:50%;background:${n.bg};
+                display:flex;align-items:center;justify-content:center;
+                transition:transform 0.2s,box-shadow 0.2s;text-decoration:none;`;
+            a.onmouseover = () => { a.style.transform='scale(1.12)'; a.style.boxShadow='0 4px 20px rgba(0,0,0,0.4)'; };
+            a.onmouseout  = () => { a.style.transform='scale(1)';    a.style.boxShadow='none'; };
+            const img = document.createElement('img');
+            img.src = n.icon; img.alt = n.name;
+            img.style.cssText = 'width:18px;height:18px;filter:invert(1);';
+            img.loading = 'lazy';
+            a.appendChild(img); socialEl.appendChild(a);
+        });
+    }
 
-    socialNetworks.forEach(network => {
-        const link = document.createElement('a');
-        link.href             = network.url;
-        link.target           = '_blank';
-        link.rel              = 'noopener noreferrer';
-        link.className        = `w-12 h-12 ${network.bgClass} rounded-full flex items-center justify-center hover:scale-110 transition-all duration-300 shadow-lg`;
-        link.setAttribute('aria-label', network.name);
-        link.setAttribute('role', 'listitem');
+    // Copyright
+    const copy = document.getElementById('copyright-text');
+    if (copy) copy.textContent = `Envol Graphisme · SIRET 93907780600015 · © ${new Date().getFullYear()} Tous droits réservés`;
 
-        const img = document.createElement('img');
-        img.src       = network.icon;
-        img.alt       = network.name;
-        img.className = 'w-6 h-6 invert';
-        img.loading   = 'lazy';
-
-        link.appendChild(img);
-        container.appendChild(link);
-    });
-}
-
-function generateCopyright() {
-    const el = document.getElementById('copyright-text');
-    if (!el) return;
-    const year = new Date().getFullYear();
-    el.textContent = `Envol Graphisme | Micro-entreprise | SIRET n°93907780600015 | © ${year} Envol Graphisme – Tous droits réservés`;
-}
-
-function setFooterBackground() {
-    const bg = document.getElementById('footer-bg');
-    if (!bg) return;
-    const isMobile = window.innerWidth <= 1024;
-    bg.style.backgroundImage = `url('${FOOTER_BASE}/img/${isMobile ? 'Footer-mobile' : 'Footer'}.svg')`;
-}
-
-function initFooter() {
-    createFooter();
-    generateSocialLinks();
-    generateCopyright();
-    setFooterBackground();
-
-    window.addEventListener('resize', setFooterBackground, { passive: true });
+    // Responsive grid (mobile = 1 colonne)
+    const grid = footer.querySelector('.footer-grid');
+    function checkWidth() {
+        if (grid) grid.style.gridTemplateColumns = window.innerWidth < 640 ? '1fr' : '1fr 1fr';
+    }
+    checkWidth();
+    window.addEventListener('resize', checkWidth, { passive: true });
 }
 
 if (document.readyState === 'loading') {

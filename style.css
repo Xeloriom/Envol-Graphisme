@@ -32,23 +32,91 @@ body {
 }
 
 /* ═══════════════════════════════════
-   PAGE LOADER — Disney magic
+   PAGE LOADER — Chouette Disney
    ═══════════════════════════════════ */
 #page-loader {
     position: fixed;
     inset: 0;
     z-index: 99999;
-    background: linear-gradient(160deg, #0d1a35 0%, #1a2332 40%, #0f1e3a 100%);
+    background: radial-gradient(ellipse at 50% 40%, #1a2b55 0%, #0e1830 50%, #080f22 100%);
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
-                visibility 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: opacity 0.9s cubic-bezier(0.4, 0, 0.2, 1),
+                visibility 0.9s cubic-bezier(0.4, 0, 0.2, 1);
 }
 #page-loader.loader-out {
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
+}
+
+/* Chouette centrale */
+.loader-owl-wrap {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.loader-owl-img {
+    width: 160px;
+    height: auto;
+    position: relative;
+    z-index: 2;
+    animation: ldr-owl-float 3s ease-in-out infinite;
+    filter: drop-shadow(0 0 30px rgba(203,141,48,0.4));
+}
+.loader-halo {
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(203,141,48,0.15) 0%, transparent 70%);
+    animation: ldr-halo-pulse 3s ease-in-out infinite;
+    z-index: 1;
+}
+/* Ring d'étoiles jaunes autour de la chouette */
+.loader-stars-ring {
+    position: absolute;
+    inset: 0;
+    animation: ldr-spin 6s linear infinite;
+    z-index: 3;
+}
+.ldr-star-orb {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    top: 50%;
+    left: 50%;
+    transform-origin: 0 0;
+    transform: rotate(calc(var(--i) * 60deg)) translateX(95px) translateY(-9px);
+    filter: drop-shadow(0 0 6px rgba(203,141,48,0.8));
+}
+
+/* Logo + barre sous la chouette */
+.loader-logo-small {
+    width: 130px;
+    max-width: 45vw;
+    opacity: 0.9;
+    filter: drop-shadow(0 2px 12px rgba(203,141,48,0.3));
+}
+
+/* Animations loader */
+@keyframes ldr-owl-float {
+    0%, 100% { transform: translateY(0)   rotate(-2deg); }
+    50%       { transform: translateY(-14px) rotate(2deg); }
+}
+@keyframes ldr-halo-pulse {
+    0%, 100% { transform: scale(1);   opacity: 0.8; }
+    50%       { transform: scale(1.3); opacity: 0.3; }
+}
+@keyframes ldr-shoot-star {
+    0%   { transform: translateX(0) translateY(0)  rotate(-15deg); opacity:0; }
+    10%  { opacity: 0.6; }
+    90%  { opacity: 0.6; }
+    100% { transform: translateX(60vw) translateY(20vh) rotate(-15deg); opacity:0; }
 }
 
 /* Étoiles de fond */
@@ -182,6 +250,55 @@ body {
 .parallax-element {
     position: absolute;
     will-change: transform;
+}
+
+/* ═══════════════════════════════════
+   HERO BUTTONS
+   ═══════════════════════════════════ */
+.hero-btn-primary,
+.hero-btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 700;
+    font-size: clamp(0.78rem, 1.4vw, 0.92rem);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.85rem 1.8rem;
+    border-radius: 9999px;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: transform 0.25s cubic-bezier(0.34,1.56,0.64,1),
+                box-shadow 0.25s ease,
+                background 0.25s ease,
+                color 0.25s ease,
+                border-color 0.25s ease;
+    cursor: pointer;
+}
+.hero-btn-primary {
+    background: #CB8D30;
+    color: #fff;
+    border: 2px solid #CB8D30;
+    box-shadow: 0 4px 20px rgba(203,141,48,0.35);
+}
+.hero-btn-primary:hover {
+    background: #DEE3F6;
+    color: #1a2332;
+    border-color: #DEE3F6;
+    transform: scale(1.06);
+    box-shadow: 0 8px 32px rgba(203,141,48,0.5);
+}
+.hero-btn-secondary {
+    background: transparent;
+    color: rgba(222,227,246,0.85);
+    border: 2px solid rgba(203,141,48,0.45);
+}
+.hero-btn-secondary:hover {
+    background: rgba(203,141,48,0.08);
+    color: #CB8D30;
+    border-color: #CB8D30;
+    transform: scale(1.06);
 }
 
 /* ═══════════════════════════════════

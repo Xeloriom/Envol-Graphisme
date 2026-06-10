@@ -52,20 +52,39 @@
      ══════════════════════════════════ -->
 <div id="page-loader" role="status" aria-label="Chargement en cours">
     <div class="loader-bg-stars" id="ldr-stars"></div>
+
+    <!-- Étoile filante décorative -->
+    <img src="/Envol-Graphisme/img/Etoile%20filante%20jaune%20trainée%20blanche.svg"
+         alt="" id="ldr-shooting" aria-hidden="true"
+         style="position:absolute;top:18%;left:5%;width:min(160px,22vw);opacity:0.5;
+                animation:ldr-shoot-star 4s ease-in-out infinite;pointer-events:none;">
+    <img src="/Envol-Graphisme/img/Etoile%20filante%20blanche%20trainée%20pointillée%20jaune.svg"
+         alt="" aria-hidden="true"
+         style="position:absolute;bottom:22%;right:8%;width:min(120px,18vw);opacity:0.4;
+                animation:ldr-shoot-star 4s ease-in-out 2s infinite;pointer-events:none;transform:scaleX(-1)rotate(-20deg);">
+
     <div class="loader-core">
-        <div class="loader-logo-wrap">
-            <div class="loader-orbit">
-                <span></span><span></span><span></span><span></span>
-                <span></span><span></span><span></span><span></span>
+        <!-- Chouette centrale -->
+        <div class="loader-owl-wrap">
+            <!-- Halo doré derrière la chouette -->
+            <div class="loader-halo" aria-hidden="true"></div>
+            <!-- Étoiles jaunes orbitales -->
+            <div class="loader-stars-ring" aria-hidden="true">
+                <img src="/Envol-Graphisme/img/Etoile%20jaune.svg" alt="" class="ldr-star-orb" style="--i:0">
+                <img src="/Envol-Graphisme/img/Etoile%20jaune.svg" alt="" class="ldr-star-orb" style="--i:1">
+                <img src="/Envol-Graphisme/img/Etoile%20jaune.svg" alt="" class="ldr-star-orb" style="--i:2">
+                <img src="/Envol-Graphisme/img/Etoile%20jaune.svg" alt="" class="ldr-star-orb" style="--i:3">
+                <img src="/Envol-Graphisme/img/Etoile%20jaune.svg" alt="" class="ldr-star-orb" style="--i:4">
+                <img src="/Envol-Graphisme/img/Etoile%20jaune.svg" alt="" class="ldr-star-orb" style="--i:5">
             </div>
-            <div class="loader-orbit-outer">
-                <span></span><span></span><span></span><span></span>
-            </div>
-            <img src="/Envol-Graphisme/img/ENVOL%20Graphisme%20Logo%20clair.png"
-                 alt="" class="loader-logo" aria-hidden="true">
+            <img src="/Envol-Graphisme/img/Chouetteailesouvertesyeuxfermés.svg"
+                 alt="" class="loader-owl-img" aria-hidden="true">
         </div>
+
+        <!-- Logo + barre -->
+        <img src="/Envol-Graphisme/img/ENVOL%20Graphisme%20Logo%20clair.png"
+             alt="Envol Graphisme" class="loader-logo-small" aria-hidden="true">
         <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
-        <p class="loader-tagline">Envol Graphisme</p>
     </div>
 </div>
 <script>
@@ -111,31 +130,24 @@
              class="parallax-element -bottom-[40%] -right-[70%] md:-right-[14%] h-[130%] mt-[100%]" loading="eager">
     </div>
 
-    <div class="relative z-10 flex flex-col items-center md:items-start justify-center min-h-screen px-[6%] md:px-[8%]">
-        <div class="max-w-4xl text-[#DEE3F6]">
+    <div class="relative z-10 flex flex-col justify-center min-h-screen px-6 sm:px-10 md:px-[8%]">
+        <div class="w-full max-w-3xl text-[#DEE3F6]">
             <h1 id="hero-title"
-                class="text-[clamp(2.2rem,7vw,5rem)] text-center md:text-left font-bold leading-[1.1]"
+                class="text-[clamp(2rem,7vw,5rem)] text-center md:text-left font-bold leading-[1.1]"
                 data-i18n="hero_title">
                 Le design qui<br>révèle votre<br>différence.
             </h1>
             <p id="hero-sub"
-               class="mt-6 sm:mt-8 text-[clamp(1.1rem,3.5vw,2.4rem)] text-center md:text-left font-semibold leading-snug opacity-0"
+               class="mt-5 sm:mt-7 text-[clamp(1rem,3vw,1.8rem)] text-center md:text-left font-semibold leading-snug opacity-0 text-[#DEE3F6]/80"
                data-i18n="hero_subtitle">
-                Ensemble, créons un<br>univers qui vous ressemble.
+                Ensemble, créons un univers qui vous ressemble.
             </p>
-            <div id="hero-cta" class="mt-10 sm:mt-12 flex flex-col sm:flex-row gap-4 justify-center md:justify-start opacity-0">
-                <a href="View/Offres.html"
-                   class="inline-block bg-[#CB8D30] hover:bg-[#DEE3F6] hover:text-[#1a2332] text-white font-bold
-                          px-8 py-4 rounded-full text-base sm:text-lg transition-all duration-300
-                          hover:scale-105 shadow-lg hover:shadow-[0_0_30px_rgba(203,141,48,0.5)]">
-                    Voir les offres
-                </a>
-                <a href="View/Contact.html"
-                   class="inline-block border-2 border-white/30 hover:border-[#CB8D30] text-white font-bold
-                          px-8 py-4 rounded-full text-base sm:text-lg transition-all duration-300
-                          hover:scale-105 hover:text-[#CB8D30]">
-                    Me contacter
-                </a>
+            <!-- CTA : flex-row sur mobile ≥ 380px, sinon colonne -->
+            <div id="hero-cta"
+                 class="mt-8 sm:mt-10 flex flex-col min-[380px]:flex-row gap-3
+                        items-center md:items-start justify-center md:justify-start opacity-0">
+                <a href="View/Offres.html" class="hero-btn-primary">Voir les offres ✦</a>
+                <a href="View/Contact.html" class="hero-btn-secondary">Me contacter</a>
             </div>
         </div>
 
