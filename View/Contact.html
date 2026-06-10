@@ -3,54 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Envol Graphisme - Contact</title>
+
+    <!-- ═══ SEO PRIMARY ═══ -->
+    <title>Contact – Envol Graphisme | Demandez votre devis gratuit</title>
+    <meta name="description" content="Contactez Envol Graphisme pour votre projet de design graphique. Logo, identité visuelle, affiche, flyer… Devis gratuit et réponse rapide. Écrivez-moi dès maintenant !">
+    <meta name="keywords" content="contact graphiste, devis design graphique, Envol Graphisme contact, logo sur mesure devis">
+    <meta name="author" content="Envol Graphisme">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://assiabillale.github.io/Envol-Graphisme/View/Contact.html">
+
+    <!-- ═══ OPEN GRAPH ═══ -->
+    <meta property="og:type"        content="website">
+    <meta property="og:title"       content="Contact – Envol Graphisme">
+    <meta property="og:description" content="Vous avez un projet en tête ? Contactez Envol Graphisme pour un devis gratuit et personnalisé.">
+    <meta property="og:image"       content="https://assiabillale.github.io/Envol-Graphisme/img/ENVOL%20Graphisme%20Logo%20clair.png">
+    <meta property="og:url"         content="https://assiabillale.github.io/Envol-Graphisme/View/Contact.html">
+    <meta property="og:locale"      content="fr_FR">
+    <meta property="og:site_name"   content="Envol Graphisme">
+
+    <!-- ═══ TWITTER CARD ═══ -->
+    <meta name="twitter:card"        content="summary_large_image">
+    <meta name="twitter:title"       content="Contact – Envol Graphisme">
+    <meta name="twitter:description" content="Vous avez un projet en tête ? Contactez Envol Graphisme pour un devis gratuit.">
+    <meta name="twitter:image"       content="https://assiabillale.github.io/Envol-Graphisme/img/ENVOL%20Graphisme%20Logo%20clair.png">
+
+    <!-- ═══ FAVICON ═══ -->
+    <link rel="icon"             type="image/png" href="/Envol-Graphisme/img/Logo.png">
+    <link rel="apple-touch-icon"                  href="/Envol-Graphisme/img/Logo.png">
+
+    <!-- ═══ PRECONNECT ═══ -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+    <!-- ═══ FONTS ═══ -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- ═══ TAILWIND ═══ -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="js/tailwind.config.js"></script>
-    <link rel="stylesheet" href="../style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <script src="../js/tailwind.config.js"></script>
+
+    <!-- ═══ AOS ═══ -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+
+    <!-- ═══ SWIPER ═══ -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+    <!-- ═══ GSAP ═══ -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+    <!-- ═══ CUSTOM CSS ═══ -->
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body id="bienvenue" class="overflow-x-hidden">
 
-<section class="relative min-h-screen px-6 overflow-hidden bg-gradient-to-b from-[#2A3B5C] to-[#3D4F6E] flex items-center justify-center overflow-x-hidden">
+<a href="#main-content" class="skip-link">Aller au contenu principal</a>
 
-    <div class="absolute inset-0 bg-[url('../img/Illustrationcielétoilé.jpg')] bg-cover bg-center
-                [mask-image:linear-gradient(to_top,rgba(0,0,0,100),rgba(0,0,0,90))]
-                [-webkit-mask-image:linear-gradient(to_top,rgba(0,0,0,100),rgba(0,0,0,100))]">
+<section id="main-content"
+         class="relative min-h-screen px-6 overflow-hidden
+                bg-gradient-to-b from-[#2A3B5C] to-[#3D4F6E]
+                flex items-center justify-center">
+
+    <!-- Fond étoilé -->
+    <div class="absolute inset-0
+                bg-[url('../img/Illustrationcielétoilé.jpg')] bg-cover bg-center
+                [mask-image:linear-gradient(to_top,rgba(0,0,0,1),rgba(0,0,0,0.9))]
+                [-webkit-mask-image:linear-gradient(to_top,rgba(0,0,0,1),rgba(0,0,0,1))]"
+         aria-hidden="true">
     </div>
 
-    <div class="relative z-10 max-w-8xl mx-auto flex flex-col items-center justify-center py-20 md:py-0 px-4 text-center space-y-6 md:space-y-8">
+    <div class="relative z-10 max-w-5xl mx-auto flex flex-col items-center justify-center
+                py-20 md:py-0 px-4 text-center space-y-6 md:space-y-8">
 
-        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white font-bold leading-snug md:leading-tight">
+        <h1 id="contact-title"
+            class="text-[clamp(1.5rem,5vw,4.5rem)] text-white font-bold leading-snug md:leading-tight"
+            data-aos="fade-down">
             Vous avez un projet en tête ?<br>
             Une envie de faire décoller votre identité visuelle ?
         </h1>
 
-        <p class="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-white/80 font-normal leading-snug md:leading-tight">
+        <p class="text-[clamp(1rem,3vw,2.5rem)] text-white/80 font-normal leading-snug"
+           data-aos="fade-up" data-aos-delay="150">
             N'hésitez pas à me laisser un message ou à passer par mes réseaux !
         </p>
 
-        <div class="relative flex flex-col md:flex-row items-center justify-center gap-6 md:gap-20 pt-16 md:pt-32 w-full">
+        <div class="relative flex flex-col sm:flex-row items-center justify-center
+                    gap-6 sm:gap-10 md:gap-20 pt-12 md:pt-24 w-full"
+             data-aos="zoom-in" data-aos-delay="300">
 
             <a href="mailto:envol.graphisme@gmail.com"
-               class="w-full md:w-auto bg-[#7B94C8] hover:bg-[#6A83B7] text-white font-bold px-10 sm:px-16 md:px-20 py-4 sm:py-5 md:py-7 rounded-full text-lg sm:text-xl md:text-2xl transition shadow-lg z-10">
+               class="w-full sm:w-auto bg-[#7B94C8] hover:bg-[#6A83B7] text-white font-bold
+                      px-8 sm:px-16 py-4 sm:py-6 rounded-full
+                      text-[clamp(0.9rem,2vw,1.5rem)] transition-all duration-300 shadow-lg z-10
+                      hover:scale-105 hover:shadow-[0_0_30px_rgba(123,148,200,0.5)]">
                 M'ÉCRIRE MAINTENANT
             </a>
 
             <a href="#social"
-               class="w-full md:w-auto bg-[#7B94C8] hover:bg-[#6A83B7] text-white font-bold px-10 sm:px-16 md:px-20 py-4 sm:py-5 md:py-7 rounded-full text-lg sm:text-xl md:text-2xl transition shadow-lg z-10">
-                RÉSEAUX-SOCIAUX
+               class="w-full sm:w-auto bg-[#7B94C8] hover:bg-[#6A83B7] text-white font-bold
+                      px-8 sm:px-16 py-4 sm:py-6 rounded-full
+                      text-[clamp(0.9rem,2vw,1.5rem)] transition-all duration-300 shadow-lg z-10
+                      hover:scale-105 hover:shadow-[0_0_30px_rgba(123,148,200,0.5)]">
+                RÉSEAUX SOCIAUX
             </a>
 
             <img src="../img/Chouetteailesouvertes.svg"
-                 alt="Chouette ailes ouvertes"
+                 alt=""
                  class="pointer-events-none select-none absolute left-1/2 -translate-x-1/2
-                        top-[45%] sm:top-[45%] md:top-[50%] lg:top-[48%] xl:top-[45%]
-                        w-[90%] sm:w-[70%] md:w-[60%] lg:w-[45%] xl:w-[35%] z-0">
+                        top-[40%] sm:top-[42%] md:top-[45%]
+                        w-[85%] sm:w-[65%] md:w-[55%] lg:w-[42%] xl:w-[32%] z-0"
+                 loading="lazy" aria-hidden="true">
         </div>
     </div>
 </section>
 
+<!-- ══════════════════════════
+     SCRIPTS
+     ══════════════════════════ -->
+<script src="../js/loader.js"></script>
 <script src="../js/navbar.js"></script>
 <script src="../js/footer.js"></script>
 <script src="../js/Parallax.js"></script>
@@ -58,5 +130,21 @@
 <script src="../js/testimonial-slide.js"></script>
 <script src="../i18n/i18n.js"></script>
 <script src="../js/Swiper.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>AOS.init({ duration: 700, easing: 'ease-out-quad', once: true });</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    gsap.from('#contact-title', {
+        duration: 1.2,
+        y: 50,
+        opacity: 0,
+        ease: 'power3.out',
+        delay: 0.3
+    });
+});
+</script>
+
 </body>
 </html>

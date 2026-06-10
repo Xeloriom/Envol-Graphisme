@@ -1,118 +1,242 @@
+/* ===========================
+   FONTS
+   =========================== */
 @font-face {
     font-family: 'Josefin Sans';
     src: url('./Josefin_Sans/JosefinSans-VariableFont_wght.ttf') format('truetype');
     font-weight: 100 900;
     font-style: normal;
+    font-display: swap;
 }
-
 @font-face {
     font-family: 'Josefin Sans';
     src: url('./Josefin_Sans/JosefinSans-Italic-VariableFont_wght.ttf') format('truetype');
     font-weight: 100 900;
     font-style: italic;
+    font-display: swap;
 }
+
+/* ===========================
+   BASE
+   =========================== */
+*, *::before, *::after { box-sizing: border-box; }
 
 body {
     background: #222940;
     font-family: 'Josefin Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
+/* ===========================
+   PAGE LOADER
+   =========================== */
+#page-loader {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: linear-gradient(160deg, #1a2845 0%, #222940 50%, #1a2332 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+#page-loader.loader-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+.loader-stars {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+}
+.loader-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    z-index: 1;
+}
+.loader-logo {
+    width: 180px;
+    max-width: 60vw;
+    animation: loader-pulse 1.5s ease-in-out infinite;
+    filter: drop-shadow(0 0 30px rgba(203, 141, 48, 0.5));
+}
+.loader-sparkles {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200px;
+    height: 200px;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+.loader-sparkles span {
+    position: absolute;
+    display: block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #CB8D30;
+    animation: loader-orbit 3s linear infinite;
+}
+.loader-sparkles span:nth-child(1)  { animation-delay: 0s;      top: 0%;   left: 50%; }
+.loader-sparkles span:nth-child(2)  { animation-delay: -0.375s; top: 15%;  left: 85%; }
+.loader-sparkles span:nth-child(3)  { animation-delay: -0.75s;  top: 50%;  left: 100%;}
+.loader-sparkles span:nth-child(4)  { animation-delay: -1.125s; top: 85%;  left: 85%; }
+.loader-sparkles span:nth-child(5)  { animation-delay: -1.5s;   top: 100%; left: 50%; }
+.loader-sparkles span:nth-child(6)  { animation-delay: -1.875s; top: 85%;  left: 15%; }
+.loader-sparkles span:nth-child(7)  { animation-delay: -2.25s;  top: 50%;  left: 0%;  }
+.loader-sparkles span:nth-child(8)  { animation-delay: -2.625s; top: 15%;  left: 15%; }
+
+.loader-bar-wrap {
+    width: 140px;
+    height: 3px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 999px;
+    overflow: hidden;
+}
+.loader-bar {
+    height: 100%;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #CB8D30, #DEE3F6);
+    animation: loader-progress 2s ease-in-out forwards;
+    transform-origin: left;
+}
+
+@keyframes loader-pulse {
+    0%, 100% { transform: scale(1);    opacity: 1; }
+    50%       { transform: scale(1.06); opacity: 0.85; }
+}
+@keyframes loader-orbit {
+    from { transform: rotate(0deg)   translateX(90px) scale(1); }
+    50%  { transform: rotate(180deg) translateX(90px) scale(0.5); }
+    to   { transform: rotate(360deg) translateX(90px) scale(1); }
+}
+@keyframes loader-progress {
+    from { width: 0; }
+    to   { width: 100%; }
+}
+@keyframes loader-twinkle {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50%       { opacity: 1;   transform: scale(1.5); }
+}
+
+/* ===========================
+   PARALLAX
+   =========================== */
 .parallax-layer {
     position: absolute;
     width: 100%;
     height: 100%;
     pointer-events: none;
 }
-
 .parallax-element {
     position: absolute;
     will-change: transform;
 }
 
+/* ===========================
+   NAVBAR
+   =========================== */
 .nav-btn {
     @apply drop-shadow-xl px-5 py-2 rounded-full backdrop-blur-sm transition-all duration-300 text-[#DBE0F3] bg-[#202940] hover:bg-[#DBE0F3] hover:text-[#212845] hover:scale-105;
 }
-
 .flag-btn {
     @apply w-12 h-12 bg-[#202940] rounded-full flex items-center justify-center cursor-pointer hover:scale-105 transition-transform duration-300;
 }
 
-/* Animation douce de flottement - plus subtile et naturelle */
+/* ===========================
+   OWL ANIMATION
+   =========================== */
 @keyframes owl-float {
-    0%, 100% {
-        transform: translateY(0) rotate(0deg);
-    }
-    25% {
-        transform: translateY(-6px) rotate(-1deg);
-    }
-    50% {
-        transform: translateY(-10px) rotate(0deg);
-    }
-    75% {
-        transform: translateY(-6px) rotate(1deg);
-    }
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    25%       { transform: translateY(-6px) rotate(-1deg); }
+    50%       { transform: translateY(-10px) rotate(0deg); }
+    75%       { transform: translateY(-6px) rotate(1deg); }
 }
-
-/* On sépare l'animation CSS des translations JS via une variable CSS */
 #owl {
     --tx: 0px;
     --ty: 0px;
-    transform: translate(var(--tx), var(--ty)); /* JS met à jour --tx/--ty */
+    transform: translate(var(--tx), var(--ty));
     will-change: transform;
-    transition: filter 0.2s ease; /* pas de transition transform ici, on gère la fluidité en JS */
+    transition: filter 0.2s ease;
 }
-
-/* animation de flottement qui s'additionne (elle utilise transform, on la garde sur un parent
-   si tu veux éviter conflit; mais on applique flottement sur une classe différente) */
-#owl.float-layer {
-    /* pour que l'animation s'applique *au rendu visuel* sans écraser translate var() */
-    animation: none; /* inutile si on gère flottement en JS; sinon laisser mais attention */
-}
-
-/* Exemple d'animation de flottement sur un pseudo élément pour éviter conflit :
-   (optionnel) */
-@keyframes owl-float {
-    0%,100% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-8px) rotate(1deg); }
-}
-
-/* Si tu veux conserver la classe d'animation : applique l'animation sur #owl::after
-   ou sur le parent. Ici je donne la version simple sur le parent */
 #owl-wrapper.animate-owl-float {
     animation: owl-float 5s ease-in-out infinite;
 }
-
-/* Hover */
 #owl:hover {
     filter: drop-shadow(0 0 20px rgba(255,255,255,0.25));
-    transform-origin: center;
 }
 
-.delay-150 {
-    animation-delay: 150ms;
+/* ===========================
+   CARDS & PROJECTS
+   =========================== */
+.project-card {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
 }
+.project-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ===========================
+   ANIMATIONS (scroll reveal)
+   =========================== */
+[data-aos] { pointer-events: none; }
+[data-aos].aos-animate { pointer-events: auto; }
 
 @keyframes pulse {
     0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.8; transform: scale(1.1); }
+    50%       { opacity: 0.8; transform: scale(1.1); }
 }
-
 .animate-pulse {
     animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
-.project-card {
-    animation: fadeIn 0.6s ease-out forwards;
-    opacity: 0;
+/* ===========================
+   SCROLLBAR (custom)
+   =========================== */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #1a2332; }
+::-webkit-scrollbar-thumb { background: #CB8D30; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #DEE3F6; }
+
+/* ===========================
+   RESPONSIVE HELPERS
+   =========================== */
+@media (max-width: 480px) {
+    .hero-title  { font-size: clamp(2rem, 10vw, 3.5rem) !important; }
+    .hero-sub    { font-size: clamp(1.25rem, 6vw, 2rem) !important; }
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* ===========================
+   FOCUS VISIBLE (accessibility)
+   =========================== */
+:focus-visible {
+    outline: 2px solid #CB8D30;
+    outline-offset: 3px;
+    border-radius: 4px;
 }
+
+/* ===========================
+   SKIP TO CONTENT
+   =========================== */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: #CB8D30;
+    color: #1a2332;
+    padding: 8px 16px;
+    z-index: 10000;
+    font-weight: 700;
+    border-radius: 0 0 8px 0;
+    transition: top 0.2s;
+}
+.skip-link:focus { top: 0; }

@@ -3,177 +3,284 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Envol Graphisme - Design Parallax</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- ═══ SEO PRIMARY ═══ -->
+    <title>Envol Graphisme – Designer Graphique | Logo, Identité Visuelle & Supports</title>
+    <meta name="description" content="Envol Graphisme, auto-entrepreneuse passionnée en design graphique. Création de logos, identité visuelle, affiches, flyers et supports de communication sur mesure. Devis gratuit.">
+    <meta name="keywords" content="graphiste freelance, création logo, identité visuelle, design graphique, affiche, flyer, carte de visite, charte graphique, Envol Graphisme">
+    <meta name="author" content="Envol Graphisme">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://assiabillale.github.io/Envol-Graphisme/">
+
+    <!-- ═══ OPEN GRAPH ═══ -->
+    <meta property="og:type"        content="website">
+    <meta property="og:title"       content="Envol Graphisme – Designer Graphique">
+    <meta property="og:description" content="Design graphique sur mesure : logos, identité visuelle, affiches et supports de communication. Donnez des ailes à votre image.">
+    <meta property="og:image"       content="https://assiabillale.github.io/Envol-Graphisme/img/ENVOL%20Graphisme%20Logo%20clair.png">
+    <meta property="og:url"         content="https://assiabillale.github.io/Envol-Graphisme/">
+    <meta property="og:locale"      content="fr_FR">
+    <meta property="og:site_name"   content="Envol Graphisme">
+
+    <!-- ═══ TWITTER CARD ═══ -->
+    <meta name="twitter:card"        content="summary_large_image">
+    <meta name="twitter:title"       content="Envol Graphisme – Designer Graphique">
+    <meta name="twitter:description" content="Design graphique sur mesure : logos, identité visuelle, affiches et supports de communication.">
+    <meta name="twitter:image"       content="https://assiabillale.github.io/Envol-Graphisme/img/ENVOL%20Graphisme%20Logo%20clair.png">
+
+    <!-- ═══ FAVICON ═══ -->
+    <link rel="icon"             type="image/png" href="/Envol-Graphisme/img/Logo.png">
+    <link rel="apple-touch-icon"                  href="/Envol-Graphisme/img/Logo.png">
+
+    <!-- ═══ PRECONNECT ═══ -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+    <!-- ═══ FONTS ═══ -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- ═══ TAILWIND ═══ -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <script src="js/tailwind.config.js"></script>
-    <link rel="stylesheet" href="style.css">
-    <!-- Swiper CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
-    <!-- Swiper JS -->
+
+    <!-- ═══ AOS ═══ -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+
+    <!-- ═══ SWIPER ═══ -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+    <!-- ═══ GSAP ═══ -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <!-- ═══ CUSTOM CSS ═══ -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- ═══ JSON-LD STRUCTURED DATA ═══ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Envol Graphisme",
+      "description": "Auto-entreprise de design graphique : logo, identité visuelle, affiches, flyers et supports de communication sur mesure.",
+      "email": "envol.graphisme@gmail.com",
+      "url": "https://assiabillale.github.io/Envol-Graphisme/",
+      "logo": "https://assiabillale.github.io/Envol-Graphisme/img/ENVOL%20Graphisme%20Logo%20clair.png",
+      "priceRange": "€€",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Services de design graphique",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Création de logo" }, "price": "400", "priceCurrency": "EUR" },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Pack Identité Visuelle Envol" }, "price": "600", "priceCurrency": "EUR" },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Carte de visite" }, "price": "160", "priceCurrency": "EUR" },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Affiche" }, "price": "200", "priceCurrency": "EUR" }
+        ]
+      }
+    }
+    </script>
 </head>
 <body class="bg-[#1a2332] text-white overflow-x-hidden">
 
-<!-- La navigation sera injectée ici par navbar.js -->
+<!-- Skip navigation (accessibilité) -->
+<a href="#bienvenue" class="skip-link">Aller au contenu principal</a>
 
-<!-- Hero Section avec Parallax -->
-<section id="hero" class="relative h-screen overflow-hidden">
+<!-- ══════════════════════════════════
+     SECTION HERO – PARALLAX
+     ══════════════════════════════════ -->
+<section id="hero" class="relative h-screen overflow-hidden" aria-label="Bienvenue">
+
     <div class="absolute inset-0 bg-gradient-to-b from-[#1a2845] via-[#2a3a5a] to-[#1a2332]"></div>
 
+    <!-- Ciel étoilé -->
     <div class="parallax-layer" data-speed="0.2">
-        <img src="img/Ciel%20étoilé.png" alt="" class="parallax-element w-full h-full object-cover opacity-60">
+        <img src="img/Ciel%20étoilé.png" alt="" class="parallax-element w-full h-full object-cover opacity-60" loading="eager">
     </div>
 
+    <!-- Lune -->
     <div class="parallax-layer" data-speed="0.3">
-        <img src="img/Lune.svg" alt="Lune" class="parallax-element -top-[6%] lg:top-[10%] right-[20%] w-[40%] h-[40%]">
+        <img src="img/Lune.svg" alt="" class="parallax-element -top-[6%] lg:top-[10%] right-[20%] w-[40%] h-[40%]" loading="eager">
     </div>
 
-    <div class="parallax-layer w-[130%]" data-speed="0.5" style="overflow: visible;">
-        <img src="img/Collines.svg" alt="Montagnes"
+    <!-- Collines -->
+    <div class="parallax-layer w-[130%]" data-speed="0.5" style="overflow:visible">
+        <img src="img/Collines.svg" alt=""
              class="parallax-element w-[240%] h-[170vh] object-cover -bottom-[130%] left-1/2 -translate-x-1/2"
-             style="position: absolute;">
+             style="position:absolute" loading="eager">
     </div>
 
+    <!-- Arbres gauche -->
     <div class="parallax-layer" data-speed="0.8">
-        <img src="img/Arbres%20de%20gauche.svg" alt="" class="parallax-element -bottom-[40%] -left-[60%] md:-left-[11%] h-[130%] mt-[100%]">
+        <img src="img/Arbres%20de%20gauche.svg" alt=""
+             class="parallax-element -bottom-[40%] -left-[60%] md:-left-[11%] h-[130%] mt-[100%]" loading="eager">
     </div>
 
+    <!-- Arbres droite -->
     <div class="parallax-layer" data-speed="0.8">
-        <img src="img/Arbres%20de%20droite.svg" alt="" class="parallax-element -bottom-[40%] -right-[70%] md:-right-[14%] h-[130%] mt-[100%]">
+        <img src="img/Arbres%20de%20droite.svg" alt=""
+             class="parallax-element -bottom-[40%] -right-[70%] md:-right-[14%] h-[130%] mt-[100%]" loading="eager">
     </div>
 
-    <div class="relative z-10 flex flex-col items-left justify-center min-h-screen px-[6%]">
-        <div class="max-w-4xl text-left space-y-[10%] text-[#DEE3F6]">
-            <h1 class="text-6xl text-center md:text-left md:text-8xl font-bold mb-8 leading-tight" data-i18n="hero_title">
-                Le design qui<br>
-                révèle votre<br>
-                différence.
+    <!-- Texte hero -->
+    <div class="relative z-10 flex flex-col items-center md:items-start justify-center min-h-screen px-[6%]">
+        <div class="max-w-4xl space-y-8 text-[#DEE3F6]">
+            <h1 id="hero-title"
+                class="hero-title text-[clamp(2.2rem,8vw,5rem)] text-center md:text-left font-bold leading-tight"
+                data-i18n="hero_title">
+                Le design qui<br>révèle votre<br>différence.
             </h1>
-
-            <p class="text-4xl md:text-7xl text-center md:text-left font-semibold mb-12 w-2/2 lg:w-screen" data-i18n="hero_subtitle">
-                Ensemble, créons un<br>
-                univers qui vous ressemble.
+            <p id="hero-sub"
+               class="hero-sub text-[clamp(1.3rem,4vw,3rem)] text-center md:text-left font-semibold"
+               data-i18n="hero_subtitle">
+                Ensemble, créons un<br>univers qui vous ressemble.
             </p>
         </div>
 
-        <div class="absolute bottom-12 left-1/2 -translate-x-1/2 animate-bounce">
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce" aria-hidden="true">
             <svg class="w-8 h-8 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
             </svg>
         </div>
     </div>
 
-    <div id="owl-wrapper" class="fixed -bottom-[20%] lg:-bottom-[10%] -right-10 z-50 pointer-events-none hidden md:block">
-        <img id="owl" src="img/Chouette%20clin%20d'oeil.png"
-             alt="Chouette Envol"
+    <!-- Chouette mascotte -->
+    <div id="owl-wrapper"
+         class="fixed -bottom-[20%] lg:-bottom-[10%] -right-10 z-50 pointer-events-none hidden md:block"
+         aria-hidden="true">
+        <img id="owl"
+             src="img/Chouette%20clin%20d'oeil.png"
+             alt="Mascotte Envol Graphisme"
              class="w-full h-auto cursor-pointer pointer-events-auto"
-             style="max-width: 200px;">
+             style="max-width:200px">
     </div>
 </section>
 
-<section id="bienvenue" class="relative  min-h-screen pt-24 px-0 bg-[#222940] overflow-hidden ">
 
-    <div class="absolute h-[330em] lg:h-[430vw] xl:h-[130vw] inset-0 bg-[url('./img/Motif%20étoiles%20blanches.svg')] bg-cover bg-center opacity-10 [mask-image:linear-gradient(to_top,rgba(0,0,0,0.8),rgba(0,0,0,0))] [-webkit-mask-image:-webkit-gradient(linear,left_bottom,left_top,from(rgba(0,0,0,0.8)),to(rgba(0,0,0,0)))]"></div>
+<!-- ══════════════════════════════════
+     SECTION BIENVENUE
+     ══════════════════════════════════ -->
+<section id="bienvenue" class="relative min-h-screen pt-24 px-0 bg-[#222940] overflow-hidden">
 
-    <div class="relative z-10 max-w-[80%] mx-auto text-[#DEE3F6]">
-        <h2 class="text-5xl font-bold mb-12" data-i18n="bienvenue_h2">Marquez les esprits.</h2>
+    <div class="absolute h-[330em] lg:h-[430vw] xl:h-[130vw] inset-0
+                bg-[url('./img/Motif%20étoiles%20blanches.svg')] bg-cover bg-center opacity-10
+                [mask-image:linear-gradient(to_top,rgba(0,0,0,0.8),rgba(0,0,0,0))]
+                [-webkit-mask-image:-webkit-gradient(linear,left_bottom,left_top,from(rgba(0,0,0,0.8)),to(rgba(0,0,0,0)))]"
+         aria-hidden="true">
+    </div>
+
+    <div class="relative z-10 max-w-[90%] md:max-w-[80%] mx-auto text-[#DEE3F6]">
+
+        <h2 class="text-[clamp(2rem,5vw,3rem)] font-bold mb-12"
+            data-aos="fade-up" data-i18n="bienvenue_h2">Marquez les esprits.</h2>
 
         <div class="space-y-8 leading-relaxed">
-            <div>
-                <h3 class="text-[35px] font-bold mb-4" data-i18n="bienvenue_intro">Bienvenue chez Envol Graphisme !</h3>
-                <p class="text-[25px]" data-i18n="bienvenue_intro_text">Ici, je crée des visuels qui ont du sens, faits sur mesure selon vos besoins.</p>
+
+            <div data-aos="fade-up" data-aos-delay="50">
+                <h3 class="text-[clamp(1.2rem,3vw,2rem)] font-bold mb-4"
+                    data-i18n="bienvenue_intro">Bienvenue chez Envol Graphisme !</h3>
+                <p class="text-[clamp(1rem,2.5vw,1.6rem)]"
+                   data-i18n="bienvenue_intro_text">
+                    Ici, je crée des visuels qui ont du sens, faits sur mesure selon vos besoins.
+                </p>
             </div>
 
-            <div>
-                <h3 class="text-[35px] font-bold mb-4" data-i18n="qui_suis_je_h3">Qui suis-je ?</h3>
-                <p class="text-[25px]" data-i18n="qui_suis_je_text">
+            <div data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-[clamp(1.2rem,3vw,2rem)] font-bold mb-4"
+                    data-i18n="qui_suis_je_h3">Qui suis-je ?</h3>
+                <p class="text-[clamp(1rem,2.5vw,1.6rem)]" data-i18n="qui_suis_je_text">
                     <span class="font-light">Envol Graphisme</span>, c'est une auto-entrepreneuse qui aime
                     <span class="font-light">donner vie à vos idées</span> avec des
                     <span class="font-light">designs sur mesure</span>. Que ce soit pour
                     <span class="font-light">un logo, une identité visuelle, un support de communication, une affiche originale</span>
-                    ou encore bien d'autres projets, je prends le temps d'écouter ce que vous voulez vraiment pour vous proposer quelque chose
-                    <span class="font-light">d'unique et qui vous ressemble</span>.
+                    ou encore bien d'autres projets, je prends le temps d'écouter ce que vous voulez vraiment
+                    pour vous proposer quelque chose <span class="font-light">d'unique et qui vous ressemble</span>.
                 </p>
             </div>
 
-            <div>
-                <h3 class="text-[35px] font-bold mb-4" data-i18n="mission_h3">Ma mission :</h3>
-                <p class="text-[25px]" data-i18n="mission_text">
+            <div data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-[clamp(1.2rem,3vw,2rem)] font-bold mb-4"
+                    data-i18n="mission_h3">Ma mission :</h3>
+                <p class="text-[clamp(1rem,2.5vw,1.6rem)]" data-i18n="mission_text">
                     Vous aider à vous <span class="font-semibold">démarquer</span> avec des
                     <span class="font-semibold">créations graphiques</span> qui racontent votre histoire.
-                    Peu importe votre projet ou <span class="font-semibold">votre budget</span>, je suis là pour vous accompagner avec
-                    simplicité, bonne humeur, et un vrai souci du détail. Chaque projet est mené en
-                    <span class="font-semibold">collaboration étroite avec vous</span> pour créer un résultat unique dont vous serez fier.
+                    Peu importe votre projet ou <span class="font-semibold">votre budget</span>, je suis là
+                    pour vous accompagner avec simplicité, bonne humeur, et un vrai souci du détail.
+                    Chaque projet est mené en <span class="font-semibold">collaboration étroite avec vous</span>
+                    pour créer un résultat unique dont vous serez fier.
                 </p>
             </div>
 
-            <div>
-                <h3 class="text-[35px] font-bold mb-4" data-i18n="pourquoi_h3">Pourquoi me faire confiance ?</h3>
-                <ul class="space-y-3 text-[25px]">
-                    <li class="flex items-center gap-3" data-i18n="pourquoi_list_1">
-                        <img src="img/Etoile%20jaune.svg" class="h-5 w-5 mt-1" />
+            <div data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-[clamp(1.2rem,3vw,2rem)] font-bold mb-4"
+                    data-i18n="pourquoi_h3">Pourquoi me faire confiance ?</h3>
+                <ul class="space-y-3 text-[clamp(1rem,2.5vw,1.6rem)]" role="list">
+                    <li class="flex items-start gap-3" data-i18n="pourquoi_list_1">
+                        <img src="img/Etoile%20jaune.svg" class="h-5 w-5 mt-1 flex-shrink-0" alt="" loading="lazy">
                         <span>Je ne fait <span class="font-semibold">jamais de copier-coller</span> : chaque design est <span class="font-semibold">imaginé spécialement pour vous</span>.</span>
                     </li>
-                    <li class="flex items-center gap-3" data-i18n="pourquoi_list_2">
-                        <img src="img/Etoile%20jaune.svg" class="h-5 w-5 mt-1" />
+                    <li class="flex items-start gap-3" data-i18n="pourquoi_list_2">
+                        <img src="img/Etoile%20jaune.svg" class="h-5 w-5 mt-1 flex-shrink-0" alt="" loading="lazy">
                         <span>J'aime travailler en confiance, <span class="font-semibold">en vous écoutant vraiment</span>.</span>
                     </li>
-                    <li class="flex items-center gap-3" data-i18n="pourquoi_list_3">
-                        <img src="img/Etoile%20jaune.svg" class="h-5 w-5 mt-1" />
+                    <li class="flex items-start gap-3" data-i18n="pourquoi_list_3">
+                        <img src="img/Etoile%20jaune.svg" class="h-5 w-5 mt-1 flex-shrink-0" alt="" loading="lazy">
                         <span>Je crois que la <span class="font-semibold">qualité peut être accessible à tous les profils et projets</span>.</span>
                     </li>
-                    <li class="flex items-center gap-3" data-i18n="pourquoi_list_4">
-                        <img src="img/Etoile%20jaune.svg" class="h-5 w-5 mt-1" />
+                    <li class="flex items-start gap-3" data-i18n="pourquoi_list_4">
+                        <img src="img/Etoile%20jaune.svg" class="h-5 w-5 mt-1 flex-shrink-0" alt="" loading="lazy">
                         <span>Je suis là pour vous <span class="font-semibold">guider à chaque étape</span>.</span>
                     </li>
                 </ul>
             </div>
 
-            <div>
-                <h3 class="text-[35px] font-bold mb-4" data-i18n="valeurs_h3">Mes valeurs :</h3>
-                <p class="text-[25px]" data-i18n="valeurs_text">
+            <div data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-[clamp(1.2rem,3vw,2rem)] font-bold mb-4"
+                    data-i18n="valeurs_h3">Mes valeurs :</h3>
+                <p class="text-[clamp(1rem,2.5vw,1.6rem)]" data-i18n="valeurs_text">
                     La <span class="font-semibold">créativité</span> sans limite, la <span class="font-semibold">sincérité</span> et la
                     <span class="font-semibold">confiance</span> dans nos échanges, <span class="font-semibold">l'originalité</span> de nos créations,
                     la <span class="font-semibold">flexibilité</span> pour toujours satisfaire <span class="font-semibold">vos besoins</span>.
                 </p>
             </div>
 
-            <div>
-                <h3 class="text-[35px] font-bold mb-4" data-i18n="pourqui_h3">Pour qui ?</h3>
-                <p class="text-[25px]" data-i18n="pourqui_text">
+            <div data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-[clamp(1.2rem,3vw,2rem)] font-bold mb-4"
+                    data-i18n="pourqui_h3">Pour qui ?</h3>
+                <p class="text-[clamp(1rem,2.5vw,1.6rem)]" data-i18n="pourqui_text">
                     Que vous soyez <span class="font-semibold">une entreprise, une association, un créateur ou juste quelqu'un qui veut une décoration sympa</span>.
                     Envol Graphisme est là pour vous aider à <span class="font-semibold">mettre des couleurs</span> et
                     <span class="font-semibold">donner vie à vos projets</span>.
                 </p>
             </div>
+
         </div>
     </div>
-    <!-- Section Témoignages -->
-    <section class="py-24 cursor-pointer">
-        <div class="mx-auto max-w-9xl ">
 
+    <!-- ── Témoignages ── -->
+    <section class="py-24 cursor-pointer" aria-label="Témoignages clients">
+        <div class="mx-auto max-w-9xl">
             <div class="swiper mySwiper p-10">
-                <div class="swiper-wrapper" id="testimonial-wrapper">
-                    <!-- Slides injectés ici -->
-                </div>
-
-                <!-- Boutons -->
-                <div class="flex space-x-5 mt-5">
-                    <!-- Boutons Swiper custom -->
-                    <div id="slider-button-left"
-                         class=" w-12 h-12 bg-white/20 hover:bg-white/40 rounded-full flex items-center justify-center shadow-lg transition-all duration-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                <div class="swiper-wrapper" id="testimonial-wrapper" role="list"></div>
+                <div class="flex space-x-5 mt-5" aria-label="Navigation carrousel">
+                    <button id="slider-button-left"
+                            aria-label="Témoignage précédent"
+                            class="w-12 h-12 bg-white/20 hover:bg-white/40 rounded-full flex items-center justify-center shadow-lg transition-all duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none"
+                             viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
                         </svg>
-                    </div>
-
-                    <div id="slider-button-right"
-                         class=" w-12 h-12 bg-white/20 hover:bg-white/40 rounded-full flex items-center justify-center shadow-lg transition-all duration-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </button>
+                    <button id="slider-button-right"
+                            aria-label="Témoignage suivant"
+                            class="w-12 h-12 bg-white/20 hover:bg-white/40 rounded-full flex items-center justify-center shadow-lg transition-all duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none"
+                             viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                         </svg>
-                    </div>
+                    </button>
                 </div>
             </div>
         </div>
@@ -181,16 +288,45 @@
 
 </section>
 
-
+<!-- ══════════════════════════
+     SCRIPTS
+     ══════════════════════════ -->
+<script src="js/loader.js"></script>
 <script src="js/navbar.js"></script>
 <script src="js/footer.js"></script>
 <script src="js/Parallax.js"></script>
 <script src="js/owl-FAQ.js"></script>
 <script src="js/testimonial-slide.js"></script>
-
 <script src="i18n/i18n.js"></script>
-
 <script src="js/Swiper.js"></script>
+
+<!-- AOS init -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+    AOS.init({ duration: 700, easing: 'ease-out-quad', once: true, offset: 60 });
+</script>
+
+<!-- GSAP hero entrance -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.from('#hero-title', {
+        duration: 1.2,
+        y: 60,
+        opacity: 0,
+        ease: 'power3.out',
+        delay: 0.5
+    });
+    gsap.from('#hero-sub', {
+        duration: 1,
+        y: 40,
+        opacity: 0,
+        ease: 'power3.out',
+        delay: 0.9
+    });
+});
+</script>
 
 </body>
 </html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 – Page introuvable | Envol Graphisme</title>
+    <meta name="description" content="Oups ! Cette page s'est envolée. Retournez à l'accueil d'Envol Graphisme.">
+    <meta name="robots" content="noindex, nofollow">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/Envol-Graphisme/img/Logo.png">
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/Envol-Graphisme/style.css">
+
+    <style>
+        body {
+            background: linear-gradient(160deg, #1a2845 0%, #222940 50%, #1a2332 100%);
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        .star-field span {
+            position: absolute;
+            border-radius: 50%;
+            background: #fff;
+            pointer-events: none;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.2; transform: scale(1); }
+            50%       { opacity: 1;   transform: scale(1.6); }
+        }
+
+        .code-404 {
+            font-size: clamp(5rem, 20vw, 12rem);
+            font-weight: 800;
+            line-height: 1;
+            background: linear-gradient(135deg, #CB8D30 0%, #DEE3F6 50%, #CB8D30 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: none;
+            filter: drop-shadow(0 0 40px rgba(203,141,48,0.4));
+        }
+
+        .shooting-star {
+            position: absolute;
+            width: 120px;
+            height: 2px;
+            background: linear-gradient(90deg, rgba(255,255,255,0), #CB8D30, rgba(255,255,255,0));
+            border-radius: 999px;
+            animation: shoot 4s linear infinite;
+            opacity: 0;
+        }
+        .shooting-star:nth-child(1) { top: 15%; left: -120px; transform: rotate(20deg); animation-delay: 0s; }
+        .shooting-star:nth-child(2) { top: 35%; left: -120px; transform: rotate(15deg); animation-delay: 1.5s; }
+        .shooting-star:nth-child(3) { top: 60%; left: -120px; transform: rotate(25deg); animation-delay: 3s; }
+
+        @keyframes shoot {
+            0%   { left: -120px; opacity: 0; }
+            10%  { opacity: 1; }
+            90%  { opacity: 1; }
+            100% { left: 110vw; opacity: 0; }
+        }
+
+        .owl-404 {
+            animation: owl-wobble 3s ease-in-out infinite;
+        }
+        @keyframes owl-wobble {
+            0%, 100% { transform: rotate(-4deg) translateY(0); }
+            25%       { transform: rotate(2deg) translateY(-8px); }
+            75%       { transform: rotate(-2deg) translateY(-4px); }
+        }
+    </style>
+</head>
+<body class="text-white">
+
+<!-- Étoiles -->
+<div class="star-field fixed inset-0 pointer-events-none overflow-hidden" aria-hidden="true" id="stars"></div>
+
+<!-- Étoiles filantes -->
+<div class="fixed inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
+    <div class="shooting-star"></div>
+    <div class="shooting-star"></div>
+    <div class="shooting-star"></div>
+</div>
+
+<main class="relative min-h-screen flex flex-col items-center justify-center px-6 text-center z-10 gap-8">
+
+    <!-- Code 404 -->
+    <div id="err-code" class="code-404">404</div>
+
+    <!-- Chouette perplexe -->
+    <div id="err-owl" class="owl-404" aria-hidden="true">
+        <img src="/Envol-Graphisme/img/Chouetteailesouvertes.svg"
+             alt=""
+             class="w-40 sm:w-56 md:w-64 drop-shadow-2xl">
+    </div>
+
+    <!-- Message -->
+    <div id="err-msg" class="space-y-3 max-w-xl">
+        <h1 class="text-[clamp(1.4rem,4vw,2.2rem)] font-bold text-[#DEE3F6]">
+            Cette page s'est envolée&nbsp;!
+        </h1>
+        <p class="text-[clamp(0.9rem,2.5vw,1.3rem)] text-white/70 leading-relaxed">
+            La page que vous cherchez n'existe pas ou a été déplacée.<br>
+            Retournez à l'accueil et continuons l'aventure&nbsp;!
+        </p>
+    </div>
+
+    <!-- CTA -->
+    <div id="err-cta" class="flex flex-col sm:flex-row gap-4">
+        <a href="/Envol-Graphisme/index.html"
+           class="bg-[#CB8D30] hover:bg-[#DEE3F6] hover:text-[#1a2332] text-white
+                  font-bold px-8 py-4 rounded-full text-lg transition-all duration-300
+                  hover:scale-105 shadow-lg hover:shadow-[0_0_30px_rgba(203,141,48,0.5)]">
+            ✦ Retour à l'accueil
+        </a>
+        <a href="/Envol-Graphisme/View/Contact.html"
+           class="bg-white/10 hover:bg-white/20 text-white border border-white/30
+                  font-bold px-8 py-4 rounded-full text-lg transition-all duration-300
+                  hover:scale-105 shadow-lg">
+            Me contacter
+        </a>
+    </div>
+
+    <!-- Logo -->
+    <a href="/Envol-Graphisme/index.html" class="mt-4 opacity-60 hover:opacity-100 transition-opacity">
+        <img src="/Envol-Graphisme/img/ENVOL%20Graphisme%20Logo%20clair.png"
+             alt="Envol Graphisme"
+             class="h-10 mx-auto">
+    </a>
+
+</main>
+
+<script>
+// Générer les étoiles
+const starsEl = document.getElementById('stars');
+for (let i = 0; i < 80; i++) {
+    const s = document.createElement('span');
+    const size = Math.random() * 3 + 1;
+    s.style.cssText = `
+        width:${size}px; height:${size}px;
+        left:${Math.random() * 100}%; top:${Math.random() * 100}%;
+        opacity:${Math.random() * 0.7 + 0.3};
+        animation: twinkle ${Math.random() * 3 + 2}s ease-in-out infinite;
+        animation-delay: ${Math.random() * 3}s;
+    `;
+    starsEl.appendChild(s);
+}
+
+// GSAP entrance
+document.addEventListener('DOMContentLoaded', () => {
+    gsap.from('#err-code', { duration: 1, y: -60, opacity: 0, ease: 'bounce.out' });
+    gsap.from('#err-owl',  { duration: 0.8, scale: 0, opacity: 0, ease: 'back.out(1.7)', delay: 0.3 });
+    gsap.from('#err-msg',  { duration: 0.7, y: 30, opacity: 0, ease: 'power3.out', delay: 0.6 });
+    gsap.from('#err-cta',  { duration: 0.7, y: 20, opacity: 0, ease: 'power3.out', delay: 0.9 });
+});
+</script>
+
+</body>
+</html>

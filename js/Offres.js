@@ -1,77 +1,82 @@
+const OFFRES_BASE = (typeof BASE_PATH !== 'undefined') ? BASE_PATH : '/Envol-Graphisme';
+
 // 1. CHARGEMENT DES DONNÉES
 document.addEventListener('DOMContentLoaded', () => {
-    fetch('../Data/offers.json')
+    fetch(`${OFFRES_BASE}/Data/offers.json`)
         .then(res => res.json())
         .then(data => {
-            const mainPacks = document.getElementById('main-packs-container');
+            const mainPacks    = document.getElementById('main-packs-container');
             const mainServices = document.getElementById('main-services-container');
-            const popPacks = document.getElementById('packs-content');
-            const popServices = document.getElementById('services-content');
+            const popPacks     = document.getElementById('packs-content');
+            const popServices  = document.getElementById('services-content');
 
-            // Génération des Packs
-            data.packs.forEach(pack => {
-                // Côté Page
+            data.packs.forEach((pack, i) => {
                 mainPacks.innerHTML += `
-                        <div class="bg-[#202940] rounded-[40px] p-10 shadow-xl border border-white/5">
-                            <h2 class="text-3xl font-bold text-white mb-4"><span class="text-[#CB8D30]">✦</span> ${pack.name}</h2>
-                            <p class="text-white/70 text-xl mb-6">${pack.description}</p>
-                            <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 text-white/80 text-lg mb-8">
-                                ${pack.features.map(f => `<li><span class="text-[#5A7ABC]">✦</span> ${f}</li>`).join('')}
-                            </ul>
-                            <p class="text-2xl text-white text-center font-light">À partir de <span class="font-bold">${pack.price}€</span></p>
-                        </div>`;
-
-                // Côté Popup
+                <article class="bg-[#202940] rounded-[40px] p-8 lg:p-10 shadow-xl border border-white/5"
+                         data-aos="fade-up" data-aos-delay="${i * 100}">
+                    <h2 class="text-[clamp(1.2rem,3vw,2rem)] font-bold text-white mb-4">
+                        <span class="text-[#CB8D30]">✦</span> ${pack.name}
+                    </h2>
+                    <p class="text-white/70 text-lg mb-6">${pack.description}</p>
+                    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-white/80 text-base mb-8">
+                        ${pack.features.map(f => `<li class="flex items-start gap-2"><span class="text-[#5A7ABC] flex-shrink-0 mt-0.5">✦</span><span>${f}</span></li>`).join('')}
+                    </ul>
+                    <p class="text-xl text-white text-center font-light">
+                        À partir de <span class="font-bold text-[#CB8D30]">${pack.price}€</span>
+                    </p>
+                </article>`;
                 popPacks.appendChild(createPopupItem(pack));
             });
 
-            // Génération des Services
-            data.services.forEach(service => {
-                // Côté Page
+            data.services.forEach((service, i) => {
                 mainServices.innerHTML += `
-                        <div class="flex justify-between items-center text-white border-b border-[#5C78BB]/30 py-4 px-2">
-                            <span class="text-xl font-medium"><span class="text-[#CB8D30]">✦</span> ${service.name}</span>
-                            <span class="text-lg">À partir de <span class="font-bold">${service.price}€</span></span>
-                        </div>`;
-
-                // Côté Popup
+                <div class="flex flex-wrap justify-between items-center text-white
+                            border-b border-[#5C78BB]/30 py-4 px-2 gap-2">
+                    <span class="text-base font-medium">
+                        <span class="text-[#CB8D30]">✦</span> ${service.name}
+                    </span>
+                    <span class="text-base">
+                        À partir de <span class="font-bold">${service.price}€</span>
+                    </span>
+                </div>`;
                 popServices.appendChild(createPopupItem(service));
             });
-        });
+        })
+        .catch(err => console.error('Erreur chargement offers.json :', err));
 });
 
-// 2. LOGIQUE DU SIMULATEUR
+// 2. LOGIQUE SIMULATEUR
 function createPopupItem(item) {
     const div = document.createElement('div');
-    // Style de la ligne : flex, espacement propre, et hover
     div.className = 'service-item group flex justify-between items-center p-2 lg:p-3 rounded-xl transition-all hover:bg-[#B5C0DD]/50';
+    div.setAttribute('role', 'button');
+    div.setAttribute('tabindex', '0');
+    div.setAttribute('aria-pressed', 'false');
 
-    div.onclick = function() {
+    div.onclick = function () {
         const cb = this.querySelector('input');
         cb.checked = !cb.checked;
-        // Effet visuel quand sélectionné
-        if(cb.checked) {
-            this.classList.add('bg-[#B5C0DD]');
-        } else {
-            this.classList.remove('bg-[#B5C0DD]');
-        }
+        this.setAttribute('aria-pressed', cb.checked);
+        this.classList.toggle('bg-[#B5C0DD]', cb.checked);
         updateTotal();
+    };
+    div.onkeydown = function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); this.click(); }
     };
 
     div.innerHTML = `
         <div class="flex items-center gap-3">
-            <input type="checkbox" value="${item.price}" data-name="${item.name}" class="hidden">
+            <input type="checkbox" value="${item.price}" data-name="${item.name}" class="hidden"
+                   aria-label="${item.name} - ${item.price}€">
             <span class="text-[#1D2743] text-sm lg:text-base font-medium">${item.name}</span>
         </div>
         <div class="text-[#1D2743] text-sm lg:text-base">
-            <span class="opacity-60 text-xs">À partir de</span> 
-            <span class="font-bold">${item.price}€</span>
-        </div>
-    `;
+            <span class="opacity-60 text-xs">À partir de</span>
+            <span class="font-bold"> ${item.price}€</span>
+        </div>`;
     return div;
 }
 
-// Pour l'affichage dans le bloc noir (updateTotal)
 function updateTotal() {
     const selectedContainer = document.getElementById('selectedItems');
     const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
@@ -90,39 +95,39 @@ function updateTotal() {
             </div>`;
     });
 
-    if(checkboxes.length === 0) {
+    if (!checkboxes.length) {
         selectedContainer.innerHTML = '<p class="text-white/40 text-center py-4 text-sm italic">Aucun service sélectionné</p>';
     }
-
     document.getElementById('totalPrice').textContent = total + '€';
 }
 
-// 3. ACTIONS UI
+// 3. UI ACTIONS
 function openPopup() {
-    document.getElementById('popup').classList.remove('hidden');
-    document.getElementById('popup').classList.add('flex');
+    const popup = document.getElementById('popup');
+    popup.classList.remove('hidden');
+    popup.classList.add('flex');
     document.body.style.overflow = 'hidden';
+    popup.querySelector('button').focus();
 }
 
 function closePopup() {
     document.getElementById('popup').classList.add('hidden');
-    document.body.style.overflow = 'auto';
+    document.getElementById('popup').classList.remove('flex');
+    document.body.style.overflow = '';
 }
 
 function toggleSection(id) {
     const content = document.getElementById(id + '-content');
-    const arrow = document.getElementById(id + '-arrow');
+    const arrow   = document.getElementById(id + '-arrow');
     content.classList.toggle('hidden');
     arrow.textContent = content.classList.contains('hidden') ? '▶' : '▼';
 }
 
 function sendContact() {
     const total = document.getElementById('totalPrice').textContent;
-
-    if(total === '0€') {
-        return alert('Veuillez choisir au moins une option.');
+    if (total === '0€') {
+        alert('Veuillez choisir au moins une option.');
+        return;
     }
-
-    // Redirection vers la page contact
-    window.location.href = '/Envol-Graphisme/View/Contact.html';
+    window.location.href = `${OFFRES_BASE}/View/Contact.html`;
 }
