@@ -369,10 +369,50 @@ img { max-width: 100%; height: auto; }
 [data-aos] { pointer-events: none; }
 [data-aos].aos-animate { pointer-events: auto; }
 [data-aos="fade-up"] {
-    transform: translateY(40px) !important;
+    transform: translateY(32px) !important;
     opacity: 0 !important;
 }
 [data-aos="fade-up"].aos-animate {
     transform: translateY(0) !important;
     opacity: 1 !important;
+}
+
+/* ═══════════════════════════════════
+   SCROLL REVEAL — système universel
+   ═══════════════════════════════════ */
+.sr {
+    opacity: 0;
+    transform: translateY(28px);
+    transition:
+        opacity  0.65s cubic-bezier(0.4, 0, 0.2, 1),
+        transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: opacity, transform;
+}
+.sr.sr--left  { transform: translateX(-28px); }
+.sr.sr--right { transform: translateX(28px); }
+.sr.sr--scale { transform: scale(0.94); }
+.sr.sr--visible {
+    opacity: 1;
+    transform: none;
+}
+
+/* Transitions globales sur les éléments interactifs */
+a, button { transition: opacity 0.2s ease, transform 0.2s ease, color 0.2s ease, background 0.2s ease; }
+img:not(.parallax-element):not(.ftr-bg):not(.ftr-bg-mobile) {
+    transition: transform 0.4s ease, filter 0.3s ease;
+}
+
+/* Cartes projet hover lift */
+.project-card {
+    transition:
+        opacity  0.7s cubic-bezier(0.4,0,0.2,1),
+        transform 0.7s cubic-bezier(0.4,0,0.2,1),
+        box-shadow 0.3s ease !important;
+}
+.project-card:hover { transform: translateY(-6px) !important; }
+
+/* Respect reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+    .sr, [data-aos], .project-card, a, button, img { transition: none !important; animation: none !important; }
+    .sr { opacity: 1 !important; transform: none !important; }
 }

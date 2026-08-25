@@ -208,6 +208,7 @@
 <script src="../js/navbar.js"></script>
 <script src="../js/footer.js"></script>
 <script src="../js/Offres.js"></script>
+<script src="../js/scroll-animations.js"></script>
 <script src="../i18n/i18n.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 <script>
@@ -218,7 +219,7 @@
     setTimeout(hideLoader,5000);
 })();
 
-AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true });
+AOS.init({ duration: 650, easing: 'ease-out-cubic', once: true, offset: 60 });
 
 document.addEventListener('DOMContentLoaded', function() {
     gsap.fromTo('.offres-h1', { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 1, ease: 'power3.out', delay: 0.4 });
