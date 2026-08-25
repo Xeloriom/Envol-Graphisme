@@ -28,8 +28,7 @@ function displayProjects(projects) {
         card.innerHTML = `
             <div class="relative bg-gradient-to-br ${project.bgGradient}
                         rounded-[60px] lg:rounded-[70px] transition-all duration-500
-                        hover:scale-105 hover:border-[#C38D3C] hover:border-[10px]
-                        border-4 ${project.borderColor} shadow-2xl">
+                        hover:scale-105 hover:border-[#CB8D30] border-[10px] ${project.borderColor} shadow-2xl">
 
                 <img src="${PROJETS_BASE}/img/Etoile%20filante%20blanche%20trainée%20jaune.svg"
                      class="absolute ${index % 2 === 0 ? '-top-6 -left-6 rotate-[12.1rad]' : '-top-6 -right-6 rotate-[0.7rad]'} w-20 lg:w-24 z-20 pointer-events-none"
@@ -74,7 +73,7 @@ function displayProjects(projects) {
 
 function openImageViewer(src, alt) {
     const viewer = document.createElement('div');
-    viewer.className = 'fixed inset-0 z-[200] bg-black/95 flex items-center justify-center p-4 cursor-zoom-out';
+    viewer.className = 'fixed inset-0 z-[1300] bg-black/95 flex items-center justify-center p-4 cursor-zoom-out';
     viewer.setAttribute('role', 'dialog');
     viewer.setAttribute('aria-label', 'Agrandissement image');
     viewer.innerHTML = `
