@@ -46,7 +46,8 @@ function createNavbar() {
     nav.id = 'main-nav';
     nav.setAttribute('role', 'navigation');
     nav.setAttribute('aria-label', 'Navigation principale');
-    nav.className = 'absolute top-0 left-0 right-0 z-[1000] bg-transparent';
+    nav.className = 'fixed top-0 left-0 right-0 z-[1000] bg-transparent transition-all duration-300';
+    nav.style.cssText = 'padding-top: env(safe-area-inset-top, 0px);';
 
     nav.innerHTML = `
     <div class=" max-w-[1280px] mx-auto px-6 h-[68px] flex items-center justify-between gap-6">
@@ -147,6 +148,23 @@ function initNavbar() {
     );
     document.querySelectorAll('.mobile-nav-link').forEach(l => l.addEventListener('click', closeMenu));
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+
+    // Fond navbar au scroll
+    function updateNavBg() {
+        if (window.scrollY > 20) {
+            nav.style.background = 'rgba(16, 22, 45, 0.92)';
+            nav.style.backdropFilter = 'blur(14px)';
+            nav.style.webkitBackdropFilter = 'blur(14px)';
+            nav.style.boxShadow = '0 2px 20px rgba(0,0,0,0.4)';
+        } else {
+            nav.style.background = 'transparent';
+            nav.style.backdropFilter = 'none';
+            nav.style.webkitBackdropFilter = 'none';
+            nav.style.boxShadow = 'none';
+        }
+    }
+    window.addEventListener('scroll', updateNavBg, { passive: true });
+    updateNavBg();
 
     highlightCurrentPage();
 }
