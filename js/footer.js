@@ -102,20 +102,20 @@ function initFooter() {
             /* Legal en bas absolu */
             '.ftr-legal{' +
                 'position:absolute;bottom:0.5rem;left:0;right:0;' +
-                'text-align:center;font-size:0.62rem;white-space:nowrap;' +
-                'letter-spacing:0.03em;padding:0 0.5rem;' +
+                'text-align:center;font-size:0.7rem;' +
+                'letter-spacing:0.02em;padding:0 0.8rem;white-space:normal;line-height:1.4;' +
             '}' +
         '}' +
 
         /* ── Mobile S ≤ 480px */
         '@media(max-width:480px){' +
             'footer{min-height:330px;}' +
-            '.ftr-inner{padding:1rem 0.8rem 1.8rem;gap:0.65rem;}' +
+            '.ftr-inner{padding:1rem 0.8rem 2.2rem;gap:0.65rem;}' +
             '.ftr-nav{gap:0.3rem 1.3rem;}' +
             '.ftr-link{font-size:0.78rem;}' +
             '.ftr-social-title{font-size:0.82rem;}' +
             '.ftr-social-icons{gap:1rem;}' +
-            '.ftr-legal{font-size:0.58rem;}' +
+            '.ftr-legal{font-size:0.65rem;padding:0 0.5rem;}' +
         '}' +
 
         /* ── Large ≥ 1536px */

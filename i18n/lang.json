@@ -48,7 +48,13 @@
     "popup_empty":      "Aucun service sélectionné",
     "popup_disclaimer": "*Tarif indicatif sujet à modification.",
     "popup_devis_btn":  "Demander un devis réel",
-    "from_price":       "À partir de"
+    "from_price":       "À partir de",
+
+    "err_title":   "Page introuvable | Envol Graphisme",
+    "err_h1":      "Cette page s'est envolée&nbsp;!",
+    "err_sub":     "La page que vous cherchez n'existe pas ou a été déplacée.<br>Retournez à l'accueil et continuons l'aventure&nbsp;!",
+    "err_home":    "✦ Retour à l'accueil",
+    "err_contact": "Me contacter"
   },
   "en": {
     "nav_home":     "Home",
@@ -99,6 +105,12 @@
     "popup_empty":      "No service selected",
     "popup_disclaimer": "*Indicative price subject to change.",
     "popup_devis_btn":  "Request an actual quote",
-    "from_price":       "Starting from"
+    "from_price":       "Starting from",
+
+    "err_title": "Page not found | Envol Graphisme",
+    "err_h1":    "This page flew away!",
+    "err_sub":   "The page you're looking for doesn't exist or has been moved.<br>Go back home and let's continue the adventure!",
+    "err_home":  "✦ Back to home",
+    "err_contact":"Contact me"
   }
 }
