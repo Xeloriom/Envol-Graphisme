@@ -30,10 +30,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
     <link rel="stylesheet" href="../style.css">
     <style>
-        #owl-wrap { margin-top: -95vw; }
+        #owl-wrap { bottom: -45vw; }
         #owl-contact-img { width: 130vw; }
-        @media (min-width: 640px)  { #owl-wrap { margin-top: -60vw; } #owl-contact-img { width: min(88vw, 680px); } }
-        @media (min-width: 1024px) { #owl-wrap { margin-top: -44vw; } #owl-contact-img { width: min(54vw, 600px); } }
+        @media (min-width: 640px)  { #owl-wrap { bottom: -28vw; } #owl-contact-img { width: min(88vw, 680px); } }
+        @media (min-width: 1024px) { #owl-wrap { bottom: -18vw; } #owl-contact-img { width: min(54vw, 600px); } }
     </style>
 </head>
 <body id="bienvenue" class="overflow-x-hidden"
@@ -94,16 +94,17 @@
         </div>
     </div>
 
-</section>
+    <!-- Chouette : absolute dans la section, hors flux, footer couvre le bas -->
+    <div id="owl-wrap" aria-hidden="true" style="
+        position:absolute; left:50%; transform:translateX(-50%);
+        z-index:5; pointer-events:none; overflow:hidden; width:100vw;
+        display:flex; justify-content:center; align-items:flex-end;">
+        <img id="owl-contact-img" src="../img/Chouetteailesouvertes.svg" alt=""
+             style="display:block; height:auto; user-select:none; flex-shrink:0;"
+             loading="lazy">
+    </div>
 
-<!-- Chouette : remontée vers les boutons, footer (z:10) passe devant -->
-<div id="owl-wrap" aria-hidden="true" style="
-    position:relative; z-index:5; pointer-events:none; overflow:hidden;
-    display:flex; justify-content:center; align-items:flex-end;">
-    <img id="owl-contact-img" src="../img/Chouetteailesouvertes.svg" alt=""
-         style="display:block; height:auto; user-select:none; flex-shrink:0;"
-         loading="lazy">
-</div>
+</section>
 
 <script src="../js/navbar.js"></script>
 <script src="../js/footer.js"></script>
