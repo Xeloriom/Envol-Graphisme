@@ -29,6 +29,12 @@
     <script src="../js/tailwind.config.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
     <link rel="stylesheet" href="../style.css">
+    <style>
+        #owl-contact-img { width: 130vw; }
+        @media (min-width: 640px)  { #owl-contact-img { width: min(88vw, 680px); } }
+        @media (min-width: 1024px) { #owl-contact-img { width: min(54vw, 600px); } }
+        footer { margin-top: 0 !important; }
+    </style>
 </head>
 <body id="bienvenue" class="overflow-x-hidden"
       style="background:#1a2332;">
@@ -88,21 +94,20 @@
         </div>
     </div>
 
-    <!-- Chouette : dans le flow sous les boutons, collée au footer -->
-    <div class="relative z-0 w-full flex justify-center items-end overflow-visible pointer-events-none mt-auto
-                h-[38vw] sm:h-[32vw] md:h-[28vw] lg:h-[24vw] max-h-[380px] flex-shrink-0">
-        <img src="../img/Chouetteailesouvertes.svg" alt=""
-             class="w-[85%] sm:w-[68%] md:w-[58%] lg:w-[50%] max-w-[780px] select-none"
-             loading="lazy" aria-hidden="true">
-    </div>
-
 </section>
+
+<!-- Chouette : fixed au fond, ailes au niveau des boutons, corps derrière le footer -->
+<div aria-hidden="true" style="
+    position:fixed; bottom:0; left:0; right:0;
+    z-index:5; pointer-events:none; overflow:hidden;
+    display:flex; justify-content:center; align-items:flex-end;">
+    <img id="owl-contact-img" src="../img/Chouetteailesouvertes.svg" alt=""
+         style="display:block; height:auto; user-select:none; flex-shrink:0;"
+         loading="lazy">
+</div>
 
 <script src="../js/navbar.js"></script>
 <script src="../js/footer.js"></script>
-<style>
-  footer { margin-top: 0 !important; }
-</style>
 <script src="../js/Parallax.js"></script>
 <script src="../js/scroll-animations.js"></script>
 <script src="../js/owl-FAQ.js"></script>
