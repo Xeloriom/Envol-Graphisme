@@ -12,14 +12,14 @@
     <meta property="og:type"        content="website">
     <meta property="og:title"       content="Contact – Envol Graphisme">
     <meta property="og:description" content="Vous avez un projet ? Contactez Envol Graphisme pour un devis gratuit.">
-    <meta property="og:image"       content="https://Xeloriom.github.io/Envol-Graphisme/img/ENVOL%20Graphisme%20Logo%20clair.png">
+    <meta property="og:image"       content="https://Xeloriom.github.io../img/ENVOL%20Graphisme%20Logo%20clair.png">
     <meta property="og:url"         content="https://Xeloriom.github.io/Envol-Graphisme/View/Contact.html">
     <meta property="og:locale"      content="fr_FR">
     <meta name="twitter:card"        content="summary_large_image">
     <meta name="twitter:title"       content="Contact – Envol Graphisme">
-    <meta name="twitter:image"       content="https://Xeloriom.github.io/Envol-Graphisme/img/ENVOL%20Graphisme%20Logo%20clair.png">
-    <link rel="icon" type="image/png" href="/Envol-Graphisme/img/Logo.png">
-    <link rel="apple-touch-icon"      href="/Envol-Graphisme/img/Logo.png">
+    <meta name="twitter:image"       content="https://Xeloriom.github.io../img/ENVOL%20Graphisme%20Logo%20clair.png">
+    <link rel="icon" type="image/png" href="../img/Logo.png">
+    <link rel="apple-touch-icon"      href="../img/Logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
@@ -35,93 +35,80 @@
 </head>
 <body id="bienvenue" class="overflow-x-hidden">
 
-<!-- LOADER inline -->
-<div id="page-loader" role="status" aria-label="Chargement">
-    <div class="loader-bg-stars" id="ldr-stars"></div>
-    <div class="loader-core">
-        <div class="loader-owl-wrap">
-            <div class="loader-halo"></div>
-            <div class="loader-stars-ring">
-                <img src="/Envol-Graphisme/img/Etoile%20jaune.svg" alt="" class="ldr-star-orb" style="--i:0">
-                <img src="/Envol-Graphisme/img/Etoile%20jaune.svg" alt="" class="ldr-star-orb" style="--i:1">
-                <img src="/Envol-Graphisme/img/Etoile%20jaune.svg" alt="" class="ldr-star-orb" style="--i:2">
-                <img src="/Envol-Graphisme/img/Etoile%20jaune.svg" alt="" class="ldr-star-orb" style="--i:3">
-                <img src="/Envol-Graphisme/img/Etoile%20jaune.svg" alt="" class="ldr-star-orb" style="--i:4">
-                <img src="/Envol-Graphisme/img/Etoile%20jaune.svg" alt="" class="ldr-star-orb" style="--i:5">
-            </div>
-            <img src="/Envol-Graphisme/img/Chouetteailesouvertesyeuxferm%C3%A9s.svg" alt="" class="loader-owl-img">
-        </div>
-        <img src="/Envol-Graphisme/img/ENVOL%20Graphisme%20Logo%20clair.png" alt="" class="loader-logo-small">
-        <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
-    </div>
-</div>
-<script>
-(function(){
-    document.documentElement.style.overflow='hidden';
-    var c=document.getElementById('ldr-stars');
-    if(!c)return;
-    for(var i=0;i<80;i++){var s=document.createElement('span');var sz=Math.random()*2.5+0.5;s.style.cssText='width:'+sz+'px;height:'+sz+'px;left:'+Math.random()*100+'%;top:'+Math.random()*100+'%;--dur:'+(Math.random()*2+1.5)+'s;--delay:'+(Math.random()*3)+'s;opacity:'+(Math.random()*0.6+0.2)+';';c.appendChild(s);}
-})();
-</script>
-
 <a href="#main-content" class="skip-link">Aller au contenu principal</a>
 
 <section id="main-content"
-         class="relative min-h-screen overflow-hidden
-                bg-gradient-to-b from-[#2A3B5C] to-[#3D4F6E]
-                flex items-center justify-center px-4 sm:px-6 py-24">
+         class="relative min-h-screen flex flex-col overflow-hidden
+                bg-gradient-to-b from-[#2A3B5C] to-[#3D4F6E]">
 
+    <!-- Fond étoilé -->
     <div class="absolute inset-0
-                bg-[url('../img/Illustrationcielétoilé.jpg')] bg-cover bg-center opacity-90"
+                bg-[url('../img/Illustrationcielétoilé.webp')] bg-cover bg-center opacity-90"
+         aria-hidden="true"></div>
+    <!-- Dégradé sombre bas + haut -->
+    <div class="absolute inset-0 bg-gradient-to-t from-[#1a2332]/85 via-transparent to-[#1a2332]/45"
          aria-hidden="true"></div>
 
-    <div class="absolute inset-0 bg-gradient-to-t from-[#1a2332]/80 via-transparent to-[#1a2332]/40"
-         aria-hidden="true"></div>
-
-    <div class="relative z-10 max-w-4xl mx-auto flex flex-col items-center text-center space-y-6 sm:space-y-8">
+    <!-- Zone texte + boutons : occupe la partie haute -->
+    <div class="relative z-10 flex-1 flex flex-col items-center justify-center
+                text-center px-5 sm:px-8 pt-24 pb-6 sm:pb-10">
 
         <h1 id="contact-h1"
-            class="text-[clamp(1.4rem,4.5vw,3.5rem)] text-white font-bold leading-tight opacity-0">
+            data-i18n="contact_h1"
+            class="text-[clamp(1.55rem,5vw,3.5rem)] text-white font-bold leading-tight opacity-0 max-w-3xl">
             Vous avez un projet en tête&nbsp;?<br class="hidden sm:block">
             Une envie de faire décoller votre identité visuelle&nbsp;?
         </h1>
 
         <p id="contact-sub"
-           class="text-[clamp(0.95rem,2.5vw,1.8rem)] text-white/80 font-normal leading-relaxed max-w-2xl opacity-0">
-            N'hésitez pas à me laisser un message ou à passer par mes réseaux !
+           data-i18n="contact_sub"
+           class="mt-5 sm:mt-7 text-[clamp(0.9rem,2.2vw,1.6rem)] text-white/80
+                  font-normal leading-relaxed max-w-xl opacity-0">
+            N'hésitez pas à me laisser un message ou à passer par mes réseaux&nbsp;!
         </p>
 
         <div id="contact-btns"
-             class="relative flex flex-col sm:flex-row items-center justify-center
-                    gap-4 sm:gap-8 md:gap-16 pt-8 sm:pt-16 w-full opacity-0">
+             class="mt-9 sm:mt-12 flex flex-col sm:flex-row items-center justify-center
+                    gap-4 sm:gap-12 md:gap-20 w-full opacity-0">
 
             <a href="mailto:envol.graphisme@gmail.com"
-               class="w-full sm:w-auto bg-[#7B94C8] hover:bg-[#DEE3F6] hover:text-[#1a2332] text-white
-                      font-bold px-8 sm:px-14 py-4 sm:py-5 rounded-full
-                      text-[clamp(0.85rem,2vw,1.3rem)] transition-all duration-300 shadow-xl z-10
+               data-i18n="contact_btn_email"
+               class="w-64 sm:w-auto bg-[#7B94C8] hover:bg-[#DEE3F6] hover:text-[#1a2332] text-white
+                      font-bold px-10 sm:px-14 py-4 sm:py-5 rounded-full text-center
+                      text-[clamp(0.82rem,1.8vw,1.2rem)] tracking-wide
+                      transition-all duration-300 shadow-xl
                       hover:scale-105 hover:shadow-[0_0_40px_rgba(123,148,200,0.6)]">
                 M'ÉCRIRE MAINTENANT
             </a>
 
             <a href="#social"
-               class="w-full sm:w-auto bg-[#7B94C8] hover:bg-[#DEE3F6] hover:text-[#1a2332] text-white
-                      font-bold px-8 sm:px-14 py-4 sm:py-5 rounded-full
-                      text-[clamp(0.85rem,2vw,1.3rem)] transition-all duration-300 shadow-xl z-10
+               data-i18n="contact_btn_social"
+               class="w-64 sm:w-auto bg-[#7B94C8] hover:bg-[#DEE3F6] hover:text-[#1a2332] text-white
+                      font-bold px-10 sm:px-14 py-4 sm:py-5 rounded-full text-center
+                      text-[clamp(0.82rem,1.8vw,1.2rem)] tracking-wide
+                      transition-all duration-300 shadow-xl
                       hover:scale-105 hover:shadow-[0_0_40px_rgba(123,148,200,0.6)]">
                 RÉSEAUX SOCIAUX
             </a>
-
-            <img src="../img/Chouetteailesouvertes.svg" alt=""
-                 class="pointer-events-none select-none absolute left-1/2 -translate-x-1/2
-                        top-[35%] sm:top-[30%] md:top-[28%]
-                        w-[80%] sm:w-[60%] md:w-[50%] lg:w-[40%] max-w-lg z-0 opacity-70"
-                 loading="lazy" aria-hidden="true">
         </div>
     </div>
+
+    <!-- Zone chouette : partie basse de la section -->
+    <div class="relative z-10 w-full flex justify-center items-end overflow-visible pointer-events-none
+                h-[52vw] sm:h-[45vw] md:h-[42vw] lg:h-[38vw] max-h-[520px]">
+        <img src="../img/Chouetteailesouvertes.svg" alt=""
+             class="w-[140%] sm:w-[110%] md:w-[95%] lg:w-[85%] max-w-[1100px]
+                    translate-y-[18%] select-none"
+             loading="lazy" aria-hidden="true">
+    </div>
+
 </section>
 
 <script src="../js/navbar.js"></script>
 <script src="../js/footer.js"></script>
+<style>
+  footer { margin-top: 0 !important; }
+</style>
 <script src="../js/Parallax.js"></script>
 <script src="../js/owl-FAQ.js"></script>
 <script src="../i18n/i18n.js"></script>

@@ -1,37 +1,42 @@
 [
   {
-    "name": "Jane D",
-    "role": "CEO",
-    "avatar": "https://pagedone.io/asset/uploads/1696229969.png",
-    "text": "Pagedone is simply the best tool of investment in the market right now.",
+    "name": "Sophie M.",
+    "role": "Chef de projet – StartUp Tech",
+    "avatar": "https://randomuser.me/api/portraits/women/44.jpg",
+    "text_fr": "Envol Graphisme a créé notre identité visuelle de A à Z. Le résultat dépasse toutes nos attentes : un logo élégant, une charte cohérente et une énergie créative que l'on ressent à chaque détail.",
+    "text_en": "Envol Graphisme created our entire visual identity from scratch. The result exceeded all expectations: an elegant logo, a cohesive brand guide, and a creative energy felt in every detail.",
     "rating": 5
   },
   {
-    "name": "Harsh P.",
-    "role": "Product Designer",
-    "avatar": "https://pagedone.io/asset/uploads/1696229994.png",
-    "text": "I was hesitant to try pagedone at first, but I'm so glad I did - it's exceeded all of my expectations.",
+    "name": "Thomas B.",
+    "role": "Entrepreneur – Coach sportif",
+    "avatar": "https://randomuser.me/api/portraits/men/32.jpg",
+    "text_fr": "Je cherchais quelqu'un capable de comprendre mon univers et de le retranscrire visuellement. Pari réussi ! Mon logo fait sensation auprès de mes clients et donne vraiment une image professionnelle.",
+    "text_en": "I was looking for someone who could understand my world and translate it visually. Mission accomplished! My logo is a hit with clients and really gives a professional image.",
     "rating": 5
   },
   {
-    "name": "Alex K.",
-    "role": "Design Lead",
-    "avatar": "https://pagedone.io/asset/uploads/1696230027.png",
-    "text": "Pagedone stands out as the most user-friendly and effective solution I've ever used.",
+    "name": "Marie-Claire D.",
+    "role": "Présidente – Association culturelle",
+    "avatar": "https://randomuser.me/api/portraits/women/68.jpg",
+    "text_fr": "Super expérience du début à la fin. L'écoute est vraiment au cœur du travail d'Envol Graphisme. On a eu exactement ce qu'on souhaitait pour nos affiches et flyers d'événement.",
+    "text_en": "A great experience from start to finish. Listening is truly at the heart of Envol Graphisme's work. We got exactly what we wanted for our event posters and flyers.",
     "rating": 5
   },
   {
-    "name": "Alex K.",
-    "role": "Design Lead",
-    "avatar": "https://pagedone.io/asset/uploads/1696230027.png",
-    "text": "Pagedone stands out as the most user-friendly and effective solution I've ever used.",
+    "name": "Julien R.",
+    "role": "Photographe freelance",
+    "avatar": "https://randomuser.me/api/portraits/men/75.jpg",
+    "text_fr": "Un vrai sens artistique doublé d'un excellent sens du service. Réactif, créatif et toujours à l'écoute — je recommande à 100% pour tous vos projets graphiques !",
+    "text_en": "A true artistic sense paired with excellent client service. Responsive, creative, always attentive — I 100% recommend for all your graphic design projects!",
     "rating": 5
   },
   {
-    "name": "Alex K.",
-    "role": "Design Lead",
-    "avatar": "https://pagedone.io/asset/uploads/1696230027.png",
-    "text": "Pagedone stands out as the most user-friendly and effective solution I've ever used.",
+    "name": "Aurélie K.",
+    "role": "Gérante – Boutique créative",
+    "avatar": "https://randomuser.me/api/portraits/women/55.jpg",
+    "text_fr": "Mon nouveau logo et ma charte graphique ont transformé l'image de ma boutique. Les clients le remarquent immédiatement. Merci pour ce travail soigné et livré dans les délais !",
+    "text_en": "My new logo and brand guide transformed my shop's image. Customers notice it immediately. Thank you for this careful work delivered on time!",
     "rating": 5
   }
 ]

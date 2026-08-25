@@ -1,191 +1,112 @@
-const BASE_PATH = '/Envol-Graphisme';
+const BASE_PATH = window.location.hostname.includes('github.io')
+    ? '/Envol-Graphisme'
+    : '/' + window.location.pathname.split('/').filter(Boolean)[0].replace(/\.html$/, '');
+
+const NAV_LINK = [
+    'nav-link',
+    'font-sans', 'font-bold', 'text-[0.82rem]', 'tracking-[0.12em]', 'uppercase',
+    'text-[rgba(222,227,246,0.82)]', 'no-underline',
+    'py-[0.55rem]', 'px-6', 'rounded-full',
+    'bg-[#202942]',
+    'shadow-[0_4px_18px_rgba(0,0,0,0.45)]',
+    'transition-all', 'duration-300',
+    'outline-none',
+    'hover:bg-[#2d3a5c]', 'hover:border-[rgba(222,227,246,0.45)]',
+    'hover:shadow-[0_6px_24px_rgba(0,0,0,0.55)]',
+].join(' ');
+
+const MOBILE_LINK = [
+    'mobile-nav-link',
+    'font-sans', 'font-bold', 'text-2xl', 'tracking-[0.15em]', 'uppercase',
+    'text-[rgba(222,227,246,0.8)]', 'no-underline',
+    'py-4', 'px-8',
+    'transition-colors', 'duration-200',
+    'border-b', 'border-[rgba(222,227,246,0.06)]',
+    'w-full', 'text-center',
+    'bg-transparent', 'shadow-none',
+    'hover:text-[#CB8D30]',
+].join(' ');
+
+const FLAG_BTN = [
+    'nav-flag',
+    'rounded-full', 'py-[0.55rem]', 'px-[0.75rem]',
+    'flex', 'items-center', 'justify-center',
+    'cursor-pointer', 'border-0', 'outline-none', 'focus:outline-none', 'focus:ring-0',
+    'transition-all', 'duration-200',
+    'bg-[#202942]',
+    'shadow-[0_4px_18px_rgba(0,0,0,0.45)]',
+    'hover:opacity-100', 'hover:bg-[#2d3a5c]',
+    'hover:shadow-[0_6px_24px_rgba(0,0,0,0.55)]',
+].join(' ');
+
+const FLAG_BTN_LG = FLAG_BTN.replace('w-7 h-7', 'w-9 h-9');
 
 function createNavbar() {
     const nav = document.createElement('nav');
     nav.id = 'main-nav';
     nav.setAttribute('role', 'navigation');
     nav.setAttribute('aria-label', 'Navigation principale');
-    nav.style.cssText = `
-        position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-        transition: background 0.4s ease, box-shadow 0.4s ease;
-        padding: 0;
-    `;
+    nav.className = 'absolute top-0 left-0 right-0 z-[1000] bg-transparent';
 
     nav.innerHTML = `
-    <style>
-        /* Transparent en haut, opaque au scroll */
-        #main-nav { background: transparent; }
-        #main-nav.scrolled {
-            background: rgba(12,19,37,0.96);
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
-            box-shadow: 0 2px 40px rgba(0,0,0,0.5);
-        }
+    <div class=" max-w-[1280px] mx-auto px-6 h-[68px] flex items-center justify-between gap-6">
 
-        .nav-inner {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-            height: 68px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 1.5rem;
-        }
-
-        /* Séparateur doré en bas */
-        #main-nav::after {
-            content: '';
-            display: block;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(203,141,48,0.35), transparent);
-        }
-
-        /* Liens desktop */
-        .nav-link {
-            position: relative;
-            font-family: 'Josefin Sans', sans-serif;
-            font-weight: 700;
-            font-size: 0.82rem;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: rgba(222,227,246,0.75);
-            text-decoration: none;
-            padding: 0.4rem 0;
-            transition: color 0.25s ease;
-        }
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -2px; left: 0; right: 0;
-            height: 2px;
-            background: #CB8D30;
-            border-radius: 1px;
-            transform: scaleX(0);
-            transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
-            transform-origin: center;
-        }
-        .nav-link:hover { color: #DEE3F6; }
-        .nav-link:hover::after { transform: scaleX(1); }
-        .nav-link.active { color: #CB8D30; }
-        .nav-link.active::after { transform: scaleX(1); }
-
-        /* Logo */
-        .nav-logo { display: flex; align-items: center; flex-shrink: 0; }
-        .nav-logo img { height: 40px; transition: filter 0.3s ease, transform 0.3s ease; }
-        .nav-logo:hover img { filter: drop-shadow(0 0 12px rgba(203,141,48,0.5)); transform: scale(1.03); }
-
-        /* Links container */
-        .nav-links { display: flex; align-items: center; gap: 2.5rem; }
-
-        /* Flags */
-        .nav-flags { display: flex; align-items: center; gap: 0.6rem; }
-        .nav-flag {
-            width: 28px; height: 28px;
-            border-radius: 50%; overflow: hidden;
-            cursor: pointer; border: 2px solid transparent;
-            transition: border-color 0.2s, transform 0.2s, opacity 0.2s;
-            opacity: 0.5;
-        }
-        .nav-flag:hover { opacity: 1; transform: scale(1.1); }
-        .nav-flag.active { border-color: #CB8D30; opacity: 1; }
-        .nav-flag img { width: 100%; height: 100%; object-fit: cover; display: block; }
-
-        /* Burger */
-        .nav-burger {
-            display: none;
-            flex-direction: column; justify-content: center; gap: 5px;
-            width: 44px; height: 44px;
-            background: rgba(222,227,246,0.08);
-            border: 1px solid rgba(222,227,246,0.15);
-            border-radius: 12px;
-            cursor: pointer; padding: 0 12px;
-            transition: background 0.2s ease;
-        }
-        .nav-burger:hover { background: rgba(203,141,48,0.15); border-color: rgba(203,141,48,0.4); }
-        .nav-burger span {
-            display: block; height: 2px; border-radius: 2px;
-            background: #DEE3F6; transition: all 0.3s ease;
-        }
-        .nav-burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-        .nav-burger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-        .nav-burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-        /* Menu mobile */
-        #mobile-menu {
-            display: none;
-            position: fixed; inset: 0; z-index: 999;
-            background: rgba(10,16,38,0.98);
-            backdrop-filter: blur(20px);
-            flex-direction: column; align-items: center; justify-content: center;
-            gap: 0;
-            transform: translateY(-100%);
-            transition: transform 0.45s cubic-bezier(0.4,0,0.2,1);
-        }
-        #mobile-menu.open { transform: translateY(0); display: flex; }
-        .mobile-nav-link {
-            font-family: 'Josefin Sans', sans-serif;
-            font-weight: 700; font-size: 1.5rem;
-            letter-spacing: 0.15em; text-transform: uppercase;
-            color: rgba(222,227,246,0.8); text-decoration: none;
-            padding: 1rem 2rem;
-            transition: color 0.2s ease;
-            border-bottom: 1px solid rgba(222,227,246,0.06);
-            width: 100%; text-align: center;
-        }
-        .mobile-nav-link:hover, .mobile-nav-link.active { color: #CB8D30; }
-        .mobile-flags { display: flex; gap: 1rem; margin-top: 2rem; }
-
-        @media (max-width: 767px) {
-            .nav-links, .nav-flags { display: none !important; }
-            .nav-burger { display: flex; }
-        }
-        @media (min-width: 768px) {
-            .nav-burger { display: none; }
-            #mobile-menu { display: none !important; }
-        }
-    </style>
-
-    <div class="nav-inner">
-        <a href="${BASE_PATH}/index.html" class="nav-logo" aria-label="Accueil Envol Graphisme">
-            <img src="${BASE_PATH}/img/ENVOL%20Graphisme%20Logo%20clair.png" alt="Envol Graphisme" loading="eager">
+        <!-- Logo -->
+        <a href="${BASE_PATH}/index.html"
+           class="flex items-center flex-shrink-0 group"
+           aria-label="Accueil Envol Graphisme">
+            <img src="${BASE_PATH}/img/ENVOL%20Graphisme%20Logo%20clair.webp"
+                 alt="Envol Graphisme"
+                 class="h-10 transition-all duration-300 group-hover:drop-shadow-[0_0_12px_rgba(203,141,48,0.5)] group-hover:scale-[1.03]"
+                 loading="eager">
         </a>
 
-        <div class="nav-links" role="menubar">
-            <a href="${BASE_PATH}/index.html"        class="nav-link" role="menuitem">Bienvenue</a>
-            <a href="${BASE_PATH}/View/Projets.html" class="nav-link" role="menuitem">Projets</a>
-            <a href="${BASE_PATH}/View/Offres.html"  class="nav-link" role="menuitem">Offres</a>
-            <a href="${BASE_PATH}/View/Contact.html" class="nav-link" role="menuitem">Contact</a>
+        <!-- Liens desktop -->
+        <div class="hidden md:flex items-center gap-8" role="menubar">
+            <a href="${BASE_PATH}/index.html"        class="${NAV_LINK}" role="menuitem" data-i18n="nav_home">Bienvenue</a>
+            <a href="${BASE_PATH}/View/Projets.html" class="${NAV_LINK}" role="menuitem" data-i18n="nav_projects">Projets</a>
+            <a href="${BASE_PATH}/View/Offres.html"  class="${NAV_LINK}" role="menuitem" data-i18n="nav_offers">Offres</a>
+            <a href="${BASE_PATH}/View/Contact.html" class="${NAV_LINK}" role="menuitem" data-i18n="nav_contact">Contact</a>
         </div>
 
-        <div style="display:flex;align-items:center;gap:1rem;flex-shrink:0">
-            <div class="nav-flags" role="group" aria-label="Changer la langue">
-                <button class="nav-flag" data-lang="fr" aria-label="Français">
-                    <img src="${BASE_PATH}/img/Drapeau%20Français.svg" alt="Français">
+        <!-- Droite : drapeaux + burger -->
+        <div class="flex items-center gap-4 flex-shrink-0">
+            <div class="hidden md:flex items-center gap-[0.6rem]" role="group" aria-label="Changer la langue">
+                <button class="${FLAG_BTN}" data-lang="fr" aria-label="Français">
+                    <img src="${BASE_PATH}/img/Drapeau%20Français.svg" alt="Français" class="w-6 h-6 rounded-full object-cover block">
                 </button>
-                <button class="nav-flag" data-lang="en" aria-label="English">
-                    <img src="${BASE_PATH}/img/Drapeau%20Anglais.svg" alt="English">
+                <button class="${FLAG_BTN}" data-lang="en" aria-label="English">
+                    <img src="${BASE_PATH}/img/Drapeau%20Anglais.svg" alt="English" class="w-6 h-6 rounded-full object-cover block">
                 </button>
             </div>
-            <button class="nav-burger" id="burger-btn" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu">
-                <span></span><span></span><span></span>
+
+            <button id="burger-btn"
+                    class="md:hidden flex flex-col justify-center gap-[5px] w-11 h-11 bg-[rgba(222,227,246,0.08)] border border-[rgba(222,227,246,0.15)] rounded-xl cursor-pointer px-3 transition-colors duration-200 hover:bg-[rgba(203,141,48,0.15)] hover:border-[rgba(203,141,48,0.4)]"
+                    aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu">
+                <span class="block h-0.5 rounded-sm bg-[#DEE3F6] transition-all duration-300 origin-center"></span>
+                <span class="block h-0.5 rounded-sm bg-[#DEE3F6] transition-all duration-300"></span>
+                <span class="block h-0.5 rounded-sm bg-[#DEE3F6] transition-all duration-300 origin-center"></span>
             </button>
         </div>
     </div>
 
-    <div id="mobile-menu" role="dialog" aria-modal="true" aria-label="Menu de navigation">
-        <img src="${BASE_PATH}/img/ENVOL%20Graphisme%20Logo%20clair.png"
-             alt="" style="height:48px;margin-bottom:2.5rem;opacity:0.85" aria-hidden="true">
-        <a href="${BASE_PATH}/index.html"        class="mobile-nav-link">Bienvenue</a>
-        <a href="${BASE_PATH}/View/Projets.html" class="mobile-nav-link">Projets</a>
-        <a href="${BASE_PATH}/View/Offres.html"  class="mobile-nav-link">Offres</a>
-        <a href="${BASE_PATH}/View/Contact.html" class="mobile-nav-link">Contact</a>
-        <div class="mobile-flags">
-            <button class="nav-flag" data-lang="fr" aria-label="Français" style="width:36px;height:36px">
-                <img src="${BASE_PATH}/img/Drapeau%20Français.svg" alt="Français">
+    <!-- Menu mobile -->
+    <div id="mobile-menu"
+         class="fixed inset-0 z-[999] bg-[rgba(10,16,38,0.98)] backdrop-blur-[20px] flex-col items-center justify-center"
+         style="display:none; transform:translateY(-100%); transition:transform 0.45s cubic-bezier(0.4,0,0.2,1);"
+         role="dialog" aria-modal="true" aria-label="Menu de navigation">
+        <img src="${BASE_PATH}/img/ENVOL%20Graphisme%20Logo%20clair.webp"
+             alt="" class="h-12 mb-10 opacity-85" aria-hidden="true">
+        <a href="${BASE_PATH}/index.html"        class="${MOBILE_LINK}" data-i18n="nav_home">Bienvenue</a>
+        <a href="${BASE_PATH}/View/Projets.html" class="${MOBILE_LINK}" data-i18n="nav_projects">Projets</a>
+        <a href="${BASE_PATH}/View/Offres.html"  class="${MOBILE_LINK}" data-i18n="nav_offers">Offres</a>
+        <a href="${BASE_PATH}/View/Contact.html" class="${MOBILE_LINK}" data-i18n="nav_contact">Contact</a>
+        <div class="flex gap-4 mt-8">
+            <button class="${FLAG_BTN_LG}" data-lang="fr" aria-label="Français">
+                <img src="${BASE_PATH}/img/Drapeau%20Français.svg" alt="Français" class="w-full h-full object-cover block">
             </button>
-            <button class="nav-flag" data-lang="en" aria-label="English" style="width:36px;height:36px">
-                <img src="${BASE_PATH}/img/Drapeau%20Anglais.svg" alt="English">
+            <button class="${FLAG_BTN_LG}" data-lang="en" aria-label="English">
+                <img src="${BASE_PATH}/img/Drapeau%20Anglais.svg" alt="English" class="w-full h-full object-cover block">
             </button>
         </div>
     </div>
@@ -200,49 +121,55 @@ function initNavbar() {
 
     const burger     = document.getElementById('burger-btn');
     const mobileMenu = document.getElementById('mobile-menu');
+    const [s1, s2, s3] = burger.querySelectorAll('span');
 
     function openMenu() {
         mobileMenu.style.display = 'flex';
-        requestAnimationFrame(() => mobileMenu.classList.add('open'));
-        burger.classList.add('open');
+        requestAnimationFrame(() => { mobileMenu.style.transform = 'translateY(0)'; });
         burger.setAttribute('aria-expanded', 'true');
+        s1.style.transform = 'translateY(7px) rotate(45deg)';
+        s2.style.opacity   = '0';
+        s3.style.transform = 'translateY(-7px) rotate(-45deg)';
         document.body.style.overflow = 'hidden';
     }
     function closeMenu() {
-        mobileMenu.classList.remove('open');
-        burger.classList.remove('open');
+        mobileMenu.style.transform = 'translateY(-100%)';
         burger.setAttribute('aria-expanded', 'false');
+        s1.style.transform = '';
+        s2.style.opacity   = '';
+        s3.style.transform = '';
         document.body.style.overflow = '';
-        setTimeout(() => { if (!mobileMenu.classList.contains('open')) mobileMenu.style.display = 'none'; }, 450);
+        setTimeout(() => { if (mobileMenu.style.transform !== 'translateY(0px)') mobileMenu.style.display = 'none'; }, 450);
     }
 
-    burger.addEventListener('click', () => mobileMenu.classList.contains('open') ? closeMenu() : openMenu());
-
+    burger.addEventListener('click', () =>
+        mobileMenu.style.transform === 'translateY(0px)' ? closeMenu() : openMenu()
+    );
     document.querySelectorAll('.mobile-nav-link').forEach(l => l.addEventListener('click', closeMenu));
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
-
-    // Scroll shadow
-    window.addEventListener('scroll', () => {
-        nav.classList.toggle('scrolled', window.scrollY > 30);
-    }, { passive: true });
 
     highlightCurrentPage();
 }
 
 function highlightCurrentPage() {
     const path = window.location.pathname;
+
     document.querySelectorAll('.nav-link, .mobile-nav-link').forEach(link => {
-        const href = link.getAttribute('href') || '';
+        const href   = link.getAttribute('href') || '';
         const isHome = href.endsWith('index.html') &&
-            (path === '/' || path.endsWith('/Envol-Graphisme/') || path.endsWith('/index.html'));
-        const isMatch = path.endsWith(href.split('/').pop()) && href.length > 1;
-        if (isHome || isMatch) link.classList.add('active');
+            (path === '/' || path.endsWith('/index.html') || /\/[^/]+\/?$/.test(path) && !path.includes('.html'));
+        const isMatch = !href.endsWith('index.html') && path.endsWith(href.split('/').pop()) && href.length > 1;
+
+        if (isHome || isMatch) {
+            link.style.cssText = 'background:rgba(222,227,246,0.88)!important;border-color:rgba(222,227,246,0.95)!important;color:#1a2332!important;';
+        }
     });
 
-    // Indicateur visuel langue
     const saved = (typeof localStorage !== 'undefined' && localStorage.getItem('envol-lang')) || 'fr';
     document.querySelectorAll('.nav-flag').forEach(f => {
-        f.classList.toggle('active', f.getAttribute('data-lang') === saved);
+        if (f.getAttribute('data-lang') === saved) {
+            f.style.opacity = '1';
+        }
     });
 }
 

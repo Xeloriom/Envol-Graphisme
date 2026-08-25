@@ -12,12 +12,12 @@
     <meta property="og:type"        content="website">
     <meta property="og:title"       content="Nos Offres – Envol Graphisme">
     <meta property="og:description" content="Pack identité visuelle, logo, affiche, flyer… Découvrez les tarifs et simulez votre devis.">
-    <meta property="og:image"       content="https://Xeloriom.github.io/Envol-Graphisme/img/ENVOL%20Graphisme%20Logo%20clair.png">
+    <meta property="og:image"       content="https://Xeloriom.github.io../img/ENVOL%20Graphisme%20Logo%20clair.png">
     <meta property="og:url"         content="https://Xeloriom.github.io/Envol-Graphisme/View/Offres.html">
     <meta property="og:locale"      content="fr_FR">
     <meta name="twitter:card"        content="summary_large_image">
-    <meta name="twitter:image"       content="https://Xeloriom.github.io/Envol-Graphisme/img/ENVOL%20Graphisme%20Logo%20clair.png">
-    <link rel="icon" type="image/png" href="/Envol-Graphisme/img/Logo.png">
+    <meta name="twitter:image"       content="https://Xeloriom.github.io../img/ENVOL%20Graphisme%20Logo%20clair.png">
+    <link rel="icon" type="image/png" href="../img/Logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
@@ -33,38 +33,15 @@
         .service-item:hover, .service-item.selected { background-color: rgba(181,192,221,0.35) !important; }
         .custom-scrollbar::-webkit-scrollbar { width:4px; }
         .custom-scrollbar::-webkit-scrollbar-thumb { background:#A5B9E9; border-radius:10px; }
+
     </style>
 </head>
-<body id="bienvenue" class="bg-[#202B44] overflow-x-hidden">
-
-<!-- LOADER inline -->
-<div id="page-loader" role="status" aria-label="Chargement">
-    <div class="loader-bg-stars" id="ldr-stars"></div>
-    <div class="loader-core">
-                <div class="loader-owl-wrap">
-            <div class="loader-halo"></div>
-            <div class="loader-stars-ring">
-                <img src="/Envol-Graphisme/img/Etoile%20jaune.svg" alt="" class="ldr-star-orb" style="--i:0">
-                <img src="/Envol-Graphisme/img/Etoile%20jaune.svg" alt="" class="ldr-star-orb" style="--i:1">
-                <img src="/Envol-Graphisme/img/Etoile%20jaune.svg" alt="" class="ldr-star-orb" style="--i:2">
-                <img src="/Envol-Graphisme/img/Etoile%20jaune.svg" alt="" class="ldr-star-orb" style="--i:3">
-                <img src="/Envol-Graphisme/img/Etoile%20jaune.svg" alt="" class="ldr-star-orb" style="--i:4">
-                <img src="/Envol-Graphisme/img/Etoile%20jaune.svg" alt="" class="ldr-star-orb" style="--i:5">
-            </div>
-            <img src="/Envol-Graphisme/img/Chouetteailesouvertesyeuxfermés.svg" alt="" class="loader-owl-img">
-        </div>
-        <img src="/Envol-Graphisme/img/ENVOL%20Graphisme%20Logo%20clair.png" alt="" class="loader-logo-small">
-        <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
-    </div>
-</div>
-<script>
-(function(){document.documentElement.style.overflow='hidden';var c=document.getElementById('ldr-stars');if(!c)return;for(var i=0;i<80;i++){var s=document.createElement('span');var sz=Math.random()*2.5+0.5;s.style.cssText='width:'+sz+'px;height:'+sz+'px;left:'+Math.random()*100+'%;top:'+Math.random()*100+'%;--dur:'+(Math.random()*2+1.5)+'s;--delay:'+(Math.random()*3)+'s;opacity:'+(Math.random()*0.6+0.2)+';';c.appendChild(s);}})();
-</script>
+<body id="bienvenue" class="bg-[#CCD7EE] overflow-x-hidden">
 
 <a href="#main-content" class="skip-link">Aller au contenu principal</a>
 
 <section id="main-content"
-         class="relative min-h-screen py-24 sm:py-32 lg:py-40 px-4 sm:px-6 overflow-hidden
+         class="relative min-h-screen py-24 sm:py-32 lg:py-40 px-4 sm:px-6 overflow-x-hidden
                 bg-gradient-to-b from-[#202B44] via-[#5979BB] to-[#CCD7EE]">
 
     <div class="absolute inset-0 bg-[url('../img/Motifplumeetétoilesblanches.svg')]
@@ -72,16 +49,18 @@
                 [mask-image:linear-gradient(to_top,rgba(0,0,0,1),rgba(0,0,0,0))]"
          aria-hidden="true"></div>
 
-    <div class="relative z-10 max-w-7xl mx-auto flex flex-col lg:flex-row gap-10 lg:gap-16">
+    <div class="relative z-10 max-w-7xl mx-auto flex flex-col lg:flex-row lg:items-start gap-10 lg:gap-16">
 
         <!-- ── Packs & Services ── -->
-        <div class="w-full lg:w-2/3 space-y-10 lg:space-y-14">
+        <div class="w-full lg:w-2/3 space-y-10 lg:space-y-14 order-2 lg:order-1">
 
             <header class="text-center mb-8" id="offres-header">
-                <h1 class="offres-h1 text-[clamp(1.4rem,4vw,2.5rem)] text-white font-bold mb-3 opacity-0">
+                <h1 class="offres-h1 text-[clamp(1.8rem,4.5vw,3rem)] text-white font-bold mb-4 opacity-0"
+                    data-i18n="offres_h1">
                     Mes offres d'accompagnement graphique
                 </h1>
-                <p class="offres-sub text-[clamp(0.9rem,2.5vw,1.6rem)] text-white/70 font-light opacity-0">
+                <p class="offres-sub text-[clamp(1rem,2.5vw,1.8rem)] text-white/70 font-light opacity-0"
+                   data-i18n="offres_sub">
                     Pour donner des ailes à vos projets ✦
                 </p>
             </header>
@@ -89,8 +68,10 @@
             <div id="main-packs-container"    class="space-y-8 lg:space-y-12"></div>
 
             <div class="pt-8 text-center" data-aos="fade-up">
-                <h2 class="text-[clamp(1.3rem,3.5vw,2.2rem)] text-white font-bold mb-2">Services à la carte</h2>
-                <p class="text-[clamp(0.9rem,2vw,1.4rem)] text-white/80 mb-6 font-light">
+                <h2 class="text-[clamp(1.3rem,3.5vw,2.2rem)] text-white font-bold mb-2"
+                    data-i18n="offres_carte_h2">Services à la carte</h2>
+                <p class="text-[clamp(0.9rem,2vw,1.4rem)] text-white/80 mb-6 font-light"
+                   data-i18n="offres_carte_sub">
                     Pour des besoins précis ou en complément d'un projet
                 </p>
             </div>
@@ -99,24 +80,26 @@
                  data-aos="fade-up" data-aos-delay="100"></div>
         </div>
 
-        <!-- ── Simulateur sticky ── -->
-        <aside class="w-full lg:w-1/3" data-aos="fade-left" data-aos-delay="200">
-            <div class="lg:sticky lg:top-28">
+        <!-- ── Simulateur ── -->
+        <aside class="w-full lg:w-1/3 order-1 lg:order-2 lg:sticky lg:top-28" data-aos="fade-left" data-aos-delay="200">
+            <div>
                 <div class="relative bg-[#DCE4F2] text-[#3A2A13] rounded-[30px] lg:rounded-[50px]
                             border-[3px] border-[#CB8D30] p-7 sm:p-10 text-center shadow-2xl overflow-hidden">
-                    <h3 class="text-[clamp(1rem,2.5vw,1.6rem)] font-bold mb-4 leading-tight">
+                    <h3 class="text-[clamp(1rem,2.5vw,1.6rem)] font-bold mb-4 leading-tight"
+                        data-i18n="offres_sim_q">
                         Hésitant entre un pack et une formule à la carte ?
                     </h3>
-                    <p class="text-sm sm:text-base lg:text-lg mb-7 leading-relaxed">
-                        Utilisez le <span class="font-bold">simulateur de devis</span>
-                        pour visualiser l'option la plus adaptée.
+                    <p class="text-base sm:text-lg lg:text-xl mb-7 leading-relaxed"
+                       data-i18n="offres_sim_p">
+                        Utilisez le <span class="font-bold">simulateur de devis ci-dessous</span> pour visualiser l'option la plus adaptée.
                     </p>
                     <button onclick="openPopup()"
                             class="bg-[#3A2A13] text-white px-6 py-4 rounded-[20px]
                                    text-base lg:text-xl font-bold hover:scale-105 active:scale-95
                                    transition-all w-full shadow-md uppercase tracking-wide
                                    hover:shadow-[0_0_20px_rgba(203,141,48,0.5)]"
-                            aria-haspopup="dialog">
+                            aria-haspopup="dialog"
+                            data-i18n="offres_sim_btn">
                         SIMULER UN DEVIS
                     </button>
                     <div class="hidden lg:block mt-6 -mb-10" aria-hidden="true">
@@ -141,7 +124,8 @@
             <img src="../img/Croixbleue.svg" alt="" class="w-full h-full">
         </button>
         <h2 id="popup-title"
-            class="text-base sm:text-xl lg:text-2xl font-bold text-[#1D2743] text-center mb-5 mt-2 px-8">
+            class="text-base sm:text-xl lg:text-2xl font-bold text-[#1D2743] text-center mb-5 mt-2 px-8"
+            data-i18n="popup_title">
             Sélectionnez vos options
         </h2>
         <div class="flex-1 flex flex-col lg:grid lg:grid-cols-[1.2fr_0.8fr] gap-5 overflow-hidden">
@@ -149,34 +133,35 @@
                 <div class="border-b border-blue-200 pb-4">
                     <h3 class="text-base font-bold text-[#1D2743] cursor-pointer flex items-center gap-2"
                         onclick="toggleSection('packs')">
-                        <span id="packs-arrow" class="text-[#CB8D30]">▶</span> Nos Packs
+                        <span id="packs-arrow" class="text-[#CB8D30]">▶</span> <span data-i18n="popup_packs">Nos Packs</span>
                     </h3>
                     <div id="packs-content" class="mt-3 space-y-1 hidden"></div>
                 </div>
                 <div>
                     <h3 class="text-base font-bold text-[#1D2743] cursor-pointer flex items-center gap-2"
                         onclick="toggleSection('services')">
-                        <span id="services-arrow" class="text-[#CB8D30]">▼</span> Services à la carte
+                        <span id="services-arrow" class="text-[#CB8D30]">▼</span> <span data-i18n="popup_services">Services à la carte</span>
                     </h3>
                     <div id="services-content" class="mt-3 space-y-1"></div>
                 </div>
             </div>
             <div class="bg-[#1D2743] rounded-[20px] sm:rounded-[25px] p-5 text-white flex flex-col shadow-xl min-h-[220px] lg:h-full">
-                <h3 class="text-base font-bold mb-4 text-center border-b border-white/10 pb-2">Votre sélection</h3>
+                <h3 class="text-base font-bold mb-4 text-center border-b border-white/10 pb-2" data-i18n="popup_selection">Votre sélection</h3>
                 <div id="selectedItems" class="flex-1 overflow-y-auto space-y-2 mb-4 custom-scrollbar text-sm" aria-live="polite">
-                    <p class="text-white/40 text-center py-4 italic text-xs">Aucun service sélectionné</p>
+                    <p class="text-white/40 text-center py-4 italic text-xs" data-i18n="popup_empty">Aucun service sélectionné</p>
                 </div>
                 <div class="border-t border-white/20 pt-4 mt-auto">
                     <div class="flex justify-between items-center text-lg font-bold mb-3">
                         <span>TOTAL</span>
                         <span id="totalPrice" class="text-[#7895D1]" aria-live="polite">0€</span>
                     </div>
-                    <p class="text-[10px] text-white/40 italic leading-tight mb-3">
+                    <p class="text-[10px] text-white/40 italic leading-tight mb-3" data-i18n="popup_disclaimer">
                         *Tarif indicatif sujet à modification.
                     </p>
                     <button onclick="sendContact()"
                             class="bg-[#7895D1] hover:bg-white hover:text-[#1D2743] text-white
-                                   py-3 rounded-xl font-bold transition-all uppercase text-sm tracking-wider w-full">
+                                   py-3 rounded-xl font-bold transition-all uppercase text-sm tracking-wider w-full"
+                            data-i18n="popup_devis_btn">
                         Demander un devis réel
                     </button>
                 </div>

@@ -2,23 +2,34 @@
   "packs": [
     {
       "name": "PACK ENVOL – Identité visuelle",
+      "name_en": "ENVOL PACK – Visual Identity",
       "price": 600,
       "description": "L'offre idéale si vous démarrez ou souhaitez faire évoluer votre activité",
-      "features": ["Logo + versions secondaires", "Carte de visite recto-verso", "Moodboard & univers visuel", "Charte graphique PDF"]
+      "description_en": "The ideal package if you're starting out or looking to evolve your brand",
+      "features": ["Logo + versions secondaires", "Carte de visite recto-verso", "Moodboard & univers visuel", "Charte graphique PDF"],
+      "features_en": ["Logo + secondary versions", "Double-sided business card", "Moodboard & visual universe", "PDF brand guidelines"]
     },
     {
-      "name": "PACK ENVOL PRO - Identité visuelle complète",
+      "name": "PACK ENVOL PRO – Identité visuelle complète",
+      "name_en": "ENVOL PRO PACK – Full Visual Identity",
       "price": 800,
       "description": "Une version plus complète du PACK ENVOL",
-      "features": ["Logo + versions secondaires", "Carte de visite recto-verso", "Moodboard & univers visuel", "Charte graphique PDF", "Support réseaux sociaux"]
+      "description_en": "A more complete version of the ENVOL PACK",
+      "features": ["Logo + versions secondaires", "Carte de visite recto-verso", "Moodboard & univers visuel", "Charte graphique PDF", "Support réseaux sociaux"],
+      "features_en": ["Logo + secondary versions", "Double-sided business card", "Moodboard & visual universe", "PDF brand guidelines", "Social media assets"]
     }
   ],
   "services": [
-    { "name": "Création de logo seul", "price": 400 },
-    { "name": "Charte Graphique", "price": 100 },
-    { "name": "Carte de visite", "price": 160 },
-    { "name": "Affiche", "price": 200 },
-    { "name": "Flyer", "price": 175 },
-    { "name": "Signature de mail", "price": 35 }
+    { "name": "Création de logo seul",  "name_en": "Logo design only",       "price": 400,  "marker": "•" },
+    { "name": "Charte Graphique",        "name_en": "Brand guidelines",        "price": 100,  "marker": "+" },
+    { "name": "Carte de visite",         "name_en": "Business card",           "price": 160,  "marker": "•" },
+    { "name": "Affiche",                 "name_en": "Poster",                  "price": 200,  "marker": "+" },
+    { "name": "Flyer",                   "name_en": "Flyer",                   "price": 175,  "marker": "+" },
+    { "name": "Signature de mail",       "name_en": "Email signature",         "price": 35,   "marker": "+" },
+    { "name": "Éléments graphiques",     "name_en": "Graphic elements",        "price": 50,   "marker": "+" },
+    { "name": "Illustration",            "name_en": "Illustration",            "price": 600,  "marker": "•" },
+    { "name": "Mascotte",                "name_en": "Mascot",                  "price": 500,  "marker": "+" },
+    { "name": "Catalogue",               "name_en": "Catalogue",               "price": 1500, "marker": "+" },
+    { "name": "Animation simple",        "name_en": "Simple animation",        "price": 450,  "marker": "•" }
   ]
 }

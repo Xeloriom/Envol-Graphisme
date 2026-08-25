@@ -12,12 +12,12 @@
     <meta property="og:type"        content="website">
     <meta property="og:title"       content="Projets – Envol Graphisme | Portfolio">
     <meta property="og:description" content="Découvrez les créations d'Envol Graphisme : logos, identités visuelles, affiches.">
-    <meta property="og:image"       content="https://Xeloriom.github.io/Envol-Graphisme/img/ENVOL%20Graphisme%20Logo%20clair.png">
+    <meta property="og:image"       content="https://Xeloriom.github.io../img/ENVOL%20Graphisme%20Logo%20clair.png">
     <meta property="og:url"         content="https://Xeloriom.github.io/Envol-Graphisme/View/Projets.html">
     <meta property="og:locale"      content="fr_FR">
     <meta name="twitter:card"        content="summary_large_image">
-    <meta name="twitter:image"       content="https://Xeloriom.github.io/Envol-Graphisme/img/ENVOL%20Graphisme%20Logo%20clair.png">
-    <link rel="icon" type="image/png" href="/Envol-Graphisme/img/Logo.png">
+    <meta name="twitter:image"       content="https://Xeloriom.github.io../img/ENVOL%20Graphisme%20Logo%20clair.png">
+    <link rel="icon" type="image/png" href="../img/Logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
@@ -31,56 +31,135 @@
     <link rel="stylesheet" href="../style.css">
     <style>
         html, body { max-width:100vw; overflow-x:hidden; }
-        body.modal-open { overflow:hidden !important; }
-        .custom-scroll::-webkit-scrollbar { width:4px; }
-        .custom-scroll::-webkit-scrollbar-thumb { background:#CB8D30; border-radius:10px; }
-        @media (max-width:1023px) {
-            .modal-inner-frame {
-                background-image: url('../img/Cadrejaunemobile.svg') !important;
-                background-size: 100% 100%;
-                width: 94%; height: 88vh;
-                padding: 18% 8% 10% 8% !important;
-            }
+        body.modal-open {
+            overflow: hidden !important;
+            scrollbar-width: none;
         }
+        body.modal-open::-webkit-scrollbar { display: none; }
+        /* Scrollbar invisible par défaut, visible au survol */
+        .custom-scroll {
+            scrollbar-width: thin;
+            scrollbar-color: transparent transparent;
+            transition: scrollbar-color 0.3s;
+        }
+        .custom-scroll:hover {
+            scrollbar-color: rgba(203,141,48,0.5) transparent;
+        }
+        .custom-scroll::-webkit-scrollbar { width: 3px; }
+        .custom-scroll::-webkit-scrollbar-track { background: transparent; }
+        .custom-scroll::-webkit-scrollbar-thumb {
+            background: transparent;
+            border-radius: 99px;
+            transition: background 0.3s;
+        }
+        .custom-scroll:hover::-webkit-scrollbar-thumb {
+            background: rgba(203,141,48,0.5);
+        }
+
+        /* ── Cadre modal commun */
+        .modal-inner-frame {
+            position: relative;
+            background-repeat: no-repeat;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+
+        /* ── Mobile portrait ≤ 639px */
+        @media (max-width:639px) {
+            .modal-inner-frame {
+                background-image: url('../img/Cadre%20jaune%20mobile.webp') !important;
+                background-size: 100% 100%;
+                width: 98%; height: 90vh;
+                padding: 26% 10% 20% 10% !important;
+            }
+            #close-modal { top: 2% !important; right: 4% !important; }
+            #modal-title { font-size: 1rem; margin-bottom: 0.4rem; }
+            #modal-description { font-size: 0.75rem; }
+        }
+
+        /* ── Tablet portrait 640–1023px */
+        @media (min-width:640px) and (max-width:1023px) {
+            .modal-inner-frame {
+                background-image: url('../img/Cadre%20jaune%20mobile.webp') !important;
+                background-size: 100% 100%;
+                width: 94%; height: 90vh;
+                padding: 20% 10% 15% 10% !important;
+            }
+            #modal-title { font-size: 1.4rem; }
+        }
+
+        /* ── Écran court / paysage (hauteur ≤ 600px) */
+        @media (max-height:600px) {
+            .modal-inner-frame {
+                height: 95vh !important;
+                padding-top: 10% !important;
+                padding-bottom: 6% !important;
+            }
+            #close-modal { top: 1% !important; right: 2% !important; width: 2.2rem !important; }
+        }
+
+        /* ── Très petit mobile ≤ 390px */
+        @media (max-width:390px) {
+            .modal-inner-frame { width: 100% !important; height: 92vh !important; }
+            #close-modal { top: 1.5% !important; right: 3% !important; width: 2.2rem !important; }
+            #modal-title { font-size: 0.88rem !important; }
+            #modal-description { font-size: 0.7rem !important; }
+        }
+
+        /* ── Desktop ≥ 1024px */
         @media (min-width:1024px) {
             .modal-inner-frame {
                 background-image: url('../img/CadreJaune.svg') !important;
-                background-size: contain;
-                width: 100%; max-width: 1200px; height: 85vh;
-                padding: 8% 10% !important;
+                background-size: 100% 100%;
+                width: 92%; max-width: 1200px; height: 88vh;
+                padding: 9% 8% 9% 8% !important;
             }
+        }
+
+        /* ── Large ≥ 1536px */
+        @media (min-width:1536px) {
+            .modal-inner-frame {
+                max-width: 1400px;
+                padding: 8% 7% !important;
+            }
+        }
+
+        /* ── Typographie titre modal */
+        #modal-title { font-size: clamp(1rem, 2.5vw, 2.2rem); }
+
+        /* ── Description */
+        #modal-description { font-size: clamp(0.75rem, 1.4vw, 1rem); }
+        #modal-description p { margin-bottom: 0.6rem; }
+
+        /* ── Images dans le modal */
+        #modal-images img { border-radius: 1.5rem; width: 100%; object-fit: cover; }
+
+        /* ── Layout mobile : images en scroll horizontal */
+        @media (max-width:1023px) {
+            .modal-body { flex-direction: column; height: 100%; overflow: hidden; gap: 0.5rem; }
+            .modal-text { max-height: 50%; flex-shrink: 0; overflow: hidden; display: flex; flex-direction: column; }
+            #modal-description { flex: 1; min-height: 0; overflow-y: auto; }
+            .modal-images {
+                flex-direction: row !important;
+                overflow-x: auto !important;
+                overflow-y: hidden !important;
+                flex-shrink: 0;
+                flex: 1;
+                min-height: 0;
+            }
+            .modal-images img { width: auto; height: 100%; flex-shrink: 0; border-radius: 1rem; }
         }
     </style>
 </head>
 <body id="bienvenue" class="bg-[#1a2332] text-white">
 
-<!-- LOADER inline -->
-<div id="page-loader" role="status" aria-label="Chargement">
-    <div class="loader-bg-stars" id="ldr-stars"></div>
-    <div class="loader-core">
-                <div class="loader-owl-wrap">
-            <div class="loader-halo"></div>
-            <div class="loader-stars-ring">
-                <img src="/Envol-Graphisme/img/Etoile%20jaune.svg" alt="" class="ldr-star-orb" style="--i:0">
-                <img src="/Envol-Graphisme/img/Etoile%20jaune.svg" alt="" class="ldr-star-orb" style="--i:1">
-                <img src="/Envol-Graphisme/img/Etoile%20jaune.svg" alt="" class="ldr-star-orb" style="--i:2">
-                <img src="/Envol-Graphisme/img/Etoile%20jaune.svg" alt="" class="ldr-star-orb" style="--i:3">
-                <img src="/Envol-Graphisme/img/Etoile%20jaune.svg" alt="" class="ldr-star-orb" style="--i:4">
-                <img src="/Envol-Graphisme/img/Etoile%20jaune.svg" alt="" class="ldr-star-orb" style="--i:5">
-            </div>
-            <img src="/Envol-Graphisme/img/Chouetteailesouvertesyeuxfermés.svg" alt="" class="loader-owl-img">
-        </div>
-        <img src="/Envol-Graphisme/img/ENVOL%20Graphisme%20Logo%20clair.png" alt="" class="loader-logo-small">
-        <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
-    </div>
-</div>
-<script>
-(function(){document.documentElement.style.overflow='hidden';var c=document.getElementById('ldr-stars');if(!c)return;for(var i=0;i<80;i++){var s=document.createElement('span');var sz=Math.random()*2.5+0.5;s.style.cssText='width:'+sz+'px;height:'+sz+'px;left:'+Math.random()*100+'%;top:'+Math.random()*100+'%;--dur:'+(Math.random()*2+1.5)+'s;--delay:'+(Math.random()*3)+'s;opacity:'+(Math.random()*0.6+0.2)+';';c.appendChild(s);}})();
-</script>
-
 <a href="#projets" class="skip-link">Aller au contenu principal</a>
 
-<section id="projets" class="relative min-h-screen pt-32 sm:pt-36 pb-20 px-4 sm:px-6 lg:px-16 overflow-hidden">
+<section id="projets" class="relative min-h-screen pt-28 sm:pt-32 lg:pt-36 pb-16 sm:pb-20 px-3 sm:px-6 lg:px-16 overflow-hidden">
 
     <div class="absolute inset-0 bg-[url('../img/Motif%20étoiles%20blanches.svg')]
                 bg-[length:700%] md:bg-[length:150%] bg-center opacity-10
@@ -88,21 +167,8 @@
                 pointer-events-none" aria-hidden="true"></div>
 
     <div class="relative z-10 max-w-7xl mx-auto">
-        <div id="projets-header" class="text-center mb-12 sm:mb-16">
-            <h1 class="projets-h1 text-[clamp(1.8rem,5vw,3.5rem)] font-bold text-[#DEE3F6] opacity-0">
-                Mes créations
-            </h1>
-            <p class="projets-sub mt-3 text-[clamp(0.85rem,2vw,1.1rem)] text-[#CB8D30] tracking-widest uppercase opacity-0">
-                Chaque projet est imaginé pour vous
-            </p>
-            <div class="projets-line flex items-center justify-center gap-3 mt-4 opacity-0" aria-hidden="true">
-                <span style="width:40px;height:1px;background:rgba(203,141,48,0.4)"></span>
-                <span style="color:#CB8D30;font-size:1.1rem">✦</span>
-                <span style="width:40px;height:1px;background:rgba(203,141,48,0.4)"></span>
-            </div>
-        </div>
         <div id="projects-grid"
-             class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 lg:gap-14 px-2 sm:px-4"
+             class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-10 lg:gap-14 px-1 sm:px-4"
              role="list">
         </div>
     </div>
@@ -110,34 +176,36 @@
 
 <!-- MODALE -->
 <div id="project-modal"
-     class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/85 p-2 overflow-hidden"
+     class="fixed inset-0 z-[1100] hidden items-center justify-center bg-black/85 overflow-hidden"
      role="dialog" aria-modal="true" aria-labelledby="modal-title">
     <button id="back-arrow"
-            class="absolute left-2 md:left-5 top-1/2 -translate-y-1/2 w-10 md:w-14 z-[110] transition-transform hover:scale-110"
+            class="absolute left-0 sm:left-2 md:left-4 top-1/2 -translate-y-1/2 w-10 sm:w-16 md:w-24 z-[1110] transition-transform hover:scale-110 active:scale-95"
             aria-label="Projet précédent">
-        <svg class="text-[#CB8D30] rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        <svg class="text-[#CB8D30] rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
         </svg>
     </button>
     <div class="modal-inner-frame relative bg-no-repeat bg-center flex items-center justify-center overflow-hidden">
         <button id="close-modal"
-                class="absolute top-4 right-4 md:top-[8%] md:right-[8%] w-10 md:w-14 z-[120] hover:rotate-90 transition-all"
+                class="absolute top-[6.5%] right-[5%] w-14 md:w-16 z-[1120] hover:rotate-90 transition-all duration-300"
                 aria-label="Fermer">
             <img src="../img/CroixJaune.svg" class="w-full h-full" alt="">
         </button>
-        <div class="w-full h-full flex flex-col lg:flex-row gap-4 lg:gap-10 overflow-hidden">
-            <div class="w-full lg:w-1/2 flex flex-col overflow-hidden">
-                <h2 id="modal-title" class="text-xl sm:text-3xl md:text-4xl font-extrabold text-[#42290D] uppercase mb-3 tracking-tighter"></h2>
-                <div id="modal-description" class="text-[#42290D] text-sm md:text-base leading-relaxed overflow-y-auto custom-scroll pr-2"></div>
+
+        <!-- Desktop : côte à côte -->
+        <div class="modal-body w-full h-full flex flex-col lg:flex-row gap-4 lg:gap-10">
+            <div class="modal-text w-full lg:w-1/2 flex flex-col overflow-hidden">
+                <h2 id="modal-title" class="font-extrabold text-[#42290D] uppercase tracking-tighter mb-2 shrink-0"></h2>
+                <div id="modal-description" class="text-[#42290D] leading-relaxed overflow-y-auto custom-scroll pr-1 flex-1"></div>
             </div>
-            <div id="modal-images" class="w-full lg:w-1/2 overflow-y-auto custom-scroll flex lg:flex-col gap-4 pr-1"></div>
+            <div id="modal-images" class="modal-images w-full lg:w-1/2 overflow-y-auto custom-scroll flex lg:flex-col gap-3"></div>
         </div>
     </div>
     <button id="next-arrow"
-            class="absolute right-2 md:right-5 top-1/2 -translate-y-1/2 w-10 md:w-14 z-[110] transition-transform hover:scale-110"
+            class="absolute right-0 sm:right-2 md:right-4 top-1/2 -translate-y-1/2 w-10 sm:w-16 md:w-24 z-[1110] transition-transform hover:scale-110 active:scale-95"
             aria-label="Projet suivant">
-        <svg class="text-[#CB8D30] -rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        <svg class="text-[#CB8D30] -rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
         </svg>
     </button>
 </div>

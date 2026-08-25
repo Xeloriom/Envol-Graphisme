@@ -1,13 +1,12 @@
-// Résolution du chemin absolu
 const BASE = (typeof BASE_PATH !== 'undefined') ? BASE_PATH : '/Envol-Graphisme';
 
+window.i18nCallbacks = window.i18nCallbacks || [];
 let translations = {};
 
 fetch(`${BASE}/i18n/lang.json`)
     .then(r => r.json())
     .then(data => {
         translations = data;
-        // Appliquer la langue sauvegardée (ou 'fr' par défaut)
         const saved = (typeof localStorage !== 'undefined' && localStorage.getItem('envol-lang')) || 'fr';
         applyLanguage(saved);
     })
@@ -25,19 +24,15 @@ function applyLanguage(lang) {
     if (typeof localStorage !== 'undefined') {
         localStorage.setItem('envol-lang', lang);
     }
-    // Indicateur visuel sur les drapeaux
     document.querySelectorAll('[data-lang]').forEach(btn => {
-        const isActive = btn.getAttribute('data-lang') === lang;
-        btn.style.opacity = isActive ? '1' : '0.45';
-        btn.style.outline  = isActive ? '2px solid #CB8D30' : '';
-        btn.style.outlineOffset = '2px';
+        btn.style.opacity = btn.getAttribute('data-lang') === lang ? '1' : '0.45';
     });
+    // Notifie les composants dynamiques (Swiper, Offres)
+    window.i18nCallbacks.forEach(fn => fn(lang));
+    document.dispatchEvent(new CustomEvent('langchange', { detail: { lang } }));
 }
 
-// Délégation d'événement sur document — fonctionne même si la navbar est injectée tard
 document.addEventListener('click', function(e) {
     var btn = e.target.closest('[data-lang]');
-    if (btn) {
-        applyLanguage(btn.getAttribute('data-lang'));
-    }
+    if (btn) applyLanguage(btn.getAttribute('data-lang'));
 });
