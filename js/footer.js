@@ -139,7 +139,7 @@ function initFooter() {
                 '<a href="' + FOOTER_BASE + '/View/Contact.html" class="ftr-link" data-i18n="nav_contact">Contact</a>' +
             '</nav>' +
             '<hr class="ftr-divider">' +
-            '<div class="ftr-social">' +
+            '<div id="social" class="ftr-social">' +
                 '<p class="ftr-social-title" data-i18n="footer_social">Suis moi sur les réseaux&nbsp;!</p>' +
                 '<div class="ftr-social-icons" id="ftr-icons" role="list"></div>' +
                 '<div class="ftr-social-links">' +

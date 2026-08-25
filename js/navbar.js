@@ -39,7 +39,7 @@ const FLAG_BTN = [
     'hover:shadow-[0_6px_24px_rgba(0,0,0,0.55)]',
 ].join(' ');
 
-const FLAG_BTN_LG = FLAG_BTN.replace('w-7 h-7', 'w-9 h-9');
+const FLAG_BTN_LG = FLAG_BTN + ' w-11 h-11';
 
 function createNavbar() {
     const nav = document.createElement('nav');

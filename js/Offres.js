@@ -167,7 +167,22 @@ document.addEventListener('DOMContentLoaded', () => {
         .catch(err => console.error('Erreur chargement offers.json :', err));
 });
 
-// Re-render quand la langue change
+// Re-render quand la langue change — préserve les cases cochées
 document.addEventListener('langchange', function(e) {
-    if (offresData) renderOffres(offresData, e.detail.lang);
+    if (!offresData) return;
+    // Mémorise les prix cochés avant de re-rendre
+    const checked = Array.from(document.querySelectorAll('input[type="checkbox"]:checked'))
+        .map(cb => cb.value);
+    renderOffres(offresData, e.detail.lang);
+    // Restaure les cases cochées
+    if (checked.length) {
+        document.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+            if (checked.includes(cb.value)) {
+                cb.checked = true;
+                cb.closest('.service-item')?.setAttribute('aria-pressed', 'true');
+                cb.closest('.service-item')?.classList.add('bg-[#B5C0DD]');
+            }
+        });
+        updateTotal();
+    }
 });
