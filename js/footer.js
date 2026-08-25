@@ -47,7 +47,7 @@ function initFooter() {
         '.ftr-legal{' +
             'position:absolute;bottom:1.2rem;left:5rem;right:2rem;z-index:2;' +
             'font-family:\'Josefin Sans\',sans-serif;' +
-            'font-size:clamp(0.7rem,1.1vw,1.05rem);letter-spacing:0.06em;' +
+            'font-size:clamp(0.82rem,1.2vw,1.1rem);letter-spacing:0.06em;' +
             'color:rgba(222,227,246,0.75);white-space:nowrap;' +
         '}' +
 
@@ -65,7 +65,7 @@ function initFooter() {
         '@media(max-width:1024px){' +
             '.ftr-nav{left:2rem;}' +
             '.ftr-social{left:45%;}' +
-            '.ftr-legal{font-size:0.85rem;left:2rem;}' +
+            '.ftr-legal{font-size:0.95rem;left:2rem;}' +
         '}' +
 
         /* ── Mobile ≤ 767px : layout flex vertical centré */
@@ -102,20 +102,20 @@ function initFooter() {
             /* Legal en bas absolu */
             '.ftr-legal{' +
                 'position:absolute;bottom:0.5rem;left:0;right:0;' +
-                'text-align:center;font-size:0.7rem;' +
-                'letter-spacing:0.02em;padding:0 0.8rem;white-space:normal;line-height:1.4;' +
+                'text-align:center;font-size:0.78rem;' +
+                'letter-spacing:0.02em;padding:0 0.8rem;white-space:normal;line-height:1.5;' +
             '}' +
         '}' +
 
         /* ── Mobile S ≤ 480px */
         '@media(max-width:480px){' +
             'footer{min-height:330px;}' +
-            '.ftr-inner{padding:1rem 0.8rem 2.2rem;gap:0.65rem;}' +
+            '.ftr-inner{padding:1rem 0.8rem 2.4rem;gap:0.65rem;}' +
             '.ftr-nav{gap:0.3rem 1.3rem;}' +
             '.ftr-link{font-size:0.78rem;}' +
             '.ftr-social-title{font-size:0.82rem;}' +
             '.ftr-social-icons{gap:1rem;}' +
-            '.ftr-legal{font-size:0.65rem;padding:0 0.5rem;}' +
+            '.ftr-legal{font-size:0.72rem;padding:0 0.5rem;}' +
         '}' +
 
         /* ── Large ≥ 1536px */
