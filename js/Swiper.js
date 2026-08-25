@@ -53,7 +53,10 @@ fetch(`${SWIPER_BASE}/Data/testimonials.json`)
                 const t = data[index];
                 img.src = t.avatar;
                 img.alt = (currentLang === 'fr' ? 'Photo de ' : 'Photo of ') + t.name;
-                text.innerHTML = getText(t) + ' <em class="testi-author-name">— ' + t.name + '</em>';
+                const roleText = currentLang === 'en' && t.role_en ? t.role_en : t.role;
+                text.innerHTML = getText(t) +
+                    ' <em class="testi-author-name">— ' + t.name + '</em>' +
+                    '<span class="testi-author-role">' + roleText + '</span>';
                 img.style.opacity  = '1';
                 text.style.opacity = '1';
                 dots.querySelectorAll('.testi-dot').forEach((d, i) => {
@@ -77,7 +80,10 @@ fetch(`${SWIPER_BASE}/Data/testimonials.json`)
             currentLang = e.detail.lang;
             const t = data[current];
             img.alt = (currentLang === 'fr' ? 'Photo de ' : 'Photo of ') + t.name;
-            text.innerHTML = getText(t) + ' <em class="testi-author-name">— ' + t.name + '</em>';
+            const roleText = currentLang === 'en' && t.role_en ? t.role_en : t.role;
+            text.innerHTML = getText(t) +
+                ' <em class="testi-author-name">— ' + t.name + '</em>' +
+                '<span class="testi-author-role">' + roleText + '</span>';
         });
     })
     .catch(err => console.error('testimonials.json :', err));

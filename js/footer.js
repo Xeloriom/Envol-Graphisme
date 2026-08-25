@@ -69,11 +69,11 @@ function initFooter() {
 
         /* ── Mobile ≤ 767px : layout flex vertical centré */
         '@media(max-width:767px){' +
-            'footer{margin-top:0;min-height:340px;}' +
+            'footer{margin-top:0;min-height:480px;}' +
             '.ftr-bg{display:none;}' +
             '.ftr-bg-mobile{' +
                 'display:block;position:absolute;left:0;right:0;top:0;bottom:0;' +
-                'width:100%;height:100%;object-fit:cover;object-position:center bottom;' +
+                'width:100%;height:100%;object-fit:cover;object-position:center top;' +
                 'pointer-events:none;z-index:0;' +
             '}' +
             /* Passe l'inner en flex colonne centré */
@@ -113,7 +113,7 @@ function initFooter() {
 
         /* ── Mobile S ≤ 480px */
         '@media(max-width:480px){' +
-            'footer{min-height:300px;}' +
+            'footer{min-height:420px;}' +
             '.ftr-inner{padding:1.2rem 0.8rem 2.2rem;gap:0.75rem;}' +
             '.ftr-nav{gap:0.3rem 1.4rem;}' +
             '.ftr-link{font-size:0.75rem;}' +
