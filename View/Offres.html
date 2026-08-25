@@ -26,7 +26,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="../js/tailwind.config.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
     <link rel="stylesheet" href="../style.css">
     <style>
         .popup-overlay { backdrop-filter: blur(10px); }
@@ -210,7 +210,7 @@
 <script src="../js/Offres.js"></script>
 <script src="../js/scroll-animations.js"></script>
 <script src="../i18n/i18n.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" defer></script>
 <script>
 (function(){
     function hideLoader(){var l=document.getElementById('page-loader');if(!l)return;l.classList.add('loader-out');setTimeout(function(){if(l.parentNode)l.parentNode.removeChild(l);},900);document.documentElement.style.overflow='';}
@@ -219,9 +219,8 @@
     setTimeout(hideLoader,5000);
 })();
 
-AOS.init({ duration: 650, easing: 'ease-out-cubic', once: true, offset: 60 });
-
 document.addEventListener('DOMContentLoaded', function() {
+    if (typeof AOS !== 'undefined') AOS.init({ duration: 650, easing: 'ease-out-cubic', once: true, offset: 60 });
     gsap.fromTo('.offres-h1', { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 1, ease: 'power3.out', delay: 0.4 });
     gsap.fromTo('.offres-sub', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out', delay: 0.7 });
     document.addEventListener('keydown', function(e){ if(e.key==='Escape') closePopup(); });

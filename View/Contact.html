@@ -27,10 +27,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="../js/tailwind.config.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
     <link rel="stylesheet" href="../style.css">
 </head>
 <body id="bienvenue" class="overflow-x-hidden">
@@ -114,7 +111,6 @@
 <script src="../js/scroll-animations.js"></script>
 <script src="../js/owl-FAQ.js"></script>
 <script src="../i18n/i18n.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 <script>
 (function(){
     function hideLoader(){var l=document.getElementById('page-loader');if(!l)return;l.classList.add('loader-out');setTimeout(function(){if(l.parentNode)l.parentNode.removeChild(l);},900);document.documentElement.style.overflow='';}
@@ -123,7 +119,6 @@
     setTimeout(hideLoader,5000);
 })();
 
-AOS.init({ duration: 650, easing: 'ease-out-cubic', once: true, offset: 60 });
 
 document.addEventListener('DOMContentLoaded', function() {
     gsap.fromTo('#contact-h1',
