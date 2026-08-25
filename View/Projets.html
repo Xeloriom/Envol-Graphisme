@@ -2,7 +2,7 @@
 <html lang="fr" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>Projets – Envol Graphisme | Portfolio Design Graphique</title>
     <meta name="description" content="Découvrez le portfolio d'Envol Graphisme : logos, identités visuelles, affiches et créations graphiques sur mesure.">
     <meta name="keywords" content="portfolio graphiste, projets design graphique, créations logos, identité visuelle">
@@ -68,46 +68,52 @@
             box-sizing: border-box;
         }
 
-        /* ── Mobile portrait ≤ 639px */
-        @media (max-width:639px) {
-            .modal-inner-frame {
-                background-image: url('../img/Cadre%20jaune%20mobile.webp') !important;
-                background-size: 100% 100%;
-                width: 98%; height: 90vh;
-                padding: 26% 10% 20% 10% !important;
+        /* ── Mobile ≤ 1023px : card propre sans image de fond */
+        @media (max-width:1023px) {
+            #project-modal {
+                padding-top: max(0.5rem, env(safe-area-inset-top));
+                padding-bottom: max(0.5rem, env(safe-area-inset-bottom));
+                padding-left: max(0.5rem, env(safe-area-inset-left));
+                padding-right: max(0.5rem, env(safe-area-inset-right));
             }
-            #close-modal { top: 2% !important; right: 4% !important; }
-            #modal-title { font-size: 1rem; margin-bottom: 0.4rem; }
-            #modal-description { font-size: 0.75rem; }
+            .modal-inner-frame {
+                background-image: none !important;
+                background-color: #EDE5C8;
+                border: 3px solid #CB8D30;
+                border-radius: 1.5rem;
+                width: 92%;
+                max-height: min(88dvh, calc(100dvh - env(safe-area-inset-top) - env(safe-area-inset-bottom) - 1rem));
+                height: auto;
+                padding: 3rem 1.2rem 1.5rem !important;
+                display: flex;
+                flex-direction: column;
+                overflow: hidden;
+                box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+            }
+            #close-modal {
+                top: 0.75rem !important; right: 0.75rem !important;
+                width: 2rem !important;
+            }
+            #modal-title { font-size: 1.1rem; margin-bottom: 0.5rem; }
+            #modal-description { font-size: 0.82rem; }
         }
 
-        /* ── Tablet portrait 640–1023px */
-        @media (min-width:640px) and (max-width:1023px) {
+        /* ── Très petit mobile ≤ 390px */
+        @media (max-width:390px) {
             .modal-inner-frame {
-                background-image: url('../img/Cadre%20jaune%20mobile.webp') !important;
-                background-size: 100% 100%;
-                width: 94%; height: 90vh;
-                padding: 20% 10% 15% 10% !important;
+                width: 96% !important;
+                padding: 2.8rem 1rem 1.2rem !important;
             }
-            #modal-title { font-size: 1.4rem; }
+            #modal-title { font-size: 0.95rem !important; }
+            #modal-description { font-size: 0.75rem !important; }
         }
 
         /* ── Écran court / paysage (hauteur ≤ 600px) */
         @media (max-height:600px) {
             .modal-inner-frame {
-                height: 95vh !important;
-                padding-top: 10% !important;
-                padding-bottom: 6% !important;
+                max-height: min(95dvh, calc(100dvh - env(safe-area-inset-top) - env(safe-area-inset-bottom))) !important;
+                padding-top: 2.5rem !important;
             }
-            #close-modal { top: 1% !important; right: 2% !important; width: 2.2rem !important; }
-        }
-
-        /* ── Très petit mobile ≤ 390px */
-        @media (max-width:390px) {
-            .modal-inner-frame { width: 100% !important; height: 92vh !important; }
-            #close-modal { top: 1.5% !important; right: 3% !important; width: 2.2rem !important; }
-            #modal-title { font-size: 0.88rem !important; }
-            #modal-description { font-size: 0.7rem !important; }
         }
 
         /* ── Desktop ≥ 1024px */
@@ -181,7 +187,7 @@
     <button id="back-arrow"
             class="absolute left-0 sm:left-2 md:left-4 top-1/2 -translate-y-1/2 w-10 sm:w-16 md:w-24 z-[1110] transition-transform hover:scale-110 active:scale-95"
             aria-label="Projet précédent">
-        <svg class="text-[#CB8D30] rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1">
+        <svg class="text-[#CB8D30] rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
             <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
         </svg>
     </button>
@@ -204,7 +210,7 @@
     <button id="next-arrow"
             class="absolute right-0 sm:right-2 md:right-4 top-1/2 -translate-y-1/2 w-10 sm:w-16 md:w-24 z-[1110] transition-transform hover:scale-110 active:scale-95"
             aria-label="Projet suivant">
-        <svg class="text-[#CB8D30] -rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1">
+        <svg class="text-[#CB8D30] -rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
             <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
         </svg>
     </button>

@@ -2,7 +2,7 @@
 <html lang="fr" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Nos Offres – Envol Graphisme | Tarifs & Packs Design Graphique</title>
     <meta name="description" content="Découvrez les offres et tarifs d'Envol Graphisme : pack identité visuelle dès 600€, logo à partir de 400€, carte de visite, affiche, flyer. Simulez votre devis gratuitement.">
     <meta name="keywords" content="tarifs graphiste, prix logo, pack identité visuelle, devis design graphique">
@@ -34,7 +34,16 @@
         .service-item:hover, .service-item.selected { background-color: rgba(181,192,221,0.35) !important; }
         .custom-scrollbar::-webkit-scrollbar { width:4px; }
         .custom-scrollbar::-webkit-scrollbar-thumb { background:#A5B9E9; border-radius:10px; }
-
+        /* Safe areas iOS/Android */
+        #popup {
+            padding-top: max(0.75rem, env(safe-area-inset-top));
+            padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+            padding-left: max(0.75rem, env(safe-area-inset-left));
+            padding-right: max(0.75rem, env(safe-area-inset-right));
+        }
+        #popup > div {
+            max-height: min(90dvh, calc(100dvh - env(safe-area-inset-top) - env(safe-area-inset-bottom) - 1.5rem));
+        }
     </style>
 </head>
 <body id="bienvenue" class="bg-[#CCD7EE] overflow-x-hidden">
