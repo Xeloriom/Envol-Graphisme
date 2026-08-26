@@ -82,11 +82,11 @@ function createNavbar() {
             </div>
 
             <button id="burger-btn"
-                    class="md:hidden flex flex-row items-center justify-center gap-[6px] w-11 h-11 bg-white rounded-xl cursor-pointer px-2 transition-all duration-200 hover:bg-[#f0f2ff] hover:shadow-[0_0_16px_rgba(255,255,255,0.25)]"
+                    class="md:hidden flex flex-row items-center justify-center gap-[5px] h-10 w-auto bg-white rounded-xl cursor-pointer px-3 transition-all duration-200 hover:bg-[#f0f2ff] hover:shadow-[0_0_16px_rgba(255,255,255,0.25)]"
                     aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu">
-                <span class="text-[#1a2332] text-[11px] leading-none transition-all duration-300 origin-center select-none">✦</span>
-                <span class="text-[#1a2332] text-[11px] leading-none transition-all duration-300 origin-center select-none">✦</span>
-                <span class="text-[#1a2332] text-[11px] leading-none transition-all duration-300 origin-center select-none">✦</span>
+                <span class="transition-all duration-300 origin-center flex-shrink-0"><img src="${BASE_PATH}/img/Etoile%20jaune.svg" class="h-5 w-5 mt-0.5" alt="" loading="lazy"></span>
+                <span class="transition-all duration-300 origin-center flex-shrink-0"><img src="${BASE_PATH}/img/Etoile%20jaune.svg" class="h-5 w-5 mt-0.5" alt="" loading="lazy"></span>
+                <span class="transition-all duration-300 origin-center flex-shrink-0"><img src="${BASE_PATH}/img/Etoile%20jaune.svg" class="h-5 w-5 mt-0.5" alt="" loading="lazy"></span>
             </button>
         </div>
     </div>
