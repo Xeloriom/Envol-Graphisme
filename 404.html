@@ -64,16 +64,16 @@
 
     <!-- Boutons -->
     <div class="flex flex-col sm:flex-row gap-3 sm:gap-4">
-        <a href="/Envol-Graphisme/index.html"
+        <a id="btn-home"
            class="btn-primary"
            data-i18n="err_home">✦ Retour à l'accueil</a>
-        <a href="/Envol-Graphisme/View/Contact.html"
+        <a id="btn-contact"
            class="btn-secondary"
            data-i18n="err_contact">Me contacter</a>
     </div>
 
     <!-- Logo -->
-    <a href="/Envol-Graphisme/index.html" class="mt-2 opacity-40 hover:opacity-80 transition-opacity duration-300">
+    <a id="btn-logo" class="mt-2 opacity-40 hover:opacity-80 transition-opacity duration-300">
         <img src="img/ENVOL%20Graphisme%20Logo%20clair.webp"
              alt="Envol Graphisme"
              class="h-8 sm:h-10 mx-auto" loading="lazy">
@@ -84,6 +84,11 @@
 <script src="i18n/i18n.js"></script>
 
 <script>
+var BASE_PATH = window.location.hostname.includes('github.io') ? '/Envol-Graphisme' : '';
+document.getElementById('btn-home').href    = BASE_PATH + '/index.html';
+document.getElementById('btn-contact').href = BASE_PATH + '/View/Contact.html';
+document.getElementById('btn-logo').href    = BASE_PATH + '/index.html';
+
 function applyLang404(lang) {
     document.getElementById('img-fr').classList.toggle('hidden', lang === 'en');
     document.getElementById('img-en').classList.toggle('hidden', lang !== 'en');
