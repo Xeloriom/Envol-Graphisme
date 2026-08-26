@@ -82,11 +82,11 @@ function createNavbar() {
             </div>
 
             <button id="burger-btn"
-                    class="md:hidden flex flex-col justify-center gap-[5px] w-11 h-11 bg-[rgba(222,227,246,0.08)] border border-[rgba(222,227,246,0.15)] rounded-xl cursor-pointer px-3 transition-colors duration-200 hover:bg-[rgba(203,141,48,0.15)] hover:border-[rgba(203,141,48,0.4)]"
+                    class="md:hidden flex flex-row items-center justify-center gap-[6px] w-11 h-11 bg-white rounded-xl cursor-pointer px-2 transition-all duration-200 hover:bg-[#f0f2ff] hover:shadow-[0_0_16px_rgba(255,255,255,0.25)]"
                     aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu">
-                <span class="block h-0.5 rounded-sm bg-[#DEE3F6] transition-all duration-300 origin-center"></span>
-                <span class="block h-0.5 rounded-sm bg-[#DEE3F6] transition-all duration-300"></span>
-                <span class="block h-0.5 rounded-sm bg-[#DEE3F6] transition-all duration-300 origin-center"></span>
+                <span class="text-[#1a2332] text-[11px] leading-none transition-all duration-300 origin-center select-none">✦</span>
+                <span class="text-[#1a2332] text-[11px] leading-none transition-all duration-300 origin-center select-none">✦</span>
+                <span class="text-[#1a2332] text-[11px] leading-none transition-all duration-300 origin-center select-none">✦</span>
             </button>
         </div>
     </div>
@@ -128,16 +128,20 @@ function initNavbar() {
         mobileMenu.style.display = 'flex';
         requestAnimationFrame(() => { mobileMenu.style.transform = 'translateY(0)'; });
         burger.setAttribute('aria-expanded', 'true');
-        s1.style.transform = 'translateY(7px) rotate(45deg)';
-        s2.style.opacity   = '0';
-        s3.style.transform = 'translateY(-7px) rotate(-45deg)';
+        s1.style.opacity   = '0';
+        s1.style.transform = 'scale(0)';
+        s2.style.transform = 'scale(1.6) rotate(180deg)';
+        s3.style.opacity   = '0';
+        s3.style.transform = 'scale(0)';
         document.body.style.overflow = 'hidden';
     }
     function closeMenu() {
         mobileMenu.style.transform = 'translateY(-100%)';
         burger.setAttribute('aria-expanded', 'false');
+        s1.style.opacity   = '';
         s1.style.transform = '';
-        s2.style.opacity   = '';
+        s2.style.transform = '';
+        s3.style.opacity   = '';
         s3.style.transform = '';
         document.body.style.overflow = '';
         setTimeout(() => { if (mobileMenu.style.transform !== 'translateY(0px)') mobileMenu.style.display = 'none'; }, 450);
