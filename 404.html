@@ -6,6 +6,18 @@
     <title>404 – Page introuvable | Envol Graphisme</title>
     <meta name="description" content="Oups ! Cette page s'est envolée. Retournez à l'accueil d'Envol Graphisme.">
     <meta name="robots" content="noindex, nofollow">
+    <!-- Base dynamique : GitHub Pages sert 404.html depuis n'importe quelle URL,
+         ce script doit être le PREMIER élément du head pour que tous les
+         chemins relatifs suivants soient résolus depuis la racine du repo. -->
+    <script>
+    (function(){
+        var b = document.createElement('base');
+        b.href = window.location.hostname.includes('github.io')
+            ? 'https://xeloriom.github.io/Envol-Graphisme/'
+            : window.location.origin + '/ENVOLGraphisme/';
+        document.head.appendChild(b);
+    })();
+    </script>
     <link rel="icon" type="image/png" href="img/Insigne.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -64,16 +76,16 @@
 
     <!-- Boutons -->
     <div class="flex flex-col sm:flex-row gap-3 sm:gap-4">
-        <a id="btn-home"
+        <a href="index.html"
            class="btn-primary"
            data-i18n="err_home">✦ Retour à l'accueil</a>
-        <a id="btn-contact"
+        <a href="View/Contact.html"
            class="btn-secondary"
            data-i18n="err_contact">Me contacter</a>
     </div>
 
     <!-- Logo -->
-    <a id="btn-logo" class="mt-2 opacity-40 hover:opacity-80 transition-opacity duration-300">
+    <a href="index.html" class="mt-2 opacity-40 hover:opacity-80 transition-opacity duration-300">
         <img src="img/ENVOL%20Graphisme%20Logo%20clair.webp"
              alt="Envol Graphisme"
              class="h-8 sm:h-10 mx-auto" loading="lazy">
@@ -84,11 +96,6 @@
 <script src="i18n/i18n.js"></script>
 
 <script>
-var BASE_PATH = window.location.hostname.includes('github.io') ? '/Envol-Graphisme' : '';
-document.getElementById('btn-home').href    = BASE_PATH + '/index.html';
-document.getElementById('btn-contact').href = BASE_PATH + '/View/Contact.html';
-document.getElementById('btn-logo').href    = BASE_PATH + '/index.html';
-
 function applyLang404(lang) {
     document.getElementById('img-fr').classList.toggle('hidden', lang === 'en');
     document.getElementById('img-en').classList.toggle('hidden', lang !== 'en');
