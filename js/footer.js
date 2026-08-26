@@ -3,7 +3,8 @@ const FOOTER_BASE = (typeof BASE_PATH !== 'undefined') ? BASE_PATH : '/Envol-Gra
 const socialNetworks = [
     { name:'LinkedIn',  url:'https://www.linkedin.com/in/envol-graphisme/', icon:'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg',  bg:'#0A66C2' },
     { name:'Instagram', url:'https://www.instagram.com/envol.graphisme/',   icon:'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/instagram.svg', bg:'linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)' },
-    { name:'Behance',   url:'https://www.behance.net/envol-graphisme',       icon:'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/behance.svg',   bg:'#053eff' }
+    { name:'Behance',   url:'https://www.behance.net/envol-graphisme',       icon:'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/behance.svg',   bg:'#053eff' },
+    { name:'Linktree',  url:'https://linktr.ee/envol.graphisme',             icon:'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linktree.svg',  bg:'#43E55C' }
 ];
 
 function initFooter() {
@@ -139,7 +140,6 @@ function initFooter() {
                 '<p class="ftr-social-title" data-i18n="footer_social">Suis moi sur les réseaux&nbsp;!</p>' +
                 '<div class="ftr-social-icons" id="ftr-icons" role="list"></div>' +
                 '<div class="ftr-social-links">' +
-                    '<a href="https://linktr.ee/envol.graphisme" target="_blank" rel="noopener noreferrer" class="ftr-link">Linktree</a>' +
                     '<a href="' + FOOTER_BASE + '/mentions-legales.html" class="ftr-link" data-i18n="footer_legal_link">Mentions légales</a>' +
                 '</div>' +
             '</div>' +
