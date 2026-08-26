@@ -45,8 +45,11 @@
             max-height: min(90dvh, calc(100dvh - env(safe-area-inset-top) - env(safe-area-inset-bottom) - 1rem));
         }
         @media (max-width: 639px) {
+            /* Popup card scrollable en hauteur */
             #popup > div {
-                max-height: 78dvh;
+                max-height: 90dvh !important;
+                overflow-y: auto !important;
+                overflow-x: hidden !important;
                 padding: 1rem 0.9rem !important;
                 border-radius: 1.25rem !important;
             }
@@ -64,9 +67,17 @@
             #popup .service-item span {
                 font-size: 0.78rem !important;
             }
+            /* Panneau sélection : s'étend à la hauteur de son contenu */
             #popup > div > div > div:last-child {
-                min-height: 160px !important;
+                height: auto !important;
+                min-height: 0 !important;
                 padding: 0.9rem !important;
+            }
+            /* Items sélectionnés : tous visibles, pas de scroll interne */
+            #selectedItems {
+                overflow: visible !important;
+                max-height: none !important;
+                flex: none !important;
             }
         }
     </style>
