@@ -73,12 +73,13 @@ function displayProjects(projects) {
 
 function openImageViewer(src, alt) {
     const viewer = document.createElement('div');
-    viewer.className = 'fixed inset-0 z-[1300] bg-black/95 flex items-center justify-center p-4 cursor-zoom-out';
+    viewer.className = 'fixed inset-0 z-[1500] bg-black/95 flex items-center justify-center p-4 cursor-zoom-out';
     viewer.setAttribute('role', 'dialog');
     viewer.setAttribute('aria-label', 'Agrandissement image');
+    viewer.setAttribute('tabindex', '-1');
     viewer.innerHTML = `
         <img src="${src}" alt="${alt || 'Image projet'}"
-             class="max-w-full max-h-full rounded-xl shadow-2xl">
+             class="max-w-full max-h-full rounded-xl shadow-2xl pointer-events-none">
         <button class="absolute top-4 right-4 text-white/60 hover:text-white text-4xl"
                 aria-label="Fermer">×</button>`;
     viewer.onclick = (e) => { if (e.target === viewer || e.target.tagName === 'BUTTON') viewer.remove(); };
@@ -87,8 +88,7 @@ function openImageViewer(src, alt) {
     viewer.focus();
 }
 
-function openModal(project) {
-    const modal = document.getElementById('project-modal');
+function renderModalContent(project) {
     document.getElementById('modal-title').textContent = project.title;
     document.getElementById('modal-description').innerHTML =
         project.description.map(p => `<p class="mb-4">${p}</p>`).join('');
@@ -99,16 +99,40 @@ function openModal(project) {
              class="w-full rounded-[30px] lg:rounded-[45px] shadow-xl hover:brightness-105
                     transition-all cursor-zoom-in"
              alt="Image du projet ${project.title}"
-             loading="lazy"
-             onclick="openImageViewer('${img}', '${project.title}')">`
+             loading="lazy">`
     ).join('');
-
-    modal.classList.remove('hidden');
-    modal.classList.add('flex');
-    document.body.classList.add('modal-open');
+    imgContainer.querySelectorAll('img').forEach(imgEl => {
+        imgEl.addEventListener('click', (e) => {
+            e.stopPropagation();
+            openImageViewer(imgEl.src, imgEl.alt);
+        });
+    });
     imgContainer.scrollTop = 0;
-    document.getElementById('close-modal').focus();
-    setupArrows();
+}
+
+function openModal(project) {
+    const modal = document.getElementById('project-modal');
+    const isAlreadyOpen = modal.classList.contains('flex');
+
+    if (isAlreadyOpen) {
+        const frame = modal.querySelector('.modal-inner-frame');
+        frame.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
+        frame.style.opacity = '0';
+        frame.style.transform = 'scale(0.97)';
+        setTimeout(() => {
+            renderModalContent(project);
+            setupArrows();
+            frame.style.opacity = '1';
+            frame.style.transform = 'scale(1)';
+        }, 200);
+    } else {
+        renderModalContent(project);
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        document.body.classList.add('modal-open');
+        document.getElementById('close-modal').focus();
+        setupArrows();
+    }
 }
 
 function closeModal() {
@@ -134,6 +158,10 @@ document.addEventListener('DOMContentLoaded', () => {
     loadProjectsFromJSON();
     document.getElementById('close-modal').onclick = closeModal;
     document.getElementById('project-modal').onclick = (e) => {
-        if (e.target.id === 'project-modal') closeModal();
+        if (!e.target.closest('.modal-inner-frame') &&
+            !e.target.closest('#back-arrow') &&
+            !e.target.closest('#next-arrow')) {
+            closeModal();
+        }
     };
 });
