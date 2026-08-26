@@ -142,6 +142,17 @@ function closePopup() {
 function toggleSection(id) {
     const content = document.getElementById(id + '-content');
     const arrow   = document.getElementById(id + '-arrow');
+
+    if (window.innerWidth < 640) {
+        const otherId = id === 'packs' ? 'services' : 'packs';
+        const otherContent = document.getElementById(otherId + '-content');
+        const otherArrow   = document.getElementById(otherId + '-arrow');
+        if (otherContent && !otherContent.classList.contains('hidden')) {
+            otherContent.classList.add('hidden');
+            otherArrow.textContent = '▶';
+        }
+    }
+
     content.classList.toggle('hidden');
     arrow.textContent = content.classList.contains('hidden') ? '▶' : '▼';
 }
