@@ -45,46 +45,28 @@
             max-height: min(90dvh, calc(100dvh - env(safe-area-inset-top) - env(safe-area-inset-bottom) - 1rem));
         }
         @media (max-width: 639px) {
-            /* Carte popup : plein écran, colonne */
             #popup > div {
-                max-height: 96dvh;
-                padding: 1.2rem 1rem !important;
+                max-height: 78dvh;
+                padding: 1rem 0.9rem !important;
                 border-radius: 1.25rem !important;
-                display: flex;
-                flex-direction: column;
             }
-            /* Titre fixe */
-            #popup > div > h2 { flex-shrink: 0; }
-            /* Zone contenu (services + sélection) */
-            #popup > div > div {
-                flex: 1 1 0;
-                min-height: 0;
-                overflow: hidden;
-                display: flex !important;
-                flex-direction: column !important;
-                gap: 0.75rem;
+            #popup > div h2 {
+                font-size: 0.95rem !important;
+                margin-bottom: 0.6rem !important;
             }
-            /* Liste services : prend l'espace restant, scroll */
-            #popup-services {
-                flex: 1 1 0;
-                min-height: 0;
-                overflow-y: auto;
+            #popup > div .flex-1.flex.flex-col,
+            #popup > div [class*="lg\\:grid"] {
+                gap: 0.75rem !important;
             }
-            /* Panneau "Votre sélection" : hauteur fixe, toujours visible */
+            #popup .service-item {
+                padding: 0.5rem 0.6rem !important;
+            }
+            #popup .service-item span {
+                font-size: 0.78rem !important;
+            }
             #popup > div > div > div:last-child {
-                flex: 0 0 auto !important;
-                min-height: 0 !important;
-                height: 42dvh;
-                overflow: hidden;
-                display: flex;
-                flex-direction: column;
-                padding: 1rem !important;
-            }
-            /* Items sélectionnés scrollables */
-            #selectedItems {
-                flex: 1 1 0;
-                min-height: 0;
-                overflow-y: auto;
+                min-height: 160px !important;
+                padding: 0.9rem !important;
             }
         }
     </style>
@@ -182,7 +164,7 @@
             Sélectionnez vos options
         </h2>
         <div class="flex-1 flex flex-col lg:grid lg:grid-cols-[1.2fr_0.8fr] gap-5 overflow-hidden">
-            <div id="popup-services" class="flex-1 overflow-y-auto pr-2 custom-scrollbar space-y-4">
+            <div class="flex-1 overflow-y-auto pr-2 custom-scrollbar space-y-4">
                 <div class="border-b border-blue-200 pb-4">
                     <h3 class="text-base font-bold text-[#1D2743] cursor-pointer flex items-center gap-2"
                         onclick="toggleSection('packs')">
