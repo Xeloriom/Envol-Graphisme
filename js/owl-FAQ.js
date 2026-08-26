@@ -61,16 +61,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // démarrage
     animateOwl();
 
-    // click bounce (retrigger)
+    // click → page FAQ / Contact
+    owl.style.cursor = 'pointer';
     owl.addEventListener('click', () => {
-        if (!owlWrapper) return;
-        owlWrapper.classList.remove('animate-owl-bounce');
-        void owlWrapper.offsetWidth; // reflow
-        owlWrapper.classList.add('animate-owl-bounce');
-
-        setTimeout(() => {
-            owlWrapper.classList.remove('animate-owl-bounce');
-        }, 1200);
+        const base = window.location.hostname.includes('github.io') ? '/Envol-Graphisme' : '';
+        window.location.href = base + '/View/Contact.html';
     });
 
     window.addEventListener('resize', () => {
