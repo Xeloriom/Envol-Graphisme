@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
     owl.style.cursor = 'pointer';
     owl.addEventListener('click', () => {
         const base = window.location.hostname.includes('github.io') ? '/Envol-Graphisme' : '';
-        window.location.href = base + '/View/Contact.html';
+        window.location.href = base + '/View/FAQ.html';
     });
 
     window.addEventListener('resize', () => {
