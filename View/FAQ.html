@@ -16,310 +16,252 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
     <link rel="stylesheet" href="../style.css">
     <style>
-        /* Accordion */
-        .faq-item {
-            border-bottom: 1px solid rgba(203, 141, 48, 0.15);
-            transition: background 0.25s;
-        }
+        /* ── Accordion ── */
+        .faq-item { border-bottom: 1px solid rgba(203,141,48,0.12); }
         .faq-item:last-child { border-bottom: none; }
 
         .faq-btn {
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 1rem;
-            padding: 1.2rem 1.5rem;
-            background: none;
-            border: none;
-            cursor: pointer;
-            text-align: left;
+            width: 100%; display: flex; align-items: center;
+            justify-content: space-between; gap: 1rem;
+            padding: 1.15rem 1.4rem;
+            background: none; border: none; cursor: pointer; text-align: left;
             font-family: 'Josefin Sans', sans-serif;
-            font-size: clamp(0.92rem, 1.8vw, 1.05rem);
-            font-weight: 700;
-            letter-spacing: 0.04em;
-            color: rgba(222, 227, 246, 0.9);
+            font-size: clamp(0.88rem, 1.8vw, 1rem);
+            font-weight: 700; letter-spacing: 0.04em;
+            color: rgba(222,227,246,0.88);
             transition: color 0.2s;
         }
-        .faq-btn:hover { color: #CB8D30; }
+        .faq-btn:hover,
         .faq-btn[aria-expanded="true"] { color: #CB8D30; }
 
         .faq-icon {
-            flex-shrink: 0;
-            width: 22px;
-            height: 22px;
-            border: 2px solid rgba(203, 141, 48, 0.5);
+            flex-shrink: 0; width: 20px; height: 20px;
+            border: 1.5px solid rgba(203,141,48,0.45);
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.85rem;
-            color: #CB8D30;
-            transition: transform 0.3s ease, background 0.2s, border-color 0.2s;
-            font-style: normal;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.8rem; color: #CB8D30;
+            transition: transform 0.3s ease, background 0.2s;
         }
         .faq-btn[aria-expanded="true"] .faq-icon {
             transform: rotate(45deg);
-            background: rgba(203, 141, 48, 0.15);
+            background: rgba(203,141,48,0.12);
             border-color: #CB8D30;
         }
 
         .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.38s cubic-bezier(0.4, 0, 0.2, 1),
-                        padding 0.3s ease;
-            padding: 0 1.5rem;
+            max-height: 0; overflow: hidden;
+            padding: 0 1.4rem;
+            transition: max-height 0.38s cubic-bezier(0.4,0,0.2,1), padding 0.3s ease;
         }
-        .faq-answer.open {
-            max-height: 500px;
-            padding: 0 1.5rem 1.25rem;
-        }
+        .faq-answer.open { max-height: 500px; padding: 0 1.4rem 1.15rem; }
+
         .faq-answer-inner {
             font-family: 'Josefin Sans', sans-serif;
-            font-size: clamp(0.86rem, 1.6vw, 0.97rem);
-            color: rgba(222, 227, 246, 0.62);
+            font-size: clamp(0.84rem, 1.5vw, 0.94rem);
+            color: rgba(222,227,246,0.58);
             line-height: 1.9;
-            border-left: 2px solid rgba(203, 141, 48, 0.4);
+            border-left: 2px solid rgba(203,141,48,0.35);
             padding-left: 1rem;
         }
-        .faq-answer-inner strong { color: rgba(222, 227, 246, 0.85); }
+        .faq-answer-inner strong { color: rgba(222,227,246,0.82); }
         .faq-answer-inner a {
-            color: #CB8D30;
-            text-decoration: none;
+            color: #CB8D30; text-decoration: none;
             border-bottom: 1px solid rgba(203,141,48,0.3);
             transition: color 0.2s;
         }
         .faq-answer-inner a:hover { color: #DEE3F6; }
 
-        /* Catégorie */
-        .faq-category {
-            background: rgba(18, 26, 48, 0.78);
-            border: 1px solid rgba(203, 141, 48, 0.16);
-            border-radius: 1.5rem;
+        /* ── Carte catégorie — même style que Offres / Contact ── */
+        .faq-card {
+            background: #202940;
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 2.5rem;
             overflow: hidden;
-            backdrop-filter: blur(14px);
         }
-        .faq-category-header {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 1rem 1.5rem 0.8rem;
-            border-bottom: 1px solid rgba(203, 141, 48, 0.15);
+        .faq-card-header {
+            display: flex; align-items: center; gap: 0.7rem;
+            padding: 0.9rem 1.4rem;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            background: rgba(255,255,255,0.02);
         }
-        .faq-category-icon {
-            font-size: 1.1rem;
-            line-height: 1;
-        }
-        .faq-category-label {
+        .faq-card-label {
             font-family: 'Josefin Sans', sans-serif;
-            font-size: 0.65rem;
-            font-weight: 700;
-            letter-spacing: 0.22em;
-            text-transform: uppercase;
+            font-size: 0.62rem; font-weight: 700;
+            letter-spacing: 0.2em; text-transform: uppercase;
             color: #CB8D30;
         }
     </style>
 </head>
-<body class="overflow-x-hidden" style="background:#0d1525;">
+<body id="bienvenue" class="overflow-x-hidden" style="background:#1a2332;">
 
-<div class="fixed inset-0 -z-10 bg-[url('../img/Illustrationcielétoilé.webp')] bg-cover bg-center opacity-80"
+<!-- Fond étoilé fixe — même que Contact.html -->
+<div class="fixed inset-0 -z-10 bg-[url('../img/Illustrationcielétoilé.webp')] bg-cover bg-center opacity-90"
      aria-hidden="true"></div>
-<div class="fixed inset-0 -z-10 bg-gradient-to-b from-[#0d1525]/55 via-transparent to-[#0d1525]/65"
+<div class="fixed inset-0 -z-10 bg-gradient-to-t from-[#1a2332]/80 via-transparent to-[#1a2332]/40"
      aria-hidden="true"></div>
 
 <a href="#main-content" class="skip-link">Aller au contenu principal</a>
 
-<main id="main-content" class="relative z-10 max-w-2xl mx-auto px-4 sm:px-6 pt-28 sm:pt-36 pb-20">
+<main id="main-content"
+      class="relative z-10 max-w-2xl mx-auto px-4 sm:px-6 pt-28 sm:pt-36 pb-24">
 
-    <!-- Header -->
-    <header class="mb-12 text-center" data-aos="fade-down" data-aos-duration="400">
-        <p style="font-family:'Josefin Sans',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:#CB8D30;margin-bottom:0.6rem;">
+    <!-- En-tête -->
+    <header class="mb-10 text-center" data-aos="fade-up" data-aos-duration="350">
+        <p class="text-[#CB8D30] text-[0.65rem] font-bold tracking-[0.22em] uppercase mb-3"
+           style="font-family:'Josefin Sans',sans-serif;">
             ✦ Vous avez des questions ?
         </p>
-        <h1 style="font-family:'Josefin Sans',sans-serif;font-size:clamp(1.8rem,5vw,3rem);font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:rgba(222,227,246,0.95);line-height:1.15;">
-            Questions<br><span style="color:#CB8D30;">fréquentes</span>
+        <h1 class="text-white font-bold leading-tight"
+            style="font-family:'Josefin Sans',sans-serif;font-size:clamp(1.8rem,5vw,3rem);letter-spacing:0.06em;text-transform:uppercase;">
+            Questions<br>
+            <span class="text-[#CB8D30]">fréquentes</span>
         </h1>
-        <p style="font-family:'Josefin Sans',sans-serif;font-size:clamp(0.88rem,1.8vw,1rem);color:rgba(222,227,246,0.45);margin-top:0.9rem;letter-spacing:0.06em;">
-            Tout ce que vous voulez savoir avant de se lancer ✦
+        <p class="mt-3 text-white/40 text-sm tracking-widest uppercase"
+           style="font-family:'Josefin Sans',sans-serif;">
+            Tout ce que vous voulez savoir avant de se lancer
         </p>
     </header>
 
-    <div style="display:flex;flex-direction:column;gap:1.1rem;">
+    <div class="flex flex-col gap-4">
 
-        <!-- Catégorie 1 : Tarifs -->
-        <div class="faq-category" data-aos="fade-up" data-aos-duration="350" data-aos-delay="50">
-            <div class="faq-category-header">
-                <span class="faq-category-icon">💰</span>
-                <span class="faq-category-label">Tarifs &amp; devis</span>
+        <!-- Tarifs -->
+        <div class="faq-card" data-aos="fade-up" data-aos-duration="350" data-aos-delay="50">
+            <div class="faq-card-header">
+                <span class="text-[#CB8D30] font-bold">✦</span>
+                <span class="faq-card-label">Tarifs &amp; devis</span>
             </div>
-
             <div class="faq-item">
                 <button class="faq-btn" aria-expanded="false">
                     <span>Combien coûte la création d'un logo ?</span>
                     <span class="faq-icon" aria-hidden="true">+</span>
                 </button>
-                <div class="faq-answer" role="region">
-                    <div class="faq-answer-inner">
-                        La création d'un logo seul démarre à <strong>400€</strong>. Le tarif varie selon la complexité du projet, le nombre de concepts proposés et les révisions nécessaires. Pour un projet complet (logo + charte graphique), je vous recommande le <strong>Pack Identité Visuelle</strong> dès 600€.
-                    </div>
-                </div>
+                <div class="faq-answer"><div class="faq-answer-inner">
+                    La création d'un logo seul démarre à <strong>400€</strong>. Le tarif varie selon la complexité et les révisions nécessaires. Pour un projet complet, le <strong>Pack Identité Visuelle</strong> est disponible dès 600€.
+                </div></div>
             </div>
-
             <div class="faq-item">
                 <button class="faq-btn" aria-expanded="false">
                     <span>Est-ce que les tarifs affichés sont fixes ?</span>
                     <span class="faq-icon" aria-hidden="true">+</span>
                 </button>
-                <div class="faq-answer" role="region">
-                    <div class="faq-answer-inner">
-                        Les tarifs indiqués sont des <strong>points de départ indicatifs</strong>. Chaque projet est unique, c'est pourquoi je préfère établir un devis personnalisé adapté à vos besoins réels. <a href="../View/Contact.html">Contactez-moi</a> pour un devis gratuit et sans engagement.
-                    </div>
-                </div>
+                <div class="faq-answer"><div class="faq-answer-inner">
+                    Les tarifs sont des <strong>points de départ indicatifs</strong>. Chaque projet est unique, c'est pourquoi j'établis un devis personnalisé. <a href="../View/Contact.html">Contactez-moi</a> pour un devis gratuit et sans engagement.
+                </div></div>
             </div>
-
             <div class="faq-item">
                 <button class="faq-btn" aria-expanded="false">
                     <span>Comment fonctionne le paiement ?</span>
                     <span class="faq-icon" aria-hidden="true">+</span>
                 </button>
-                <div class="faq-answer" role="region">
-                    <div class="faq-answer-inner">
-                        Un <strong>acompte de 50%</strong> est demandé au démarrage du projet, le solde est réglé à la livraison des fichiers finaux. Le paiement s'effectue par virement bancaire ou via les plateformes habituelles.
-                    </div>
-                </div>
+                <div class="faq-answer"><div class="faq-answer-inner">
+                    Un <strong>acompte de 50%</strong> est demandé au démarrage du projet. Le solde est réglé à la livraison des fichiers finaux, par virement bancaire.
+                </div></div>
             </div>
         </div>
 
-        <!-- Catégorie 2 : Process -->
-        <div class="faq-category" data-aos="fade-up" data-aos-duration="350" data-aos-delay="100">
-            <div class="faq-category-header">
-                <span class="faq-category-icon">⚙️</span>
-                <span class="faq-category-label">Process &amp; délais</span>
+        <!-- Process -->
+        <div class="faq-card" data-aos="fade-up" data-aos-duration="350" data-aos-delay="100">
+            <div class="faq-card-header">
+                <span class="text-[#CB8D30] font-bold">✦</span>
+                <span class="faq-card-label">Process &amp; délais</span>
             </div>
-
             <div class="faq-item">
                 <button class="faq-btn" aria-expanded="false">
                     <span>Comment se déroule une collaboration ?</span>
                     <span class="faq-icon" aria-hidden="true">+</span>
                 </button>
-                <div class="faq-answer" role="region">
-                    <div class="faq-answer-inner">
-                        Le process en 4 étapes&nbsp;: <strong>1) Briefing</strong> — on cerne ensemble vos besoins, votre univers et vos références. <strong>2) Création</strong> — je travaille sur les concepts et vous présente des propositions. <strong>3) Ajustements</strong> — on affine selon vos retours. <strong>4) Livraison</strong> — vous recevez tous vos fichiers finaux.
-                    </div>
-                </div>
+                <div class="faq-answer"><div class="faq-answer-inner">
+                    En 4 étapes : <strong>Briefing</strong> (cerner vos besoins) → <strong>Création</strong> (propositions de concepts) → <strong>Ajustements</strong> (retours et affinage) → <strong>Livraison</strong> (fichiers finaux).
+                </div></div>
             </div>
-
             <div class="faq-item">
                 <button class="faq-btn" aria-expanded="false">
                     <span>Quels sont les délais de réalisation ?</span>
                     <span class="faq-icon" aria-hidden="true">+</span>
                 </button>
-                <div class="faq-answer" role="region">
-                    <div class="faq-answer-inner">
-                        Les délais varient selon la nature du projet&nbsp;: un logo prend généralement <strong>5 à 10 jours ouvrés</strong>, un pack identité visuelle <strong>2 à 4 semaines</strong>. Je vous communique toujours un délai précis lors de l'établissement du devis.
-                    </div>
-                </div>
+                <div class="faq-answer"><div class="faq-answer-inner">
+                    Un logo prend <strong>5 à 10 jours ouvrés</strong>, un pack identité visuelle <strong>2 à 4 semaines</strong>. Le délai précis est toujours communiqué lors du devis.
+                </div></div>
             </div>
-
             <div class="faq-item">
                 <button class="faq-btn" aria-expanded="false">
                     <span>Combien de retouches sont incluses ?</span>
                     <span class="faq-icon" aria-hidden="true">+</span>
                 </button>
-                <div class="faq-answer" role="region">
-                    <div class="faq-answer-inner">
-                        Chaque projet inclut <strong>2 tours de révisions</strong> dans le tarif de base. Des retouches supplémentaires sont possibles et facturées à un tarif horaire défini en amont. L'objectif est toujours de vous livrer un résultat qui vous correspond pleinement.
-                    </div>
-                </div>
+                <div class="faq-answer"><div class="faq-answer-inner">
+                    Chaque projet inclut <strong>2 tours de révisions</strong>. Des retouches supplémentaires sont possibles et facturées à un tarif horaire défini en amont.
+                </div></div>
             </div>
         </div>
 
-        <!-- Catégorie 3 : Livrables -->
-        <div class="faq-category" data-aos="fade-up" data-aos-duration="350" data-aos-delay="150">
-            <div class="faq-category-header">
-                <span class="faq-category-icon">📁</span>
-                <span class="faq-category-label">Livrables &amp; fichiers</span>
+        <!-- Livrables -->
+        <div class="faq-card" data-aos="fade-up" data-aos-duration="350" data-aos-delay="150">
+            <div class="faq-card-header">
+                <span class="text-[#CB8D30] font-bold">✦</span>
+                <span class="faq-card-label">Livrables &amp; fichiers</span>
             </div>
-
             <div class="faq-item">
                 <button class="faq-btn" aria-expanded="false">
                     <span>Quels formats de fichiers sont livrés ?</span>
                     <span class="faq-icon" aria-hidden="true">+</span>
                 </button>
-                <div class="faq-answer" role="region">
-                    <div class="faq-answer-inner">
-                        Vous recevez vos créations dans tous les formats nécessaires&nbsp;: <strong>SVG, PNG, PDF vectoriel</strong> pour une utilisation print et web. Les fichiers sources (Illustrator, Photoshop) peuvent être inclus sur demande.
-                    </div>
-                </div>
+                <div class="faq-answer"><div class="faq-answer-inner">
+                    Vous recevez vos créations en <strong>SVG, PNG et PDF vectoriel</strong> pour une utilisation print et web. Les fichiers sources peuvent être inclus sur demande.
+                </div></div>
             </div>
-
             <div class="faq-item">
                 <button class="faq-btn" aria-expanded="false">
                     <span>Ai-je les droits sur les créations livrées ?</span>
                     <span class="faq-icon" aria-hidden="true">+</span>
                 </button>
-                <div class="faq-answer" role="region">
-                    <div class="faq-answer-inner">
-                        Oui. À la livraison et après règlement complet, vous disposez des <strong>droits d'utilisation complets</strong> sur les créations pour votre activité. Les conditions précises sont détaillées dans le devis signé.
-                    </div>
-                </div>
+                <div class="faq-answer"><div class="faq-answer-inner">
+                    Oui. Après règlement complet, vous disposez des <strong>droits d'utilisation complets</strong> sur les créations pour votre activité. Les conditions sont détaillées dans le devis signé.
+                </div></div>
             </div>
         </div>
 
-        <!-- Catégorie 4 : Collaboration -->
-        <div class="faq-category" data-aos="fade-up" data-aos-duration="350" data-aos-delay="200">
-            <div class="faq-category-header">
-                <span class="faq-category-icon">🤝</span>
-                <span class="faq-category-label">Collaboration</span>
+        <!-- Collaboration -->
+        <div class="faq-card" data-aos="fade-up" data-aos-duration="350" data-aos-delay="200">
+            <div class="faq-card-header">
+                <span class="text-[#CB8D30] font-bold">✦</span>
+                <span class="faq-card-label">Collaboration</span>
             </div>
-
             <div class="faq-item">
                 <button class="faq-btn" aria-expanded="false">
                     <span>Travaillez-vous avec des clients à distance ?</span>
                     <span class="faq-icon" aria-hidden="true">+</span>
                 </button>
-                <div class="faq-answer" role="region">
-                    <div class="faq-answer-inner">
-                        Absolument. Je travaille avec des clients partout en France et à l'international. Tous les échanges se font par <strong>e-mail, visio ou messagerie</strong> selon votre préférence.
-                    </div>
-                </div>
+                <div class="faq-answer"><div class="faq-answer-inner">
+                    Absolument. Je travaille avec des clients partout en France et à l'international. Tous les échanges se font par <strong>e-mail, visio ou WhatsApp</strong> selon votre préférence.
+                </div></div>
             </div>
-
             <div class="faq-item">
                 <button class="faq-btn" aria-expanded="false">
                     <span>Comment démarrer un projet avec vous ?</span>
                     <span class="faq-icon" aria-hidden="true">+</span>
                 </button>
-                <div class="faq-answer" role="region">
-                    <div class="faq-answer-inner">
-                        Rien de plus simple&nbsp;: envoyez-moi un message via la <a href="../View/Contact.html">page contact</a> ou directement à <a href="mailto:envol.graphisme@gmail.com">envol.graphisme@gmail.com</a> en décrivant votre projet. Je reviens vers vous sous <strong>48h</strong> avec une première prise de contact et les prochaines étapes.
-                    </div>
-                </div>
+                <div class="faq-answer"><div class="faq-answer-inner">
+                    Envoyez un message via la <a href="../View/Contact.html">page contact</a> ou directement à <a href="mailto:envol.graphisme@gmail.com">envol.graphisme@gmail.com</a>. Je reviens vers vous sous <strong>48h</strong>.
+                </div></div>
             </div>
-
             <div class="faq-item">
                 <button class="faq-btn" aria-expanded="false">
                     <span>Votre question ne figure pas ici ?</span>
                     <span class="faq-icon" aria-hidden="true">+</span>
                 </button>
-                <div class="faq-answer" role="region">
-                    <div class="faq-answer-inner">
-                        N'hésitez pas à me contacter directement — je serai ravie de répondre à toutes vos questions. Rendez-vous sur la <a href="../View/Contact.html">page contact</a> ou écrivez à <a href="mailto:envol.graphisme@gmail.com">envol.graphisme@gmail.com</a>.
-                    </div>
-                </div>
+                <div class="faq-answer"><div class="faq-answer-inner">
+                    N'hésitez pas à me contacter directement via la <a href="../View/Contact.html">page contact</a> ou par e-mail à <a href="mailto:envol.graphisme@gmail.com">envol.graphisme@gmail.com</a>.
+                </div></div>
             </div>
         </div>
 
         <!-- CTA -->
-        <div style="text-align:center;margin-top:1rem;" data-aos="fade-up" data-aos-duration="350" data-aos-delay="250">
-            <p style="font-family:'Josefin Sans',sans-serif;font-size:0.82rem;color:rgba(222,227,246,0.38);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:1rem;">
+        <div class="text-center mt-2" data-aos="fade-up" data-aos-duration="350" data-aos-delay="240">
+            <p class="text-white/30 text-xs tracking-[0.14em] uppercase mb-4"
+               style="font-family:'Josefin Sans',sans-serif;">
                 Prêt à démarrer votre projet ?
             </p>
-            <a href="../View/Contact.html"
-               style="display:inline-flex;align-items:center;gap:0.5rem;background:#CB8D30;color:#fff;font-family:'Josefin Sans',sans-serif;font-weight:700;font-size:0.9rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.85rem 2.25rem;border-radius:9999px;text-decoration:none;transition:all 0.25s;box-shadow:0 4px 20px rgba(203,141,48,0.3);"
-               onmouseover="this.style.background='#DEE3F6';this.style.color='#1a2332';this.style.transform='scale(1.04)';"
-               onmouseout="this.style.background='#CB8D30';this.style.color='#fff';this.style.transform='scale(1)';">
+            <a href="../View/Contact.html" class="hero-btn-primary">
                 ✦ Me contacter
             </a>
         </div>
@@ -329,6 +271,7 @@
 
 <script src="../js/navbar.js"></script>
 <script src="../js/footer.js"></script>
+<script src="../js/scroll-animations.js"></script>
 <script src="../i18n/i18n.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 <script>
@@ -345,18 +288,13 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.faq-btn').forEach(function(btn) {
         btn.addEventListener('click', function() {
             var expanded = this.getAttribute('aria-expanded') === 'true';
-            var answer = this.nextElementSibling;
-
-            // Ferme tous les autres
             document.querySelectorAll('.faq-btn').forEach(function(b) {
                 b.setAttribute('aria-expanded', 'false');
                 b.nextElementSibling.classList.remove('open');
             });
-
-            // Ouvre celui-ci si pas déjà ouvert
             if (!expanded) {
                 this.setAttribute('aria-expanded', 'true');
-                answer.classList.add('open');
+                this.nextElementSibling.classList.add('open');
             }
         });
     });

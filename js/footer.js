@@ -1,9 +1,10 @@
 const FOOTER_BASE = (typeof BASE_PATH !== 'undefined') ? BASE_PATH : '/Envol-Graphisme';
 
 const socialNetworks = [
-    { name:'LinkedIn',  url:'https://www.linkedin.com/in/envol-graphisme/', icon:'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg',  bg:'#0A66C2' },
-    { name:'Instagram', url:'https://www.instagram.com/envol.graphisme/',   icon:'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/instagram.svg', bg:'linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)' },
-    { name:'Behance',   url:'https://www.behance.net/envol-graphisme',       icon:'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/behance.svg',   bg:'#053eff' },
+    { name:'Instagram', url:'https://www.instagram.com/envol_graphisme',    icon:'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/instagram.svg', bg:'linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)' },
+    { name:'Behance',   url:'https://www.behance.net/laurynsacrez',          icon:'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/behance.svg',   bg:'#053eff' },
+    { name:'WhatsApp',  url:'https://wa.me/33603423411',                     icon:'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/whatsapp.svg',  bg:'#25D366' },
+    { name:'Etsy',      url:'https://www.etsy.com/shop/EnvolGraphisme',      icon:'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/etsy.svg',      bg:'#F16521' },
     { name:'Linktree',  url:'https://linktr.ee/envol.graphisme',             icon:'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linktree.svg',  bg:'#43E55C' }
 ];
 
