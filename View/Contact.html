@@ -30,10 +30,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
     <link rel="stylesheet" href="../style.css">
     <style>
-        #owl-wrap { bottom: -30vw; }
-        #owl-contact-img { width: 130vw; }
-        @media (min-width: 640px)  { #owl-wrap { bottom: -20vw; } #owl-contact-img { width: min(88vw, 680px); } }
-        @media (min-width: 1024px) { #owl-wrap { bottom: -12vw; } #owl-contact-img { width: min(54vw, 600px); } }
+        #owl-wrap { bottom: 0; }
+        #owl-contact-img { width: 130vw; height: auto; }
+        @media (min-width: 640px)  { #owl-contact-img { width: min(88vw, 680px); } }
+        @media (min-width: 1024px) { #owl-contact-img { width: min(54vw, 600px); } }
     </style>
 </head>
 <body id="bienvenue" class="overflow-x-hidden"
@@ -96,9 +96,9 @@
 
     <!-- Chouette : absolute dans la section, hors flux, footer couvre le bas -->
     <div id="owl-wrap" aria-hidden="true"
-         class="absolute left-1/2 -translate-x-1/2 z-[5] pointer-events-none w-screen h-full flex justify-center items-end">
+         class="absolute left-1/2 -translate-x-1/2 z-[5] pointer-events-none w-screen flex justify-center items-end">
         <img id="owl-contact-img" src="../img/Chouetteailesouvertes.svg" alt=""
-             class="block h-full select-none shrink-0"
+             class="block select-none shrink-0"
              loading="lazy">
     </div>
 
