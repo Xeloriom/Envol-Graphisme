@@ -30,10 +30,22 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
     <link rel="stylesheet" href="../style.css">
     <style>
+        /* Mobile */
         #owl-wrap { bottom: -30vw; }
         #owl-contact-img { width: 130vw; height: auto; }
-        @media (min-width: 640px)  { #owl-wrap { bottom: -20vw; } #owl-contact-img { width: min(88vw, 680px); } }
-        @media (min-width: 1024px) { #owl-wrap { bottom: -18vw; } #owl-contact-img { width: min(54vw, 600px); } }
+        #contact-content { padding-bottom: 28vw; }
+        /* Tablet */
+        @media (min-width: 640px) {
+            #owl-wrap { bottom: -20vw; }
+            #owl-contact-img { width: min(88vw, 680px); }
+            #contact-content { padding-bottom: 22vw; }
+        }
+        /* Desktop */
+        @media (min-width: 1024px) {
+            #owl-wrap { bottom: calc(-578px + 38vh); }
+            #owl-contact-img { width: min(54vw, 600px); }
+            #contact-content { padding-bottom: 30vh; }
+        }
     </style>
 </head>
 <body id="bienvenue" class="overflow-x-hidden"
@@ -48,10 +60,10 @@
 <a href="#main-content" class="skip-link">Aller au contenu principal</a>
 
 <section id="main-content"
-         class="relative min-h-screen flex flex-col overflow-hidden ">
+         class="relative min-h-screen flex flex-col overflow-hidden -mb-[2vw] lg:mb-[5vw]">
 
     <!-- Zone texte + boutons : occupe la partie haute -->
-    <div class="relative z-20 flex-1 flex flex-col items-center justify-center
+    <div id="contact-content" class="relative z-20 flex-1 flex flex-col items-center justify-center
                 text-center px-5 sm:px-8 pt-24 pb-6 sm:pb-10">
 
         <h1 id="contact-h1"
@@ -96,7 +108,7 @@
 
     <!-- Chouette : absolute dans la section, hors flux, footer couvre le bas -->
     <div id="owl-wrap" aria-hidden="true"
-         class="absolute left-1/2 -translate-x-1/2 z-[5] pointer-events-none w-screen flex justify-center items-end">
+         class="absolute  left-1/2 -translate-x-1/2 z-[5] pointer-events-none w-screen flex justify-center items-end">
         <img id="owl-contact-img" src="../img/Chouetteailesouvertes.svg" alt=""
              class="block select-none shrink-0"
              loading="lazy">
