@@ -48,7 +48,7 @@
 <a href="#main-content" class="skip-link">Aller au contenu principal</a>
 
 <section id="main-content"
-         class="relative min-h-screen flex flex-col overflow-hidden">
+         class="relative min-h-screen flex flex-col overflow-hidden mb-[7vw]">
 
     <!-- Zone texte + boutons : occupe la partie haute -->
     <div class="relative z-20 flex-1 flex flex-col items-center justify-center
@@ -95,12 +95,10 @@
     </div>
 
     <!-- Chouette : absolute dans la section, hors flux, footer couvre le bas -->
-    <div id="owl-wrap" aria-hidden="true" style="
-        position:absolute; left:50%; transform:translateX(-50%);
-        z-index:5; pointer-events:none; overflow:hidden; width:100vw;
-        display:flex; justify-content:center; align-items:flex-end;">
+    <div id="owl-wrap" aria-hidden="true"
+         class="absolute left-1/2 -translate-x-1/2 z-[5] pointer-events-none w-screen h-full flex justify-center items-end">
         <img id="owl-contact-img" src="../img/Chouetteailesouvertes.svg" alt=""
-             style="display:block; height:auto; user-select:none; flex-shrink:0;"
+             class="block h-full select-none shrink-0"
              loading="lazy">
     </div>
 
